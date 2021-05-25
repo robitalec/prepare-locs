@@ -89,23 +89,16 @@ cast_cols <- function(DT) {
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
-#' prep_dates(DT, 'datetime', 'Canada/Newfoundland')
-prep_dates <- function(DT, datetime, tz) {
+#' prep_dates(DT, 'Canada/Newfoundland')
+prep_dates <- function(DT, tz) {
 	check_truelength(DT)
 	check_col(DT, datetime, 'datetime')
-
-	# Format: yyyy-MM-dd HH:mm:ss.SSS
-	# Units: UTC or GPS time
-
-	# if (movebank) {
-	# 	tz <- 'UTC'
-	# }
 
 	if (missing(tz)) {
 		stop('must provide a tz argument')
 	}
 
-	DT[, datetime := anytime::anytime(.SD[[1]], tz = tz, asUTC = TRUE), .SDcols = datetime]
+	DT[, datetime := parsedate::parse_date(datetime, default_tz = tz)]
 
 	DT[, idate := data.table::as.IDate(datetime)]
 	DT[, itime := data.table::as.ITime(datetime)]
