@@ -139,12 +139,17 @@ filter_locs <- function(DT) {
 	}
 
 
-	# TODO: ASK Map_Quality
+	# TODO: ask Map_Quality
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'Y']
 	}
-	# TODO: ASK LOCQUAL
+	# TODO: ask LOCQUAL
 	if ('LOCQUAL' %in% colnames(DT)) {
 		# DT[LOCQUAL %in% c(1, 2, 3)]
+	}
+	# TODO: ask EXCLUDE, VALIDATED
+
+	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
+		DT[COLLAR_TYPE_CL == 'GPS']
 	}
 }
