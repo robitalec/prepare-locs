@@ -27,9 +27,9 @@ details <- rbindlist(list(
 		datetime = 'datetime',
 		xcoord = 'X_COORD',
 		ycoord = 'Y_COORD',
-		extracols = c('HERD', 'Map_Quality', 'LOCQUAL'),
+		extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
 		tz = grep('Newfoundland', OlsonNames(), value = TRUE),
 		epsg = 32621
-	),
+	)
 ))
 
