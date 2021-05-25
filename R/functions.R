@@ -103,3 +103,29 @@ prep_dates <- function(DT, tz) {
 	DT[, yr := data.table::year(idate)]
 	DT[, mnth := data.table::month(idate)]
 }
+
+
+
+#' Project locs
+#' @inheritParams prep_dates
+#' @param coords character vector; coordinate column names eg. c('X', 'Y'). Assumes input is WGS84 EPSG: 4326
+#' @param projection character; Character representation of projection passable to rgdal::project. For example sf::st_crs(4326)$wkt is great!
+#'
+#' @return
+#' @export
+#'
+#' @examples
+project_locs <- function(DT, coords, projection, projcoords = c('EASTING', 'NORTHING')) {
+	check_truelength(DT)
+	lapply(coords, function(x) check_col(DT, x))
+	lapply(coords, function(x) check_type(DT, x, 'double'))
+	lapply(projcoords, function(x) overwrite_col(DT, x))
+
+	DT[, (projcoords) :=
+		 	data.table::as.data.table(
+		 		rgdal::project(
+		 			as.matrix(.SD, ncol = 2),
+		 			projection)
+		 	),
+		 .SDcols = coords][]
+}
