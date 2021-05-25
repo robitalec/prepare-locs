@@ -20,6 +20,16 @@ details <- rbindlist(list(
 		extracols = NA,
 		tz = grep('Newfoundland', OlsonNames(), value = TRUE),
 		epsg = 32621
-	)
+	),
+	data.table(
+		path = 'input/AllCaribouDataRaw.csv',
+		id = 'ANIMAL_ID',
+		datetime = 'datetime',
+		xcoord = 'X_COORD',
+		ycoord = 'Y_COORD',
+		extracols = c('HERD', 'Map_Quality', 'LOCQUAL'),
+		tz = grep('Newfoundland', OlsonNames(), value = TRUE),
+		epsg = 32621
+	),
 ))
 
