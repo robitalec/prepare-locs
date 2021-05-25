@@ -37,6 +37,7 @@ select_cols <- function(DT, id, datetime, coords, extracols = NULL) {
 	incols <- colnames(DT)
 
 	outcols <- c(id, datetime, coords, extracols)
+	outcolsnames <- c('id', 'datetime', 'X', 'Y', extracols)
 
 	lapply(outcols, function(x) check_col(DT, x))
 
@@ -48,7 +49,7 @@ select_cols <- function(DT, id, datetime, coords, extracols = NULL) {
 
 	data.table::setcolorder(DT, outcols)
 
-	# data.table::setnames(DT, outcols, c('id', 'datetime', 'X', 'Y', extracols))
+	data.table::setnames(DT, outcols, outcolsnames)
 
 	DT
 }
