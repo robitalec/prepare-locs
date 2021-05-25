@@ -4,7 +4,7 @@ library(targets)
 library(data.table)
 
 
-tar_option_set(storage = 'qs')
+tar_option_set(format = 'qs')
 
 
 list(
