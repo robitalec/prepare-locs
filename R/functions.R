@@ -1,3 +1,7 @@
+
+
+# Alec Robitaille
+# === Functions -----------------------------------------------------------
 # === Prepare relocations -------------------------------------------------
 # Alec Robitaille
 
@@ -58,7 +62,6 @@ select_cols <- function(DT, id, datetime, coords, extracols = NULL) {
 #' Cast columns
 #'
 #' @param DT data.table
-#' @param id character; id column name
 #'
 #' @return
 #' data.table
@@ -67,17 +70,15 @@ select_cols <- function(DT, id, datetime, coords, extracols = NULL) {
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
-#' cast_cols(DT, id)
-cast_cols <- function(DT, id) {
+#' cast_cols(DT)
+cast_cols <- function(DT) {
 	check_truelength(DT)
-	check_col(DT, id, 'id')
 
-	DT[, (id) := as.character(.SD[[1]]), .SDcols = id]
+	DT[, id := as.character(id)]
 }
 
 #' Prepare datetime column
 #'
-#' @param datetime character; datetime column name
 #' @param tz character; time zone.
 #' @inheritParams cast_cols
 #'
