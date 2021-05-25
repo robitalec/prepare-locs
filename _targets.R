@@ -6,7 +6,13 @@ library(data.table)
 
 tar_option_set(storage = 'qs')
 
+
 list(
+	tar_target(
+		pp,
+		print(DT),
+		pattern = map(DT)
+	)
 	# paths
 	# options
 	# read in
