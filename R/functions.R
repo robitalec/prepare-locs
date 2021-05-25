@@ -129,3 +129,22 @@ project_locs <- function(DT, coords, projection, projcoords = c('EASTING', 'NORT
 		 	),
 		 .SDcols = coords][]
 }
+
+
+
+
+filter_locs <- function(DT) {
+	if ('SEX' %in% colnames(DT)) {
+		DT[grepl('F', SEX)]
+	}
+
+
+	# TODO: ASK Map_Quality
+	if ('Map_Quality' %in% colnames(DT)) {
+		DT[Map_Quality == 'Y']
+	}
+	# TODO: ASK LOCQUAL
+	if ('LOCQUAL' %in% colnames(DT)) {
+		# DT[LOCQUAL %in% c(1, 2, 3)]
+	}
+}
