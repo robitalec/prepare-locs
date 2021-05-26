@@ -39,9 +39,10 @@ select_cols <- function(DT, id, datetime, xcoord, ycoord, extracols = NA) {
 
 	if (!is.na(extracols)) {
 		outcols <- c(outcols, extracols)
+		outcolsnames <- c('id', 'datetime', 'X', 'Y', extracols)
+	} else {
+		outcolsnames <- c('id', 'datetime', 'X', 'Y', unlist(extracols))
 	}
-
-	outcolsnames <- c('id', 'datetime', 'X', 'Y', extracols)
 
 	lapply(outcols, function(x) check_col(DT, x))
 
