@@ -8,6 +8,7 @@ tar_option_set(format = 'qs')
 
 source('R/data.R')
 source('R/functions.R')
+source('R/internal.R')
 
 list(
 	tar_target(
