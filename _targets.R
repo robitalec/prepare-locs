@@ -6,12 +6,26 @@ library(data.table)
 
 tar_option_set(format = 'qs')
 
+source('scripts/data.R')
+
 
 list(
 	tar_target(
-		pp,
-		print(DT),
-		pattern = map(DT)
+		getdetails,
+		data_details()
+	),
+
+	tar_target(
+		details,
+		getdetails,
+		pattern = map(getdetails)
+	),
+
+	tar_target(
+		paths,
+		details$path,
+		pattern = map(details),
+		format = 'file'
 	)
 	# paths
 	# options
