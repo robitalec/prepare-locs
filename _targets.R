@@ -26,8 +26,15 @@ list(
 		details$path,
 		pattern = map(details),
 		format = 'file'
+	),
+
+	tar_target(
+		reads,
+		fread(paths),
+		pattern = map(paths)
 	)
-	# paths
+
+
 	# options
 	# read in
 	# prep
