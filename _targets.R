@@ -6,8 +6,8 @@ library(data.table)
 
 tar_option_set(format = 'qs')
 
-source('scripts/data.R')
-
+source('R/data.R')
+source('R/functions.R')
 
 list(
 	tar_target(
