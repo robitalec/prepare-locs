@@ -24,7 +24,7 @@ data_details <- function() {
 		data.table(
 			path = 'input/AllCaribouDataRaw.csv',
 			id = 'ANIMAL_ID',
-			datetime = 'datetime',
+			datetime = list(list('FIX_DATE', 'FIX_TIME')),
 			xcoord = 'X_COORD',
 			ycoord = 'Y_COORD',
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
