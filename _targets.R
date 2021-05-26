@@ -41,7 +41,7 @@ list(
 			id = details$id,
 			datetime = details$datetime,
 			xcoord = details$xcoord,
-			ycoords = details$ycoord,
+			ycoord = details$ycoord,
 			extracols = details$extracols
 		),
 		pattern = map(reads, details)
