@@ -30,13 +30,13 @@ read_data <- function(path) {
 #' @export
 #'
 #' @examples
-select_cols <- function(DT, id, datetime, coords, extracols = NULL) {
+select_cols <- function(DT, id, datetime, xcoord, ycoord, extracols = NULL) {
 
 	check_truelength(DT)
 
 	incols <- colnames(DT)
 
-	outcols <- c(id, datetime, coords, extracols)
+	outcols <- c(id, datetime, xcoord, ycoord, extracols)
 	outcolsnames <- c('id', 'datetime', 'X', 'Y', extracols)
 
 	lapply(outcols, function(x) check_col(DT, x))
