@@ -32,6 +32,19 @@ list(
 		reads,
 		fread(paths),
 		pattern = map(paths)
+	),
+
+	tar_target(
+		selects,
+		select_cols(
+			DT = reads,
+			id = details$id,
+			datetime = details$datetime,
+			xcoord = details$xcoord,
+			ycoords = details$ycoord,
+			extracols = details$extracols
+		),
+		pattern = map(reads, details)
 	)
 
 
