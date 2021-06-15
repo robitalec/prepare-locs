@@ -40,6 +40,8 @@ list(
 		select_cols(
 			DT = reads,
 			id = details$id,
+			date = details$date,
+			time = details$time,
 			datetime = details$datetime,
 			xcoord = details$xcoord,
 			ycoord = details$ycoord,
