@@ -32,7 +32,8 @@ data_details <- function() {
 			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
 			epsg = 32621
 		)
-	))
+	),
+	fill = TRUE)
 }
 
 

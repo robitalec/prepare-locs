@@ -136,8 +136,6 @@ project_locs <- function(DT, epsg) {
 	lapply(coords, function(x) check_type(DT, x, 'double'))
 	lapply(projcoords, function(x) overwrite_col(DT, x))
 
-
-
 	DT[, (projcoords) :=
 		 	data.table::as.data.table(
 		 		rgdal::project(
@@ -148,13 +146,10 @@ project_locs <- function(DT, epsg) {
 }
 
 
-
-
 filter_locs <- function(DT) {
 	if ('SEX' %in% colnames(DT)) {
 		DT[grepl('F', SEX)]
 	}
-
 
 	# TODO: ask Map_Quality
 	if ('Map_Quality' %in% colnames(DT)) {
