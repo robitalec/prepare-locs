@@ -26,7 +26,6 @@ data_details <- function() {
 			id = 'ANIMAL_ID',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
-			datetime = NA,
 			xcoord = 'X_COORD',
 			ycoord = 'Y_COORD',
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
