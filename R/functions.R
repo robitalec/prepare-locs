@@ -30,40 +30,40 @@ read_data <- function(path) {
 #' @export
 #'
 #' @examples
-select_cols <- function(DT, id, date = NULL, time = NULL, datetime = NULL, xcoord, ycoord, extracols = NULL) {
+select_cols <- function(DT, id, date = NA, time = NA, datetime = NA, xcoord, ycoord, extracols = NA) {
 
 	check_truelength(DT)
 
-	if ((is.null(date) & is.null(datetime)) |
-			(is.null(time) & is.null(datetime))) {
+	if ((is.na(date) & is.na(datetime)) |
+			(is.na(time) & is.na(datetime))) {
 		stop('must provide either date and time, or datetime')
 	}
-	if ((!is.null(date) & !is.null(datetime)) |
-			(!is.null(time) & !is.null(datetime))) {
+	if ((!is.na(date) & !is.na(datetime)) |
+			(!is.na(time) & !is.na(datetime))) {
 		stop('must provide either date and time, or datetime')
 	}
 
 	incols <- colnames(DT)
 	outcols <- c(id, datetime, xcoord, ycoord)
 
-	if (is.null(datetime)) {
+	if (is.na(datetime)) {
 		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
 	}
 
 	outcols <- c(id, 'datetime', xcoord, ycoord)
 	outcolsnames <- c('id', 'datetime', 'X', 'Y')
 
-	if (!is.null(extracols)) {
-		outcols <- c(outcols, extracols)
-		outcolsnames <- c(outcolsnames, extracols)
+	if (!is.na(extracols)) {
+		outcols <- c(outcols, unlist(extracols))
+		outcolsnames <- c(outcolsnames, unlist(extracols))
 	}
 
 	lapply(outcols, function(x) check_col(DT, x))
-
-	data.table::setnames(DT, outcols, outcolsnames)
-	DT[, .SD, .SDcols = outcols]
-	data.table::setcolorder(DT, outcols)
-	DT
+	outcols
+	# data.table::setnames(DT, outcols, outcolsnames)
+	# DT[, .SD, .SDcols = outcols]
+	# data.table::setcolorder(DT, outcols)
+	# DT
 }
 
 
