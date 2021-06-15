@@ -22,9 +22,11 @@ data_details <- function() {
 			epsg = 32621
 		),
 		data.table(
-			path = 'input/AllCaribouDataRaw.csv',
+			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
 			id = 'ANIMAL_ID',
-			datetime = list(list('FIX_DATE', 'FIX_TIME')),
+			date = 'FIX_DATE',
+			time = 'FIX_TIME',
+			datetime = NA,
 			xcoord = 'X_COORD',
 			ycoord = 'Y_COORD',
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
