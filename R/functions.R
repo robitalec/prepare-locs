@@ -30,32 +30,39 @@ read_data <- function(path) {
 #' @export
 #'
 #' @examples
-select_cols <- function(DT, id, datetime, xcoord, ycoord, extracols = NA) {
+select_cols <- function(DT, id, date = NULL, time = NULL, datetime = NULL, xcoord, ycoord, extracols = NULL) {
 
 	check_truelength(DT)
+
+	if ((is.null(date) & is.null(datetime)) |
+			(is.null(time) & is.null(datetime))) {
+		stop('must provide either date and time, or datetime')
+	}
+	if ((!is.null(date) & !is.null(datetime)) |
+			(!is.null(time) & !is.null(datetime))) {
+		stop('must provide either date and time, or datetime')
+	}
 
 	incols <- colnames(DT)
 	outcols <- c(id, datetime, xcoord, ycoord)
 
-	if (!is.na(extracols)) {
+	if (is.null(datetime)) {
+		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
+	}
+
+	outcols <- c(id, 'datetime', xcoord, ycoord)
+	outcolsnames <- c('id', 'datetime', 'X', 'Y')
+
+	if (!is.null(extracols)) {
 		outcols <- c(outcols, extracols)
-		outcolsnames <- c('id', 'datetime', 'X', 'Y', extracols)
-	} else {
-		outcolsnames <- c('id', 'datetime', 'X', 'Y', unlist(extracols))
+		outcolsnames <- c(outcolsnames, extracols)
 	}
 
 	lapply(outcols, function(x) check_col(DT, x))
 
-	dropcols <- incols[!incols %in% outcols]
-
-	if (length(dropcols) > 0) {
-		data.table::set(DT, j = dropcols, value = NULL)
-	}
-
-	data.table::setcolorder(DT, outcols)
-
 	data.table::setnames(DT, outcols, outcolsnames)
-
+	DT[, .SD, .SDcols = outcols]
+	data.table::setcolorder(DT, outcols)
 	DT
 }
 
