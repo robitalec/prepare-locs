@@ -37,27 +37,20 @@ select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL,
 	check_missing(y, 'y column name')
 	check_missing(id, 'id column name')
 
-	if ((is.null(date) & is.null(datetime)) |
-			(is.null(time) & is.null(datetime))) {
-		stop('must provide either date and time, or datetime')
-	}
-	if ((!is.null(date) & !is.null(datetime)) |
-			(!is.null(time) & !is.null(datetime))) {
-		stop('must provide either date and time, or datetime')
-	}
 
+	if (is.na(datetime) & !is.na(date) & !is.na(time)){
+		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
+	} else if (!is.na(datetime) & is.na(date) & is.na(time)) {
+
+	} else {
+		stop('must provide either date and time, or only datetime')
+	}
 
 	incols <- colnames(DT)
-	outcols <- c(id, datetime, x, y)
-
-	if (is.null(datetime)) {
-		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
-	}
-
 	outcols <- c(id, 'datetime', x, y)
 	outcolsnames <- c('id', 'datetime', 'X', 'Y')
 
-	if (!is.null(extracols)) {
+	if (!is.na(extracols)) {
 		outcols <- c(outcols, unlist(extracols))
 		outcolsnames <- c(outcolsnames, unlist(extracols))
 	}

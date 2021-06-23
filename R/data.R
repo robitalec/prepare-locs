@@ -17,7 +17,7 @@ data_details <- function() {
 			y = 'Y_COORD',
 			id = 'ANIMAL_ID',
 			datetime = 'datetime',
-			extracols = NULL,
+			extracols = NA,
 			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
 			epsg = 32621
 		),
