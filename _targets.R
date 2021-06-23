@@ -41,7 +41,7 @@ list(
 			datetime = details$datetime,
 			extracols = details$extracols
 		),
-		pattern = map(reads)
+		pattern = map(reads, details)
 	),
 
 	tar_target(
