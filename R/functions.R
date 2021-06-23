@@ -30,40 +30,43 @@ read_data <- function(path) {
 #' @export
 #'
 #' @examples
-select_cols <- function(DT, id, date = NA, time = NA, datetime = NA, xcoord, ycoord, extracols = NA) {
-
+select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
+	check_missing(DT, 'input DT')
 	check_truelength(DT)
+	check_missing(x, 'x column name')
+	check_missing(y, 'y column name')
+	check_missing(id, 'id column name')
 
-	if ((is.na(date) & is.na(datetime)) |
-			(is.na(time) & is.na(datetime))) {
+	if ((is.null(date) & is.null(datetime)) |
+			(is.null(time) & is.null(datetime))) {
 		stop('must provide either date and time, or datetime')
 	}
-	if ((!is.na(date) & !is.na(datetime)) |
-			(!is.na(time) & !is.na(datetime))) {
+	if ((!is.null(date) & !is.null(datetime)) |
+			(!is.null(time) & !is.null(datetime))) {
 		stop('must provide either date and time, or datetime')
 	}
+
 
 	incols <- colnames(DT)
-	outcols <- c(id, datetime, xcoord, ycoord)
+	outcols <- c(id, datetime, x, y)
 
-	if (is.na(datetime)) {
+	if (is.null(datetime)) {
 		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
 	}
 
-	outcols <- c(id, 'datetime', xcoord, ycoord)
+	outcols <- c(id, 'datetime', x, y)
 	outcolsnames <- c('id', 'datetime', 'X', 'Y')
 
-	if (!is.na(extracols)) {
+	if (!is.null(extracols)) {
 		outcols <- c(outcols, unlist(extracols))
 		outcolsnames <- c(outcolsnames, unlist(extracols))
 	}
 
 	lapply(outcols, function(x) check_col(DT, x))
 	outcols
-	# data.table::setnames(DT, outcols, outcolsnames)
-	# DT[, .SD, .SDcols = outcols]
-	# data.table::setcolorder(DT, outcols)
-	# DT
+	data.table::setnames(DT, outcols, outcolsnames)
+	data.table::setcolorder(DT, outcolsnames)
+	DT
 }
 
 
@@ -163,5 +166,12 @@ filter_locs <- function(DT) {
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL == 'GPS']
+	}
+}
+
+
+check_missing <- function(x, name) {
+	if (missing(x)) {
+		stop('must provide ', name,)
 	}
 }
