@@ -14,8 +14,10 @@
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
-read_data <- function(path) {
-	data.table::fread(path)
+read_data <- function(path, details) {
+	selects <- details[, na.omit(c(x, y, id, date, time, datetime, unlist(extracols)))]
+
+	data.table::fread(path, select = selects)
 }
 
 

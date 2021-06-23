@@ -25,8 +25,8 @@ list(
 
 	tar_target(
 		reads,
-		fread(paths),
-		pattern = map(paths)
+		read_data(paths, details),
+		pattern = map(paths, details)
 	),
 
 	tar_target(
