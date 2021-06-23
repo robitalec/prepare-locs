@@ -95,7 +95,7 @@ cast_cols <- function(DT) {
 #' prep_dates(DT, 'Canada/Newfoundland')
 prep_dates <- function(DT, tz) {
 	check_truelength(DT)
-	check_col(DT, datetime, 'datetime')
+	check_col(DT, 'datetime', 'datetime')
 
 	if (missing(tz)) {
 		stop('must provide a tz argument')
