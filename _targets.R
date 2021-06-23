@@ -4,7 +4,7 @@ library(targets)
 library(data.table)
 
 
-tar_option_set(format = 'qs')
+# tar_option_set(format = 'qs')
 
 source('R/data.R')
 source('R/functions.R')
