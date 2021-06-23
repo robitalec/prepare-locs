@@ -37,7 +37,6 @@ select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL,
 	check_missing(y, 'y column name')
 	check_missing(id, 'id column name')
 
-
 	if (is.na(datetime) & !is.na(date) & !is.na(time)){
 		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
 	} else if (!is.na(datetime) & is.na(date) & is.na(time)) {
@@ -56,10 +55,9 @@ select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL,
 	}
 
 	lapply(outcols, function(x) check_col(DT, x))
-	outcols
 	data.table::setnames(DT, outcols, outcolsnames)
 	data.table::setcolorder(DT, outcolsnames)
-	DT
+	DT[, .SD, .SDcols = outcolsnames]
 }
 
 
@@ -77,6 +75,7 @@ select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL,
 #' cast_cols(DT)
 cast_cols <- function(DT) {
 	check_truelength(DT)
+
 
 	DT[, id := as.character(id)]
 }
