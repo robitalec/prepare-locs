@@ -23,9 +23,9 @@ data_details <- function() {
 		),
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
-			id = 'ANIMAL_ID',
 			x = 'X_COORD',
 			y = 'Y_COORD',
+			id = 'ANIMAL_ID',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
