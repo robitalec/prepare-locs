@@ -12,14 +12,8 @@ source('R/internal.R')
 
 list(
 	tar_target(
-		getdetails,
-		data_details()
-	),
-
-	tar_target(
 		details,
-		getdetails,
-		pattern = map(getdetails)
+		data_details()
 	),
 
 	tar_target(
