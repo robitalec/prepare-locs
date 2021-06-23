@@ -2,8 +2,8 @@
 # 	path = ,
 # 	id = ,
 # 	datetime = ,
-# 	xcoord = ,
-# 	ycoord = ,
+# 	x = ,
+# 	y = ,
 # 	extracols ,
 # 	tz = ,
 # 	epsg =
@@ -13,10 +13,10 @@ data_details <- function() {
 	rbindlist(list(
 		data.table(
 			path = '../fogo-caribou/data/FogoCaribou.csv',
+			x = 'X_COORD',
+			y = 'Y_COORD',
 			id = 'ANIMAL_ID',
 			datetime = 'datetime',
-			xcoord = 'X_COORD',
-			ycoord = 'Y_COORD',
 			extracols = NULL,
 			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
 			epsg = 32621
@@ -24,10 +24,10 @@ data_details <- function() {
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
 			id = 'ANIMAL_ID',
+			x = 'X_COORD',
+			y = 'Y_COORD',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
-			xcoord = 'X_COORD',
-			ycoord = 'Y_COORD',
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
 			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
 			epsg = 32621

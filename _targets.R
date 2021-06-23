@@ -39,12 +39,12 @@ list(
 		selects,
 		select_cols(
 			DT = reads,
+			x = details$x,
+			y = details$y,
 			id = details$id,
 			date = details$date,
 			time = details$time,
 			datetime = details$datetime,
-			xcoord = details$xcoord,
-			ycoord = details$ycoord,
 			extracols = details$extracols
 		),
 		pattern = map(reads, details)
