@@ -54,6 +54,12 @@ list(
 		dates,
 		prep_dates(casts, details$tz),
 		pattern = map(casts, details)
+	),
+
+	tar_target(
+		coords,
+		project_locs(dates, details$epsg),
+		pattern = map(dates, details)
 	)
 
 

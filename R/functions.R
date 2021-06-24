@@ -129,16 +129,16 @@ prep_dates <- function(DT, tz) {
 
 #' Project locs
 #' @inheritParams prep_dates
-#' @param epsg numeric; EPSG code
+#' @param EPSG numeric; EPSG code
 #'
 #' @return
 #' @export
 #'
 #' @examples
-project_locs <- function(DT, epsg) {
+project_locs <- function(DT, EPSG) {
 	check_truelength(DT)
 
-	coords <- c('X', 'Y')
+	coords <- c('long', 'lat')
 	projcoords <- paste0('proj', coords)
 
 	lapply(coords, function(x) check_col(DT, x))
@@ -149,7 +149,7 @@ project_locs <- function(DT, epsg) {
 		 	data.table::as.data.table(
 		 		rgdal::project(
 		 			as.matrix(.SD, ncol = 2),
-		 			sf::st_crs(epsg)$wkt)
+		 			sf::st_crs(EPSG)$wkt)
 		 	),
 		 .SDcols = coords]
 }
