@@ -32,11 +32,11 @@ read_data <- function(path, details) {
 #' @export
 #'
 #' @examples
-select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
+select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
 	check_missing(DT, 'input DT')
 	check_truelength(DT)
-	check_missing(x, 'x column name')
-	check_missing(y, 'y column name')
+	check_missing(long, 'long column name')
+	check_missing(lat, 'lat column name')
 	check_missing(id, 'id column name')
 
 	if (is.na(datetime) & !is.na(date) & !is.na(time)){
@@ -48,8 +48,8 @@ select_cols <- function(DT, x, y, id, date = NULL, time = NULL, datetime = NULL,
 	}
 
 	incols <- colnames(DT)
-	outcols <- c(id, 'datetime', x, y)
-	outcolsnames <- c('id', 'datetime', 'X', 'Y')
+	outcols <- c(id, 'datetime', long, lat)
+	outcolsnames <- c('id', 'datetime', 'long', 'lat')
 
 	if (!is.na(extracols)) {
 		outcols <- c(outcols, unlist(extracols))

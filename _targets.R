@@ -33,8 +33,8 @@ list(
 		selects,
 		select_cols(
 			DT = reads,
-			x = details$x,
-			y = details$y,
+			long = details$long,
+			lat = details$lat,
 			id = details$id,
 			date = details$date,
 			time = details$time,
