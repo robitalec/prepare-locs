@@ -16,5 +16,5 @@ RoxygenNote: 7.1.1
 Imports: 
     data.table,
     parsedate,
-    rgdal,
+    sf,
     targets
