@@ -4,7 +4,7 @@ library(targets)
 library(data.table)
 
 
-# tar_option_set(format = 'qs')
+# tar_option_set(error = 'workspace')#format = 'qs')
 
 source('R/data.R')
 source('R/functions.R')
@@ -58,13 +58,7 @@ list(
 
 	tar_target(
 		coords,
-		project_locs(dates, details$epsg),
+		project_locs(dates, details$epsgin, details$epsgout),
 		pattern = map(dates, details)
 	)
-
-
-	# options
-	# read in
-	# prep
-	# write out
 )

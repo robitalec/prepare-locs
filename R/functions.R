@@ -146,23 +146,30 @@ project_locs <- function(DT, epsgin, epsgout) {
 	lapply(coords, function(x) check_type(DT, x, 'double'))
 	lapply(projcoords, function(x) overwrite_col(DT, x))
 
-	if (is.character(epsgin)) {
+	if (is.na(as.numeric(epsgin))) {
+		if (!epsgin %in% colnames(DT)) {
+			stop('if epsgin is a character, it must refer to column name in DT')
+		}
+		check_type(DT, epsgin, 'integer')
+
 		DT[, (projcoords) :=
 			 	data.table::as.data.table(
-			 		sf::st_project(
-			 			as.matrix(.SD, ncol = 2),
-			 			from = .BY[[1]],
-			 			to = epsgout)
+			 		sf::sf_project(
+			 			pts = as.matrix(.SD, ncol = 2),
+			 			from = sf::st_crs(.BY[[1]]),
+			 			keep = TRUE,
+			 			to = sf::st_crs(epsgout))
 			 	),
 			 .SDcols = coords,
 			 by = epsgin]
-	} else if (is.numeric(epsgin)) {
+	} else if (!is.na(as.numeric(epsgin))) {
 		DT[, (projcoords) :=
 			 	data.table::as.data.table(
-			 		sf::st_project(
-			 			as.matrix(.SD, ncol = 2),
-			 			from = epsgin,
-			 			to = epsgout)
+			 		sf::sf_project(
+			 			pts = as.matrix(.SD, ncol = 2),
+			 			from = sf::st_crs(as.numeric(epsgin)),
+			 			keep = TRUE,
+			 			to = sf::st_crs(epsgout))
 			 	),
 			 .SDcols = coords]
 	}
