@@ -135,9 +135,9 @@ prep_dates <- function(DT, tz) {
 #' @export
 #'
 #' @examples
-project_locs <- function(DT, EPSG) {
+project_locs <- function(DT, epsgin, epsgout) {
 	check_truelength(DT)
-
+	check_type(epsgout, 'epsgout', 'numeric')
 	coords <- c('long', 'lat')
 	projcoords <- paste0('proj', coords)
 
@@ -145,13 +145,26 @@ project_locs <- function(DT, EPSG) {
 	lapply(coords, function(x) check_type(DT, x, 'double'))
 	lapply(projcoords, function(x) overwrite_col(DT, x))
 
-	DT[, (projcoords) :=
-		 	data.table::as.data.table(
-		 		rgdal::project(
-		 			as.matrix(.SD, ncol = 2),
-		 			sf::st_crs(EPSG)$wkt)
-		 	),
-		 .SDcols = coords]
+	if (is.character(epsgin)) {
+		DT[, (projcoords) :=
+			 	data.table::as.data.table(
+			 		sf::st_project(
+			 			as.matrix(.SD, ncol = 2),
+			 			from = .BY[[1]],
+			 			to = epsgout)
+			 	),
+			 .SDcols = coords,
+			 by = epsgin]
+	} else if (is.numeric(epsgin)) {
+		DT[, (projcoords) :=
+			 	data.table::as.data.table(
+			 		sf::st_project(
+			 			as.matrix(.SD, ncol = 2),
+			 			from = epsgin,
+			 			to = epsgout)
+			 	),
+			 .SDcols = coords]
+	}
 }
 
 

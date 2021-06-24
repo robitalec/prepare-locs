@@ -21,7 +21,8 @@
 #' @param time time column name. either provide both date and time or datetime
 #' @param extracols list of extra column names to preserve
 #' @param tz time zone of datetime columns as stored in the input file
-#' @param epsg local projection EPSG code to reproject long+lat into
+#' @param epsgin EPSG code of input. if numeric, EPSG code to use for all rows. if character, column name of EPSG code in DT
+#' @param epsgout local projection EPSG code to reproject long+lat into
 #'
 #' @return
 #' @export
@@ -37,7 +38,8 @@ data_details <- function() {
 			datetime = 'datetime',
 			extracols = NA,
 			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
-			epsg = 32621
+			epsgin = 4326, #TODO: CHECK
+			epsgout = 32621
 		),
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
@@ -46,9 +48,10 @@ data_details <- function() {
 			id = 'ANIMAL_ID',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
-			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL')),
+			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL', 'EPSG_CODE')),
 			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
-			epsg = 32621
+			epsgin = 'EPSG_CODE',
+			epsgout = 32621
 		)
 	),
 	fill = TRUE)
