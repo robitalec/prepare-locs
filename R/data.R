@@ -2,8 +2,8 @@
 # 	path = ,
 # 	id = ,
 # 	datetime = ,
-# 	x = ,
-# 	y = ,
+# 	long = ,
+# 	lat = ,
 # 	extracols ,
 # 	tz = ,
 # 	epsg =
@@ -41,8 +41,8 @@ data_details <- function() {
 		),
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
-			x = 'X_COORD',
-			y = 'Y_COORD',
+			long = 'X_COORD',
+			lat = 'Y_COORD',
 			id = 'ANIMAL_ID',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
