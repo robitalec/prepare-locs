@@ -78,8 +78,11 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 cast_cols <- function(DT) {
 	check_truelength(DT)
 
-
 	DT[, id := as.character(id)]
+	DT[, long := parzer::parse_lon(long)]
+	DT[, lat := parzer::parse_lat(lat)]
+
+	DT
 }
 
 #' Prepare datetime column
