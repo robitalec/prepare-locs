@@ -137,7 +137,8 @@ prep_dates <- function(DT, tz) {
 #' @examples
 project_locs <- function(DT, epsgin, epsgout) {
 	check_truelength(DT)
-	check_type(epsgout, 'epsgout', 'numeric')
+	if (!is.numeric(epsgout)) stop("epsgout must be numeric")
+
 	coords <- c('long', 'lat')
 	projcoords <- paste0('proj', coords)
 
