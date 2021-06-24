@@ -46,7 +46,7 @@ list(
 
 	tar_target(
 		casts,
-		cast_cols(selects),
+		check_cols(selects),
 		pattern = map(selects)
 	),
 

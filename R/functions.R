@@ -63,7 +63,7 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 }
 
 
-#' Cast columns
+#' Check columns
 #'
 #' @param DT data.table
 #'
@@ -74,13 +74,22 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
-#' cast_cols(DT)
-cast_cols <- function(DT) {
+#' check_cols(DT)
+check_cols <- function(DT) {
 	check_truelength(DT)
 
 	DT[, id := as.character(id)]
-	DT[, long := parzer::parse_lon(long)]
-	DT[, lat := parzer::parse_lat(lat)]
+
+
+	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
+	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
+
+	DT[!between(long, -180, 360), long := NaN]
+	DT[!between(lat, -90, 90), lat := NaN]
+
+	# slow, drop for now
+	# DT[, long := parzer::parse_lon(long)]
+	# DT[, lat := parzer::parse_lat(lat)]
 
 	DT
 }
