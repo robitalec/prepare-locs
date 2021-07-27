@@ -80,7 +80,6 @@ check_cols <- function(DT) {
 
 	DT[, id := as.character(id)]
 
-
 	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
 	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
 
@@ -89,6 +88,8 @@ check_cols <- function(DT) {
 
 	DT[is.na(long) | is.nan(long), lat := NaN]
 	DT[is.na(lat) | is.nan(long), long := NaN]
+
+	DT[long == 0 | lat == 0, c('lat', 'long') := NaN]
 
 	DT
 }
