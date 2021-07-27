@@ -91,6 +91,8 @@ check_cols <- function(DT) {
 
 	DT[long == 0 | lat == 0, c('lat', 'long') := NaN]
 
+	DT[long == lat, c('lat', 'long') := NaN]
+
 	DT
 }
 
