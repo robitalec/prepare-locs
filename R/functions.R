@@ -87,6 +87,9 @@ check_cols <- function(DT) {
 	DT[!between(long, -180, 360), long := NaN]
 	DT[!between(lat, -90, 90), lat := NaN]
 
+	DT[is.na(long) | is.nan(long), lat := NaN]
+	DT[is.na(lat) | is.nan(long), long := NaN]
+
 	DT
 }
 
