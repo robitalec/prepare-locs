@@ -49,12 +49,13 @@ data_details <- function() {
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL', 'EPSG_CODE')),
-			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
+			tz = grep('UTC', OlsonNames(), value = TRUE),
 			epsgin = 'EPSG_CODE',
 			epsgout = 32621
 		)
 	),
 	fill = TRUE)
+
 }
 
 
