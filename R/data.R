@@ -56,6 +56,7 @@ data_details <- function() {
 	),
 	fill = TRUE)
 
+	# TODO: if movebank then dir() paths and fill NAs once
 }
 
 
