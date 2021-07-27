@@ -87,10 +87,6 @@ check_cols <- function(DT) {
 	DT[!between(long, -180, 360), long := NaN]
 	DT[!between(lat, -90, 90), lat := NaN]
 
-	# slow, drop for now
-	# DT[, long := parzer::parse_lon(long)]
-	# DT[, lat := parzer::parse_lat(lat)]
-
 	DT
 }
 
