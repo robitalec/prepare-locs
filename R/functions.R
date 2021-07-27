@@ -63,7 +63,7 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 }
 
 
-#' Check columns
+#' Check coordinate columns
 #'
 #' @param DT data.table
 #'
@@ -74,11 +74,9 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
-#' check_cols(DT)
-check_cols <- function(DT) {
+#' check_coords(DT)
+check_coords <- function(DT) {
 	check_truelength(DT)
-
-	DT[, id := as.character(id)]
 
 	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
 	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
