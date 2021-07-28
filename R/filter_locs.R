@@ -88,6 +88,11 @@ check_locs_meta <- function(DT) {
 		DT[, DOP := NULL]
 	}
 
+	if ('NAV' %in% colnames(DT)) {
+		DT[NAV %in% c('2D', 'No'), flag := why(flag, paste('NAV is', NAV))]
+		DT[, NAV := NULL]
+	}
+
 	if ('LOCQUAL' %in% colnames(DT)) {
 		# DT[LOCQUAL %in% c(1, 2, 3)]
 		# TODO LOCQUAL
