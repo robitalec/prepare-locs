@@ -177,16 +177,23 @@ project_locs <- function(DT, epsgin, epsgout) {
 
 
 filter_locs <- function(DT) {
-	if ('SEX' %in% colnames(DT)) {
-		DT[grepl('F', SEX)]
+
+	check_coords()
+	# if ('SEX' %in% colnames(DT)) {
+	# 	DT[grepl('F', SEX)]
+	# }
+
+	if ('Map_Quality' %in% colnames(DT)) {
+		DT[Map_Quality == 'N', drop := 'Map_Quality == N']
 	}
 
-	# TODO: ask Map_Quality
-	if ('Map_Quality' %in% colnames(DT)) {
-		DT[Map_Quality == 'Y']
+	if ('EXCLUCDE' %in% colnames(DT)) {
+		DT[EXCLUCDE == 'Y', drop := 'EXCLUCDE == Y']
 	}
+
 	# TODO: ask LOCQUAL
 	if ('LOCQUAL' %in% colnames(DT)) {
+		DT[Map_Quality == 'N', drop := 'Map_Quality == N']
 		# DT[LOCQUAL %in% c(1, 2, 3)]
 	}
 	# TODO: ask EXCLUDE, VALIDATED
@@ -194,6 +201,8 @@ filter_locs <- function(DT) {
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL == 'GPS']
 	}
+
+	DT
 }
 
 
