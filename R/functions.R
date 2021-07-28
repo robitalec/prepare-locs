@@ -245,6 +245,19 @@ filter_locs <- function(DT) {
 
 # Export ------------------------------------------------------------------
 
+#' Export CSVs
+#'
+#' Minimal wrapper around fwrite, to write separate CSVs if splitBy is provided
+#'
+#' @param DT
+#' @param outpath
+#' @param name
+#' @param splitBy
+#'
+#' @return
+#' @export
+#'
+#' @examples
 export_csv <- function(DT, outpath, name, splitBy) {
 	if (is.na(splitBy)) {
 		o <- file.path(outpath, paste0(name, '.csv'))
