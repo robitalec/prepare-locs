@@ -206,21 +206,25 @@ check_locs_meta <- function(DT) {
 
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', drop := 'Map_Quality is N']
+		DT[, Map_Quality := NULL]
 	}
 
 	if ('EXCLUDE' %in% colnames(DT)) {
 		DT[EXCLUDE == 'Y', drop := 'EXCLUDE is Y']
+		DT[, EXCLUDE := NULL]
 	}
 
 	if ('LOCQUAL' %in% colnames(DT)) {
 		# DT[LOCQUAL %in% c(1, 2, 3)]
 		# TODO LOCQUAL
+		# DT[, LOCQUAL := NULL]
 	}
 
 	# TODO: VALIDATED
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL == 'GPS']
+		DT[, COLLAR_TYPE_CL := NULL]
 	}
 }
 
