@@ -12,53 +12,58 @@ source('R/internal.R')
 
 list(
 	tar_target(
-		details,
-		data_details()
+		meta,
+		metadata()
 	),
 
 	tar_target(
 		paths,
-		details$path,
-		pattern = map(details),
+		meta$path,
+		pattern = map(meta),
 		format = 'file'
 	),
 
 	tar_target(
 		reads,
-		read_data(paths, details),
-		pattern = map(paths, details)
+		read_data(paths, meta),
+		pattern = map(paths, meta)
 	),
 
 	tar_target(
-		selects,
-		select_cols(
+		renames,
+		set_colnames(
 			DT = reads,
-			long = details$long,
-			lat = details$lat,
-			id = details$id,
-			date = details$date,
-			time = details$time,
-			datetime = details$datetime,
-			extracols = details$extracols
+			long = meta$long,
+			lat = meta$lat,
+			id = meta$id,
+			date = meta$date,
+			time = meta$time,
+			datetime = meta$datetime,
+			extracols = meta$extracols
 		),
-		pattern = map(reads, details)
+		pattern = map(reads, meta)
 	),
 
 	tar_target(
 		filters,
-		filter_locs(selects),
-		pattern = map(selects)
+		filter_locs(renames),
+		pattern = map(renames)
 	),
 
 	tar_target(
 		dates,
-		prep_dates(filters, details$tz),
-		pattern = map(filters, details)
+		prep_dates(filters, meta$tz),
+		pattern = map(filters, meta)
 	),
 
 	tar_target(
 		coords,
-		project_locs(dates, details$epsgin, details$epsgout),
-		pattern = map(dates, details)
+		project_locs(dates, meta$epsgin, meta$epsgout),
+		pattern = map(dates, meta)
+	),
+
+	tar_target(
+		exports,
+		export_csvs()
 	)
 )

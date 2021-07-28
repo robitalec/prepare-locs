@@ -1,5 +1,7 @@
 #' Generate data details
 #'
+#' Metadata about input data including file paths, column names, time zones and EPSG codes.
+#'
 #'
 #' @param path filepath
 #' @param long unprojected longitude coordinate column name
@@ -17,7 +19,7 @@
 #' @export
 #'
 #' @examples
-data_details <- function() {
+metadata <- function() {
 	rbindlist(list(
 		data.table(
 			path = '../fogo-caribou/data/FogoCaribou.csv',
