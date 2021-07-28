@@ -4,26 +4,10 @@
 
 
 # Read data ---------------------------------------------------------------
-#' Read data
-#'
-#' @param path character; path to input file. passed to fread.
-#'
-#' @return
-#' data.table
-#' @export
-#' @import data.table
-#'
-#' @examples
-#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-#' DT <- read_data(path = path)
-read_data <- function(path, details) {
-	selects <- details[, na.omit(c(long, lat, id, date, time, datetime, unlist(extracols)))]
-
-	data.table::fread(path, select = selects)
-}
 
 
-#' Select cols
+
+#' Rename cols
 #'
 #' @inheritParams read_date
 #' @inheritParams cast_columns
