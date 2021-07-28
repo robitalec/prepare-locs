@@ -24,7 +24,11 @@ targets::tar_visnetwork()
 | mnth          | month, integer. see `data.table::month()`                                    |
 | projlong      | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |
 | projlat       | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |
-| \[extracols\] | eg. HERD. as provided in the `metadata()`. see `R/metadata.R`.               |
+| \[extracols\] | eg. HERD. as provided in the `metadata()`. see `R/metadata.R`                |
+
+## TODO
+
+-   6030 not recognized by PROJ because it’s not a complete CRS..
 
 ## Etc
 
