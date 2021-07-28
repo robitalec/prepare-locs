@@ -42,8 +42,8 @@ metadata <- function() {
 			id = 'ANIMAL_ID',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
-			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL', 'EPSG_CODE')),
-			tz = grep('UTC', OlsonNames(), value = TRUE),
+			extracols = list(list('COLLAR_TYPE_CL', 'HERD', 'Map_Quality', 'LOCQUAL', 'EPSG_CODE', 'EXCLUDE')),
+			tz = 'UTC',
 			epsgin = 'EPSG_CODE',
 			epsgout = 32621,
 			splitBy = 'HERD'
