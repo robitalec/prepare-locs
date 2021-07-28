@@ -93,12 +93,6 @@ check_locs_meta <- function(DT) {
 		DT[, NAV := NULL]
 	}
 
-	if ('LOCQUAL' %in% colnames(DT)) {
-		# DT[LOCQUAL %in% c(1, 2, 3)]
-		# TODO LOCQUAL
-		# DT[, LOCQUAL := NULL]
-	}
-
 	# TODO: VALIDATED
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
