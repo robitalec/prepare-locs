@@ -48,3 +48,9 @@ check_truelength <- function(DT) {
     data.table::setDT(DT)
   }
 }
+
+check_missing <- function(x, name) {
+  if (missing(x)) {
+    stop('must provide ', name)
+  }
+}

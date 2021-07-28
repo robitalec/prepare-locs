@@ -2,6 +2,8 @@
 # Alec Robitaille
 
 
+
+# Read data ---------------------------------------------------------------
 #' Read data
 #'
 #' @param path character; path to input file. passed to fread.
@@ -64,6 +66,7 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 
 
 
+# Datetime ----------------------------------------------------------------
 #' Prepare datetime column
 #'
 #' @param tz character; time zone.
@@ -97,6 +100,8 @@ prep_dates <- function(DT, tz) {
 
 
 
+
+# Locs --------------------------------------------------------------------
 #' Project locs
 #' @inheritParams prep_dates
 #' @param EPSG numeric; EPSG code
@@ -219,6 +224,8 @@ check_locs_meta <- function(DT) {
 	}
 }
 
+
+# Filter ------------------------------------------------------------------
 filter_locs <- function(DT) {
 
 	check_longlat(DT)
@@ -228,8 +235,3 @@ filter_locs <- function(DT) {
 }
 
 
-check_missing <- function(x, name) {
-	if (missing(x)) {
-		stop('must provide ', name,)
-	}
-}
