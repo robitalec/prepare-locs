@@ -32,6 +32,10 @@ visNetwork::visNodes(targets::tar_visnetwork(), size = 20, font=list(size=25))
 | [extracols] | eg. HERD. as provided in the `metadata()`.  see `R/metadata.R` |
 
 
+## TODO
+
+* 6030 not recognized by PROJ because it's not a complete CRS.. 
+
 
 ## Etc
 Screening GPS fixes:
