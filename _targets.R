@@ -61,6 +61,6 @@ list(
 
 	tar_target(
 		exports,
-		export_csv()
+		export_csv(coords, 'output', meta$name, meta$splitBy)
 	)
 )
