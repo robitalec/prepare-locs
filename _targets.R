@@ -14,6 +14,11 @@ list(
 	),
 
 	tar_target(
+		checkmeta,
+		check_meta(meta)
+	),
+
+	tar_target(
 		paths,
 		meta$path,
 		pattern = map(meta),
