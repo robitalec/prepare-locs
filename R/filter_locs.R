@@ -92,7 +92,7 @@ check_locs_meta <- function(DT) {
 	# TODO: VALIDATED
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
-		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste0('Collar type is', COLLAR_TYPE_CL))]
+		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste('Collar type is', COLLAR_TYPE_CL))]
 		DT[, COLLAR_TYPE_CL := NULL]
 	}
 }
