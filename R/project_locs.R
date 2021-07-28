@@ -34,8 +34,8 @@ project_locs <- function(DT, epsgin, epsgout) {
 			 	),
 			 .SDcols = coords,
 			 by = epsgin]
-		DT[, epsgin := NULL]
-		DT
+		# data.table::set(DT, j = epsgin, value = NULL)
+		# DT
 	} else if (!is.na(as.numeric(epsgin))) {
 		DT[, (projcoords) :=
 			 	data.table::as.data.table(
