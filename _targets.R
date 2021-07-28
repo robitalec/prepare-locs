@@ -20,30 +20,30 @@ list(
 
 	tar_target(
 		paths,
-		meta$path,
-		pattern = map(meta),
+		checkmeta$path,
+		pattern = map(checkmeta),
 		format = 'file'
 	),
 
 	tar_target(
 		reads,
-		read_data(paths, meta),
-		pattern = map(paths, meta)
+		read_data(paths, checkmeta),
+		pattern = map(paths, checkmeta)
 	),
 
 	tar_target(
 		renames,
 		set_colnames(
 			DT = reads,
-			long = meta$long,
-			lat = meta$lat,
-			id = meta$id,
-			date = meta$date,
-			time = meta$time,
-			datetime = meta$datetime,
-			extracols = meta$extracols
+			long = checkmeta$long,
+			lat = checkmeta$lat,
+			id = checkmeta$id,
+			date = checkmeta$date,
+			time = checkmeta$time,
+			datetime = checkmeta$datetime,
+			extracols = checkmeta$extracols
 		),
-		pattern = map(reads, meta)
+		pattern = map(reads, checkmeta)
 	),
 
 	tar_target(
@@ -54,18 +54,19 @@ list(
 
 	tar_target(
 		dates,
-		prep_dates(filters, meta$tz),
-		pattern = map(filters, meta)
+		prep_dates(filters, checkmeta$tz),
+		pattern = map(filters, checkmeta)
 	),
 
 	tar_target(
 		coords,
-		project_locs(dates, meta$epsgin, meta$epsgout),
-		pattern = map(dates, meta)
+		project_locs(dates, checkmeta$epsgin, checkmeta$epsgout),
+		pattern = map(dates, checkmeta)
 	),
 
 	tar_target(
 		exports,
-		export_csv(coords, 'output', meta$name, meta$splitBy)
+		export_csv(coords, 'output', checkmeta$name, checkmeta$splitBy),
+		format = 'file'
 	)
 )
