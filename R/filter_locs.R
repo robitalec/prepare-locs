@@ -83,6 +83,11 @@ check_locs_meta <- function(DT) {
 		DT[, EXCLUDE := NULL]
 	}
 
+	if ('DOP' %in% colnames(DT)) {
+		DT[DOP > 10, flag := why(flag, 'DOP > 10')]
+		DT[, DOP := NULL]
+	}
+
 	if ('LOCQUAL' %in% colnames(DT)) {
 		# DT[LOCQUAL %in% c(1, 2, 3)]
 		# TODO LOCQUAL
