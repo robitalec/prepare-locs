@@ -32,6 +32,7 @@ data_details <- function() {
 	rbindlist(list(
 		data.table(
 			path = '../fogo-caribou/data/FogoCaribou.csv',
+			name = 'NL-Fogo-Caribou-Telemetry',
 			long = 'X_COORD',
 			lat = 'Y_COORD',
 			id = 'ANIMAL_ID',
@@ -43,6 +44,7 @@ data_details <- function() {
 		),
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
+			name = 'NL-Provincial-Caribou-Telemetry',
 			long = 'X_COORD',
 			lat = 'Y_COORD',
 			id = 'ANIMAL_ID',
