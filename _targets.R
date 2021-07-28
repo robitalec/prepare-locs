@@ -67,6 +67,7 @@ list(
 	tar_target(
 		exports,
 		export_csv(coords, 'output', checkmeta$name, checkmeta$splitBy),
+		pattern = map(coords, checkmeta),
 		format = 'file'
 	)
 )
