@@ -53,7 +53,8 @@ data_details <- function() {
 			extracols = list(list('HERD', 'Map_Quality', 'LOCQUAL', 'EPSG_CODE')),
 			tz = grep('UTC', OlsonNames(), value = TRUE),
 			epsgin = 'EPSG_CODE',
-			epsgout = 32621
+			epsgout = 32621,
+			splitBy = 'HERD'
 		)
 	),
 	fill = TRUE)
