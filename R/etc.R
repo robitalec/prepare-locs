@@ -45,7 +45,7 @@ overwrite_col <- function(DT = NULL, col = NULL) {
 #' @param DT data.table
 check_truelength <- function(DT) {
   if (truelength(DT) == 0) {
-    data.table::setDT(DT)
+    data.table::setalloccol(DT)
   }
 }
 
