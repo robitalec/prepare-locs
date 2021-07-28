@@ -36,6 +36,7 @@ check_longlat <- function(DT) {
 	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
 	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
 
+	data.table::set(DT, j = 'flag', value = NA_character_)
 	DT[!between(long, -180, 360), flag := why(flag, 'long not between -180, 360')]
 	DT[!between(lat, -90, 90), flag := why(flag, 'lat not between -90, 90')]
 
