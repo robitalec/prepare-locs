@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
+rename_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
 	check_missing(DT, 'input DT')
 	check_truelength(DT)
 	check_missing(long, 'long column name')
