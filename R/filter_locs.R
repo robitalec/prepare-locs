@@ -10,6 +10,7 @@
 #'
 #' @examples
 filter_locs <- function(DT) {
+	check_truelength(DT)
 	check_longlat(DT)
 	check_locs_meta(DT)
 	DT[!is.na(flag), c('long', 'lat') := NaN]
@@ -69,6 +70,8 @@ check_longlat <- function(DT) {
 #' DT <- read_data(path = path)
 #' check_longlat(DT)
 check_locs_meta <- function(DT) {
+	check_truelength(DT)
+
 	# if ('SEX' %in% colnames(DT)) {
 	# 	DT[grepl('F', SEX)]
 	# }
