@@ -6,6 +6,7 @@
 #'
 #' @return
 #' @export
+#' @author Alec L. Robitaille
 #'
 #' @examples
 filter_locs <- function(DT) {
@@ -23,6 +24,7 @@ filter_locs <- function(DT) {
 #'
 #' @return
 #' data.table
+#' @author Alec L. Robitaille
 #' @export
 #'
 #' @examples
@@ -60,6 +62,7 @@ check_longlat <- function(DT) {
 #' @return
 #' data.table
 #' @export
+#' @author Alec L. Robitaille
 #'
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')

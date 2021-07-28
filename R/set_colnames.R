@@ -7,6 +7,7 @@
 #' @return
 #' Input DT with only selected columns id, datetime, coords and any column provided in extracols
 #' @export
+#' @author Alec L. Robitaille
 #'
 #' @examples
 set_colnames <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {

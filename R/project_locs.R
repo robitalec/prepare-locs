@@ -4,6 +4,7 @@
 #'
 #' @return
 #' @export
+#' @author Alec L. Robitaille
 #'
 #' @examples
 project_locs <- function(DT, epsgin, epsgout) {

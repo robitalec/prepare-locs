@@ -16,6 +16,7 @@
 #' @param epsgout local projection EPSG code to reproject long+lat into
 #'
 #' @return
+#' @author Alec L. Robitaille
 #' @export
 #'
 #' @examples

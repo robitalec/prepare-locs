@@ -6,6 +6,7 @@
 #' @return
 #' data.table with datetime in UTC time, idate, itime and DOY
 #' @export
+#' @author Alec L. Robitaille
 #'
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')

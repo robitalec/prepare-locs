@@ -6,7 +6,7 @@
 #' data.table
 #' @export
 #' @import data.table
-#'
+#' @author Alec L. Robitaille
 #' @examples
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
