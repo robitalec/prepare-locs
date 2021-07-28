@@ -1,14 +1,11 @@
 library(targets)
 
-
 library(data.table)
 
 
 # tar_option_set(error = 'workspace')#format = 'qs')
 
-source('R/data.R')
-source('R/functions.R')
-source('R/internal.R')
+lapply(dir('R', '*.R', full.names = TRUE), source)
 
 list(
 	tar_target(
