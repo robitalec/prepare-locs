@@ -63,36 +63,6 @@ select_cols <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = 
 }
 
 
-#' Check coordinate columns
-#'
-#' @param DT data.table
-#'
-#' @return
-#' data.table
-#' @export
-#'
-#' @examples
-#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-#' DT <- read_data(path = path)
-#' check_coords(DT)
-check_coords <- function(DT) {
-	check_truelength(DT)
-
-	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
-	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
-
-	DT[!between(long, -180, 360), long := NaN]
-	DT[!between(lat, -90, 90), lat := NaN]
-
-	DT[is.na(long) | is.nan(long), lat := NaN]
-	DT[is.na(lat) | is.nan(long), long := NaN]
-
-	DT[long == 0 | lat == 0, c('lat', 'long') := NaN]
-
-	DT[long == lat, c('lat', 'long') := NaN]
-
-	DT
-}
 
 #' Prepare datetime column
 #'
@@ -175,6 +145,40 @@ project_locs <- function(DT, epsgin, epsgout) {
 	}
 }
 
+
+#' Check long and lat
+#'
+#' @param DT data.table
+#'
+#' @return
+#' data.table
+#' @export
+#'
+#' @examples
+#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
+#' DT <- read_data(path = path)
+#' check_longlat(DT)
+check_longlat <- function(DT) {
+	check_truelength(DT)
+
+	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
+	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
+
+	DT[!between(long, -180, 360), drop := 'long not between -180, 360']
+	DT[!between(lat, -90, 90), drop := 'lat not between -90, 90']
+
+	DT[is.na(long), drop := 'long is NA']
+	DT[is.nan(long), drop := 'long is NaN']
+	DT[is.na(lat), drop := 'lat is NA']
+	DT[is.nan(lat), drop := 'lat is NaN']
+
+	DT[long == 0,  drop := 'long is 0']
+	DT[lat == 0,  drop := 'lat is 0']
+
+	DT[long == lat, drop := 'long == lat']
+
+	DT
+}
 
 filter_locs <- function(DT) {
 
