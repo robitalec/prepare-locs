@@ -61,6 +61,6 @@ list(
 
 	tar_target(
 		exports,
-		export_csvs()
+		export_csv()
 	)
 )
