@@ -180,19 +180,27 @@ check_longlat <- function(DT) {
 	DT
 }
 
-filter_locs <- function(DT) {
-
-	check_coords()
-	# if ('SEX' %in% colnames(DT)) {
-	# 	DT[grepl('F', SEX)]
-	# }
-
+#' Check loc meta
+#'
+#' Check location data's meta information eg. map quality, DOP, manual exclusion
+#'
+#' @param DT data.table
+#'
+#' @return
+#' data.table
+#' @export
+#'
+#' @examples
+#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
+#' DT <- read_data(path = path)
+#' check_longlat(DT)
+check_longlat <- function(DT) {
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', drop := 'Map_Quality == N']
 	}
 
-	if ('EXCLUCDE' %in% colnames(DT)) {
-		DT[EXCLUCDE == 'Y', drop := 'EXCLUCDE == Y']
+	if ('EXCLUDE' %in% colnames(DT)) {
+		DT[EXCLUDE == 'Y', drop := 'EXCLUDE == Y']
 	}
 
 	# TODO: ask LOCQUAL
