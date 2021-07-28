@@ -45,15 +45,15 @@ list(
 	),
 
 	tar_target(
-		coordchecks,
-		check_coords(selects),
+		filters,
+		filter_locs(selects),
 		pattern = map(selects)
 	),
 
 	tar_target(
 		dates,
-		prep_dates(coordchecks, details$tz),
-		pattern = map(coordchecks, details)
+		prep_dates(filters, details$tz),
+		pattern = map(filters, details)
 	),
 
 	tar_target(

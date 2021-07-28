@@ -194,27 +194,37 @@ check_longlat <- function(DT) {
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
 #' check_longlat(DT)
-check_longlat <- function(DT) {
+check_locs_meta <- function(DT) {
+	# if ('SEX' %in% colnames(DT)) {
+	# 	DT[grepl('F', SEX)]
+	# }
+
 	if ('Map_Quality' %in% colnames(DT)) {
-		DT[Map_Quality == 'N', drop := 'Map_Quality == N']
+		DT[Map_Quality == 'N', drop := 'Map_Quality is N']
 	}
 
 	if ('EXCLUDE' %in% colnames(DT)) {
-		DT[EXCLUDE == 'Y', drop := 'EXCLUDE == Y']
+		DT[EXCLUDE == 'Y', drop := 'EXCLUDE is Y']
 	}
 
-	# TODO: ask LOCQUAL
 	if ('LOCQUAL' %in% colnames(DT)) {
-		DT[Map_Quality == 'N', drop := 'Map_Quality == N']
 		# DT[LOCQUAL %in% c(1, 2, 3)]
+		# TODO LOCQUAL
 	}
-	# TODO: ask EXCLUDE, VALIDATED
+
+	# TODO: VALIDATED
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL == 'GPS']
 	}
+}
 
-	DT
+filter_locs <- function(DT) {
+
+	check_longlat(DT)
+	check_locs_meta(DT)
+	DT[!is.na(drop), c('long', 'lat') := NaN]
+	return(DT)
 }
 
 
