@@ -1,14 +1,3 @@
-# data.table(
-# 	path = ,
-# 	id = ,
-# 	datetime = ,
-# 	long = ,
-# 	lat = ,
-# 	extracols ,
-# 	tz = ,
-# 	epsg =
-# )
-
 #' Generate data details
 #'
 #'
