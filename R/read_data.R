@@ -1,6 +1,6 @@
 #' Read data
 #'
-#' @param path character; path to input file. passed to fread.
+#' @param path character; path to input file passed to fread
 #'
 #' @return
 #' data.table
