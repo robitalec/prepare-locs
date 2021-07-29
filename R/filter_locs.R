@@ -121,8 +121,8 @@ check_locs_meta <- function(DT) {
 #' @export
 #'
 #' @examples
-check_deployment <- function(DT, deployment) {
-	deploy <- data.table::fread(deployment)
+check_deployment <- function(DT, meta) {
+	deploy <- data.table::fread(meta$deployment)
 
 	DT[deploy,
 		 flag := why(flag, 'fix date before deployment'),

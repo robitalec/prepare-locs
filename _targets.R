@@ -48,7 +48,7 @@ list(
 
 	tar_target(
 		filters,
-		filter_locs(renames, checkmeta$deployement),
+		filter_locs(renames, checkmeta),
 		pattern = map(renames, checkmeta)
 	),
 
