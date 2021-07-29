@@ -37,7 +37,7 @@ project_locs <- function(DT, epsgin, epsgout) {
 		# data.table::set(DT, j = epsgin, value = NULL)
 		# DT
 	} else if (!is.na(as.numeric(epsgin))) {
-		if (!sf::st_is_longlat(sf::st_crs(epsgin))) {
+		if (!sf::st_is_longlat(sf::st_crs(as.numeric(epsgin)))) {
 			warning('epsgin is not long lat, checks will break')
 			# TODO: make this error after fix RMNP
 		}
