@@ -68,18 +68,18 @@ metadata <- function() {
 		),
 
 		# Vita elk (Vectronic)
-		# data.table(
-		# 	path = 'input/vita_elk_vectronic.csv',
-		# 	name = 'MB-Vita-Elk-Telemetry_Vectronic',
-		# 	long = 'long',
-		# 	lat = 'lat',
-		# 	id = #'animal_ID',
-		# 	datetime = 'time_utc',
-		# 	extracols = c('status'),
-		# 	tz = 'UTC',
-		# 	epsgin = 4326,
-		# 	epsgout = 32614 #Zone 14N
-		# ),
+		data.table(
+			path = 'input/vita_elk_vectronic.csv',
+			name = 'MB-Vita-Elk-Telemetry_Vectronic',
+			long = 'long',
+			lat = 'lat',
+			id = 'animal_ID',
+			datetime = 'time_utc',
+			extracols = c('status'),
+			tz = 'UTC',
+			epsgin = 4326,
+			epsgout = 32614 #Zone 14N
+		),
 
 		# RMNP elk
 		data.table(
