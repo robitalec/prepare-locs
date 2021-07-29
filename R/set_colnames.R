@@ -20,7 +20,7 @@ set_colnames <- function(DT, long, lat, id, date = NULL, time = NULL, datetime =
 	if (is.na(datetime) & !is.na(date) & !is.na(time)){
 		DT[, datetime := paste(.SD[[1]], .SD[[2]]), .SDcols = c(date, time)]
 	} else if (!is.na(datetime) & is.na(date) & is.na(time)) {
-		DT
+		DT[, datetime := .SD, .SDcols = c(datetime)]
 	} else {
 		stop('must provide either date and time, or only datetime')
 	}
