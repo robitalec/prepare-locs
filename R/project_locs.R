@@ -47,11 +47,7 @@ project_locs <- function(DT, epsgin, epsgout) {
 		}
 
 		if (epsgin == epsgout) {
-			warning('epsgin is equal to epsgout')
-			warning('are you sure your input coordinates are already projected?')
-
-			DT[, (projcoords) := .SD, .SDcols = c(coords)]
-			return(DT)
+			stop('epsgin is equal to epsgout')
 		}
 
 		DT[, (projcoords) :=
