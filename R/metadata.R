@@ -88,13 +88,13 @@ metadata <- function() {
 		data.table(
 			path = 'input/RMNPdata2006-2015CleanedLN.csv',
 			name = 'MB-RMNP-Elk-Telemetry',
-			long = 'X',
-			lat = 'Y',
+			long = 'long',
+			lat = 'lat',
 			id = 'EarTag',
 			datetime = 'DateTime',
 			extracols = NA,
 			tz = 'GMT', # TODO: triple check
-			epsgin = 32614,
+			epsgin = 4326,
 			epsgout = 32614
 		)
 	),
