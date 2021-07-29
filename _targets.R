@@ -47,9 +47,15 @@ list(
 	),
 
 	tar_target(
-		filters,
-		filter_locs(renames),
+		checks,
+		check_locs(renames),
 		pattern = map(renames)
+	),
+
+	tar_target(
+		filters,
+		checks[is.na(flag)],
+		pattern = map(checks)
 	),
 
 	tar_target(
@@ -70,4 +76,5 @@ list(
 		pattern = map(coords, checkmeta),
 		format = 'file'
 	)
+
 )

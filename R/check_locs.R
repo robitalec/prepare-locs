@@ -1,4 +1,4 @@
-#' Filter locs
+#' Check locs
 #'
 #' using functions check_longlat and check_loc_meta
 #'
@@ -9,7 +9,7 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-filter_locs <- function(DT) {
+check_locs <- function(DT) {
 	check_truelength(DT)
 	check_longlat(DT)
 	check_locs_meta(DT)
