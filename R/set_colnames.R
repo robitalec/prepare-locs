@@ -12,7 +12,7 @@
 #' @examples
 set_colnames <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
 	check_missing(DT, 'input DT')
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 	check_missing(long, 'long column name')
 	check_missing(lat, 'lat column name')
 	check_missing(id, 'id column name')

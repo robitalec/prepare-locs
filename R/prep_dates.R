@@ -13,7 +13,7 @@
 #' DT <- read_data(path = path)
 #' prep_dates(DT, 'Canada/Newfoundland')
 prep_dates <- function(DT, tz) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 	check_col(DT, 'datetime', 'datetime')
 
 	if (missing(tz)) {

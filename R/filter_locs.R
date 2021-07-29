@@ -36,7 +36,7 @@ filter_locs <- function(DT, deployment = NA) {
 #' DT <- read_data(path = path)
 #' check_longlat(DT)
 check_longlat <- function(DT) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 
 	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
 	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
@@ -74,7 +74,7 @@ check_longlat <- function(DT) {
 #' DT <- read_data(path = path)
 #' check_longlat(DT)
 check_locs_meta <- function(DT) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 
 	# if ('SEX' %in% colnames(DT)) {
 	# 	DT[grepl('F', SEX)]

@@ -8,7 +8,7 @@
 #'
 #' @examples
 project_locs <- function(DT, epsgin, epsgout) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 	if (!is.numeric(epsgout)) stop("epsgout must be numeric")
 
 	coords <- c('long', 'lat')
