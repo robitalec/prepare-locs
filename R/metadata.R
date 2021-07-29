@@ -14,6 +14,7 @@
 #' @param tz time zone of datetime columns as stored in the input file
 #' @param epsgin EPSG code of input. if numeric, EPSG code to use for all rows. if character, column name of EPSG code in DT
 #' @param epsgout local projection EPSG code to reproject long+lat into
+#' @param deployment path to deployment CSV. see `check_deployment()`.
 #'
 #' @return
 #' @author Alec L. Robitaille
@@ -22,6 +23,8 @@
 #' @examples
 metadata <- function() {
 	rbindlist(list(
+
+		# Fogo caribou
 		data.table(
 			path = '../fogo-caribou/data/FogoCaribou.csv',
 			name = 'NL-Fogo-Caribou-Telemetry',
@@ -34,6 +37,8 @@ metadata <- function() {
 			epsgin = 4326, #TODO: CHECK
 			epsgout = 32621
 		),
+
+		# NL caribou
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
 			name = 'NL-Provincial-Caribou-Telemetry',
@@ -47,6 +52,50 @@ metadata <- function() {
 			epsgin = 'EPSG_CODE',
 			epsgout = 32621,
 			splitBy = 'HERD'
+		),
+
+		# Vita elk (Lotek)
+		data.table(
+			path = 'input/vita_elk_lotek_feb_2016-july_2019.csv',
+			name = 'MB-Vita-Elk-Telemetry_Lotek',
+			long = 'long',
+			lat = 'lat',
+			id = 'animal_ID',
+			datetime = 'time_utc',
+			extracols = c('status'),
+			deployment = 'input/vita-elk-lotek-deployment.csv',
+			tz = 'UTC',
+			epsgin = 4326,
+			epsgout = 32614 # Zone 14N
+		),
+
+		# Vita elk (Vectronic)
+		data.table(
+			path = 'input/vita_elk_vectronic_feb_2019-march_2021.csv',
+			name = 'MB-Vita-Elk-Telemetry_Vectronic',
+			long = 'long',
+			lat = 'lat',
+			id = 'animal_ID',
+			datetime = 'time_utc',
+			extracols = c('status'),
+			deployment = 'input/vita-elk-vectronic-deployment.csv',
+			tz = 'UTC',
+			epsgin = 4326,
+			epsgout = 32614 #Zone 14N
+		),
+
+		# RMNP elk
+		data.table(
+			path = 'input/RMNPdata2006-2015CleanedLN.csv',
+			name = 'MB-RMNP-Elk-Telemetry',
+			long = 'X',
+			lat = 'Y',
+			id = 'EarTag',
+			datetime = 'DateTime',
+			extracols = NA,
+			tz = 'GMT', # TODO: triple check
+			epsgin = 32614,
+			epsgout = 32614
 		)
 	),
 	fill = TRUE)

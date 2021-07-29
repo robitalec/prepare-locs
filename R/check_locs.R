@@ -3,16 +3,20 @@
 #' using functions check_longlat and check_loc_meta
 #'
 #' @param DT
+#' @param meta
 #'
 #' @return
 #' @export
 #' @author Alec L. Robitaille
 #'
 #' @examples
-check_locs <- function(DT) {
-	check_truelength(DT)
+filter_locs <- function(DT, meta) {
+	data.table::setalloccol(DT)
 	check_longlat(DT)
 	check_locs_meta(DT)
+
+	if (!is.na(meta$deployment)) check_deployment(DT, meta)
+
 	DT[!is.na(flag), c('long', 'lat') := NaN]
 	return(DT)
 }
@@ -32,7 +36,7 @@ check_locs <- function(DT) {
 #' DT <- read_data(path = path)
 #' check_longlat(DT)
 check_longlat <- function(DT) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 
 	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
 	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
@@ -72,7 +76,7 @@ check_longlat <- function(DT) {
 #' DT <- read_data(path = path)
 #' check_longlat(DT)
 check_locs_meta <- function(DT) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 
 	# if ('SEX' %in% colnames(DT)) {
 	# 	DT[grepl('F', SEX)]
@@ -98,6 +102,11 @@ check_locs_meta <- function(DT) {
 		DT[, NAV := NULL]
 	}
 
+	if ('status' %in% colnames(DT)) {
+		DT[!grepl('3D', status), flag := why(flag, 'status is not 3D')]
+		DT[, status := NULL]
+	}
+
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste('Collar type is', COLLAR_TYPE_CL))]
 		DT[, COLLAR_TYPE_CL := NULL]
@@ -106,6 +115,43 @@ check_locs_meta <- function(DT) {
 
 
 
+#' Check deployment
+#'
+#' @param DT
+#' @param meta metadata with variable 'deployment' indicating path to csv with three columns indicating 'id' animal id, 'start_date' start of deployment and 'end_date' end of deployment both structured as 'YYYY-MM-DD' formatted character
+#'
+#' @return
+#' @export
+#'
+#' @examples
+check_deployment <- function(DT, meta) {
+	deploy <- data.table::fread(meta$deployment)
+
+	DT[deploy,
+		 flag := why(flag, 'fix date before deployment'),
+		 on = .(id == id, idate < start_date)]
+
+	DT[deploy,
+		 flag := why(flag, 'fix date after deployment'),
+		 on = .(id == id, idate > end_date)]
+
+	DT
+}
+
+
+
+
+#' Why flag why
+#'
+#' Appends flag to existing flag(s)
+#'
+#' @param flag
+#' @param why
+#'
+#' @return
+#' @export
+#'
+#' @examples
 why <- function(flag, why) {
 	data.table::fifelse(is.na(flag), why, paste(flag, why, sep = ', '))
 }

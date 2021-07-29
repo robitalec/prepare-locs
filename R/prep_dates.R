@@ -13,7 +13,7 @@
 #' DT <- read_data(path = path)
 #' prep_dates(DT, 'Canada/Newfoundland')
 prep_dates <- function(DT, tz) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
 	check_col(DT, 'datetime', 'datetime')
 
 	if (missing(tz)) {
@@ -22,7 +22,9 @@ prep_dates <- function(DT, tz) {
 
 	DT[, datetime := parsedate::parse_date(datetime, default_tz = tz)]
 
-	DT[, doy := data.table::yday(datetime)]
-	DT[, yr := data.table::year(datetime)]
-	DT[, mnth := data.table::month(datetime)]
+	DT[, idate := data.table::as.IDate(datetime)]
+
+	DT[, doy := data.table::yday(idate)]
+	DT[, yr := data.table::year(idate)]
+	DT[, mnth := data.table::month(idate)]
 }
