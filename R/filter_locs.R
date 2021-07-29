@@ -132,6 +132,18 @@ check_deployment <- function(DT, deployment) {
 
 
 
+
+#' Why flag why
+#'
+#' Appends flag to existing flag(s)
+#'
+#' @param flag
+#' @param why
+#'
+#' @return
+#' @export
+#'
+#' @examples
 why <- function(flag, why) {
 	data.table::fifelse(is.na(flag), why, paste(flag, why, sep = ', '))
 }
