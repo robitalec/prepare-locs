@@ -47,6 +47,42 @@ metadata <- function() {
 			epsgin = 'EPSG_CODE',
 			epsgout = 32621,
 			splitBy = 'HERD'
+		),
+		data.table(
+			path = 'input/vita_elk_lotek.csv',
+			name = 'MB-Vita-Elk-Telemetry_Lotek',
+			long = 'long',
+			lat = 'lat',
+			id = 'animal_ID',
+			datetime = 'time_utc',
+			extracols = NA,
+			tz = 'UTC',
+			epsgin = 4326,
+			epsgout = #TODO
+		),
+		data.table(
+			path = 'input/vita_elk_vectronic.csv',
+			name = 'MB-Vita-Elk-Telemetry_Vectronic',
+			long = 'long',
+			lat = 'lat',
+			id = 'animal_ID',
+			datetime = 'time_utc',
+			extracols = NA,
+			tz = 'UTC',
+			epsgin = 4326,
+			epsgout = #TODO
+		),
+		data.table(
+			path = 'input/rmnp_elk.csv',
+			name = 'MB-RMNP-Elk-Telemetry',
+			long = #TODO: long,
+			lat = #TODO: lat,
+			id = 'EarTag',
+			datetime = 'DateTime',
+			extracols = NA,
+			tz = #TODO: tz
+			epsgin = #TODO:
+			epsgout = #TODO
 		)
 	),
 	fill = TRUE)
