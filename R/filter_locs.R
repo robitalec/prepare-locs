@@ -119,9 +119,16 @@ check_locs_meta <- function(DT) {
 check_deployment <- function(DT, deployment) {
 	deploy <- data.table::fread(deployment)
 
-	DT[deploy]
-}
+	DT[deploy,
+		 flag := why(flag, 'fix date before deployment'),
+		 on = .(id == id, idate < start_date)]
 
+	DT[deploy,
+		 flag := why(flag, 'fix date after deployment'),
+		 on = .(id == id, idate > end_date)]
+
+	DT
+}
 
 
 
