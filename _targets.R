@@ -54,8 +54,8 @@ list(
 
 	tar_target(
 		checks,
-		check_locs(dates),
-		pattern = map(dates)
+		check_locs(dates, checkmeta),
+		pattern = map(dates, checkmeta)
 	),
 
 	tar_target(
