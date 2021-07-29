@@ -10,11 +10,12 @@
 #'
 #' @examples
 filter_locs <- function(DT, deployment = NA) {
-	check_truelength(DT)
+	data.table::setalloccol(DT)
+
 	check_longlat(DT)
 	check_locs_meta(DT)
 
-	if (!is.na(deployment)) check_deployment(DT)
+	if (!is.na(deployment)) check_deployment(DT, deployment)
 
 	DT[!is.na(flag), c('long', 'lat') := NaN]
 	return(DT)

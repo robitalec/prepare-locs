@@ -41,14 +41,6 @@ overwrite_col <- function(DT = NULL, col = NULL) {
   }
 }
 
-#' check_truelength
-#' @param DT data.table
-check_truelength <- function(DT) {
-  if (truelength(DT) == 0) {
-    data.table::setalloccol(DT)
-  }
-}
-
 check_missing <- function(x, name) {
   if (missing(x)) {
     stop('must provide ', name)
