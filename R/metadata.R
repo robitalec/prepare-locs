@@ -52,41 +52,47 @@ metadata <- function() {
 			epsgout = 32621,
 			splitBy = 'HERD'
 		),
+
+		# Vita elk (Lotek)
 		data.table(
-			path = 'input/vita_elk_lotek.csv',
+			path = 'input/vita_elk_lotek_feb_2016-july_2019.csv',
 			name = 'MB-Vita-Elk-Telemetry_Lotek',
 			long = 'long',
 			lat = 'lat',
 			id = 'animal_ID',
 			datetime = 'time_utc',
-			extracols = NA,
+			extracols = c('status'),
 			tz = 'UTC',
 			epsgin = 4326,
-			epsgout = #TODO
+			epsgout = 32614 # Zone 14N
 		),
+
+		# Vita elk (Vectronic)
 		data.table(
 			path = 'input/vita_elk_vectronic.csv',
 			name = 'MB-Vita-Elk-Telemetry_Vectronic',
 			long = 'long',
 			lat = 'lat',
-			id = 'animal_ID',
+			id = #'animal_ID',
 			datetime = 'time_utc',
-			extracols = NA,
+			extracols = c('status'),
 			tz = 'UTC',
 			epsgin = 4326,
-			epsgout = #TODO
+			epsgout = 32614 #Zone 14N
 		),
+
+		# RMNP elk
 		data.table(
-			path = 'input/rmnp_elk.csv',
+			path = 'input/RMNPdata2006-2015CleanedLN.csv',
 			name = 'MB-RMNP-Elk-Telemetry',
-			long = #TODO: long,
-			lat = #TODO: lat,
+			long = 'X',
+			lat = 'Y',
 			id = 'EarTag',
 			datetime = 'DateTime',
 			extracols = NA,
-			tz = #TODO: tz
-			epsgin = #TODO:
-			epsgout = #TODO
+			tz = 'GMT', # TODO: triple check
+			epsgin = 32614,
+			epsgout = 32614
 		)
 	),
 	fill = TRUE)
