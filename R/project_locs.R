@@ -38,12 +38,11 @@ project_locs <- function(DT, epsgin, epsgout) {
 		# DT
 	} else if (!is.na(as.numeric(epsgin))) {
 		if (!sf::st_is_longlat(sf::st_crs(as.numeric(epsgin)))) {
-			warning('epsgin is not long lat, checks will break')
-			# TODO: make this error after fix RMNP
+			stop('epsgin must be long lat (unprojected)')
 		}
 
 		if (sf::st_is_longlat(sf::st_crs(epsgout))) {
-			stop('epsgout must not be long lat, unprojected')
+			stop('epsgout must not be long lat (unprojected)')
 		}
 
 		if (epsgin == epsgout) {
