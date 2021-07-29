@@ -9,10 +9,13 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-filter_locs <- function(DT) {
+filter_locs <- function(DT, deployment = NA) {
 	check_truelength(DT)
 	check_longlat(DT)
 	check_locs_meta(DT)
+
+	if (!is.na(deployment)) check_deployment(DT)
+
 	DT[!is.na(flag), c('long', 'lat') := NaN]
 	return(DT)
 }
@@ -101,6 +104,24 @@ check_locs_meta <- function(DT) {
 		DT[, COLLAR_TYPE_CL := NULL]
 	}
 }
+
+
+
+#' Check deployment
+#'
+#' @param DT
+#' @param deployment path to csv with three columns indicating 'id' animal id, 'start_date' start of deployment and 'end_date' end of deployment both structured as 'YYYY-MM-DD' formatted character
+#'
+#' @return
+#' @export
+#'
+#' @examples
+check_deployment <- function(DT, deployment) {
+	deploy <- data.table::fread(deployment)
+
+	DT[deploy]
+}
+
 
 
 

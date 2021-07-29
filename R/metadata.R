@@ -14,6 +14,7 @@
 #' @param tz time zone of datetime columns as stored in the input file
 #' @param epsgin EPSG code of input. if numeric, EPSG code to use for all rows. if character, column name of EPSG code in DT
 #' @param epsgout local projection EPSG code to reproject long+lat into
+#' @param deployment path to deployment CSV. see `check_deployment()`.
 #'
 #' @return
 #' @author Alec L. Robitaille
@@ -62,6 +63,7 @@ metadata <- function() {
 			id = 'animal_ID',
 			datetime = 'time_utc',
 			extracols = c('status'),
+			deployment = 'input/vita-elk-deployment.csv',
 			tz = 'UTC',
 			epsgin = 4326,
 			epsgout = 32614 # Zone 14N
@@ -76,6 +78,7 @@ metadata <- function() {
 			id = 'animal_ID',
 			datetime = 'time_utc',
 			extracols = c('status'),
+			deployment = 'input/vita-elk-deployment.csv',
 			tz = 'UTC',
 			epsgin = 4326,
 			epsgout = 32614 #Zone 14N
