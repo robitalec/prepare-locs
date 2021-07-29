@@ -71,7 +71,7 @@ metadata <- function() {
 
 		# Vita elk (Vectronic)
 		data.table(
-			path = 'input/vita_elk_vectronic.csv',
+			path = 'input/vita_elk_vectronic_feb_2019-march_2021.csv',
 			name = 'MB-Vita-Elk-Telemetry_Vectronic',
 			long = 'long',
 			lat = 'lat',
