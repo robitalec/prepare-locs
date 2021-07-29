@@ -47,9 +47,15 @@ list(
 	),
 
 	tar_target(
+		dates,
+		prep_dates(renames, checkmeta$tz),
+		pattern = map(renames, checkmeta)
+	),
+
+	tar_target(
 		checks,
-		check_locs(renames),
-		pattern = map(renames)
+		check_locs(dates),
+		pattern = map(dates)
 	),
 
 	tar_target(
@@ -59,15 +65,9 @@ list(
 	),
 
 	tar_target(
-		dates,
-		prep_dates(filters, checkmeta$tz),
-		pattern = map(filters, checkmeta)
-	),
-
-	tar_target(
 		coords,
-		project_locs(dates, checkmeta$epsgin, checkmeta$epsgout),
-		pattern = map(dates, checkmeta)
+		project_locs(filters, checkmeta$epsgin, checkmeta$epsgout),
+		pattern = map(filters, checkmeta)
 	),
 
 	tar_target(
