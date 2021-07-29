@@ -63,7 +63,7 @@ metadata <- function() {
 			id = 'animal_ID',
 			datetime = 'time_utc',
 			extracols = c('status'),
-			deployment = 'input/vita-elk-deployment.csv',
+			deployment = 'input/vita-elk-lotek-deployment.csv',
 			tz = 'UTC',
 			epsgin = 4326,
 			epsgout = 32614 # Zone 14N
@@ -78,7 +78,7 @@ metadata <- function() {
 			id = 'animal_ID',
 			datetime = 'time_utc',
 			extracols = c('status'),
-			deployment = 'input/vita-elk-deployment.csv',
+			deployment = 'input/vita-elk-vectronic-deployment.csv',
 			tz = 'UTC',
 			epsgin = 4326,
 			epsgout = 32614 #Zone 14N
