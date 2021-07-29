@@ -60,7 +60,7 @@ list(
 
 	tar_target(
 		checkflags,
-		checks[, cbind(name, .N), flag],
+		setcolorder(checks[, .(name = name[[1]], .N), flag], c(2, 1, 3)),
 		pattern = map(checks)
 	),
 
