@@ -99,6 +99,11 @@ check_locs_meta <- function(DT) {
 		DT[, NAV := NULL]
 	}
 
+	if ('status' %in% colnames(DT)) {
+		DT[!grepl('3D', status), flag := why(flag, 'status is not 3D')]
+		DT[, status := NULL]
+	}
+
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste('Collar type is', COLLAR_TYPE_CL))]
 		DT[, COLLAR_TYPE_CL := NULL]
