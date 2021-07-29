@@ -22,7 +22,9 @@ prep_dates <- function(DT, tz) {
 
 	DT[, datetime := parsedate::parse_date(datetime, default_tz = tz)]
 
-	DT[, doy := data.table::yday(datetime)]
-	DT[, yr := data.table::year(datetime)]
-	DT[, mnth := data.table::month(datetime)]
+	DT[, idate := data.table::as.IDate(datetime)]
+
+	DT[, doy := data.table::yday(idate)]
+	DT[, yr := data.table::year(idate)]
+	DT[, mnth := data.table::month(idate)]
 }
