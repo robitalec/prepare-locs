@@ -23,4 +23,16 @@ vita_vec[]
 # why separated lotek and vectronic
 # EPSG out?
 rmnp <- fread('input/RMNPdata2006-2015CleanedLN.csv')
-fwrite(rmnp, 'input/rmnp_elk_2006_2015.csv')
+rmnp[, (c('long', 'lat')) :=
+	 	data.table::as.data.table(
+	 		sf::sf_project(
+	 			pts = as.matrix(.SD, ncol = 2),
+	 			from = sf::st_crs(as.numeric(32614)),
+	 			keep = TRUE,
+	 			to = sf::st_crs(4326))
+	 	),
+	 .SDcols = c('X', 'Y')]
+
+
+
+fwrite(rmnp, 'input/RMNP_elk_2006_2015.csv')
