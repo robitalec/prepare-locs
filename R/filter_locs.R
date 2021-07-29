@@ -3,19 +3,20 @@
 #' using functions check_longlat and check_loc_meta
 #'
 #' @param DT
+#' @param meta
 #'
 #' @return
 #' @export
 #' @author Alec L. Robitaille
 #'
 #' @examples
-filter_locs <- function(DT, deployment = NA) {
+filter_locs <- function(DT, meta) {
 	data.table::setalloccol(DT)
 
 	check_longlat(DT)
 	check_locs_meta(DT)
 
-	if (!is.na(deployment)) check_deployment(DT, deployment)
+	if (!is.na(meta$deployment)) check_deployment(DT, meta)
 
 	DT[!is.na(flag), c('long', 'lat') := NaN]
 	return(DT)
@@ -116,7 +117,7 @@ check_locs_meta <- function(DT) {
 #' Check deployment
 #'
 #' @param DT
-#' @param deployment path to csv with three columns indicating 'id' animal id, 'start_date' start of deployment and 'end_date' end of deployment both structured as 'YYYY-MM-DD' formatted character
+#' @param meta metadata with variable 'deployment' indicating path to csv with three columns indicating 'id' animal id, 'start_date' start of deployment and 'end_date' end of deployment both structured as 'YYYY-MM-DD' formatted character
 #'
 #' @return
 #' @export
