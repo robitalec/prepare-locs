@@ -59,6 +59,12 @@ list(
 	),
 
 	tar_target(
+		checkflags,
+		checks[, cbind(name, .N), flag],
+		pattern = map(checks)
+	),
+
+	tar_target(
 		filters,
 		checks[is.na(flag)],
 		pattern = map(checks)
