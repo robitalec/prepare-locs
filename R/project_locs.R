@@ -14,6 +14,15 @@ project_locs <- function(DT, epsgin, epsgout) {
 	coords <- c('long', 'lat')
 	projcoords <- paste0('proj', coords)
 
+	if (!sf::st_is_longlat(st_crs(epsgin))) {
+		warning('epsgin is not long lat, checks will break')
+		# TODO: make this error after fix RMNP
+	}
+
+	if (sf::st_is_longlat(st_crs(epsgout))) {
+		stop('epsgout must not be long lat, unprojected')
+	}
+
 	if (epsgin == epsgout) {
 		warning('epsgin is equal to epsgout')
 		warning('are you sure your input coordinates are already projected?')
