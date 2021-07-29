@@ -22,6 +22,8 @@
 #' @examples
 metadata <- function() {
 	rbindlist(list(
+
+		# Fogo caribou
 		data.table(
 			path = '../fogo-caribou/data/FogoCaribou.csv',
 			name = 'NL-Fogo-Caribou-Telemetry',
@@ -34,6 +36,8 @@ metadata <- function() {
 			epsgin = 4326, #TODO: CHECK
 			epsgout = 32621
 		),
+
+		# NL caribou
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
 			name = 'NL-Provincial-Caribou-Telemetry',
