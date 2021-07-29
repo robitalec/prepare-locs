@@ -13,5 +13,5 @@
 read_data <- function(path, details) {
 	selects <- details[, na.omit(c(long, lat, id, date, time, datetime, unlist(extracols)))]
 
-	data.table::fread(path, select = selects)
+	data.table::fread(path, select = selects)[, name := details$name]
 }
