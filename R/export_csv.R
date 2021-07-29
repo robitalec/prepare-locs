@@ -12,14 +12,15 @@
 #' @export
 #'
 #' @examples
-export_csv <- function(DT, outpath, name, splitBy) {
+export_csv <- function(DT, outpath, splitBy) {
+	outname <- DT$name[[1]]
 	if (is.na(splitBy)) {
-		o <- file.path(outpath, paste0(name, '.csv'))
+		o <- file.path(outpath, paste0(outname, '.csv'))
 		data.table::fwrite(DT, o)
 		o
 	} else {
 		DT[, {
-			o <- file.path(outpath, paste0(name, '_', .BY[[1]], '.csv'))
+			o <- file.path(outpath, paste0(outname, '_', .BY[[1]], '.csv'))
 			data.table::fwrite(.SD, o)
 			o
 		}, by = splitBy]$V1
