@@ -13,5 +13,7 @@
 read_data <- function(path, meta) {
 	selects <- meta[, na.omit(c(long, lat, id, date, time, datetime, unlist(extracols)))]
 
-	data.table::fread(path, select = selects)[, name := meta$name]
+	DT <- data.table::fread(path, select = selects)
+	DT[, name := meta$name]
+	DT
 }

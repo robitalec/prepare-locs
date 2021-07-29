@@ -26,8 +26,8 @@ set_colnames <- function(DT, long, lat, id, date = NULL, time = NULL, datetime =
 	}
 
 	incols <- colnames(DT)
-	outcols <- c(id, 'datetime', long, lat)
-	outcolsnames <- c('id', 'datetime', 'long', 'lat')
+	outcols <- c('name', id, 'datetime', long, lat)
+	outcolsnames <- c('name', 'id', 'datetime', 'long', 'lat')
 
 	if (!is.na(extracols)) {
 		outcols <- c(outcols, unlist(extracols))
