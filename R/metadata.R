@@ -86,7 +86,7 @@ metadata <- function() {
 
 		# RMNP elk
 		data.table(
-			path = 'input/RMNPdata2006-2015CleanedLN.csv',
+			path = 'input/RMNP_elk_2006_2015.csv',
 			name = 'MB-RMNP-Elk-Telemetry',
 			long = 'long',
 			lat = 'lat',
