@@ -48,8 +48,8 @@ list(
 
 	tar_target(
 		filters,
-		filter_locs(renames),
-		pattern = map(renames)
+		filter_locs(renames, checkmeta$deployement),
+		pattern = map(renames, checkmeta)
 	),
 
 	tar_target(
