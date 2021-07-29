@@ -14,6 +14,14 @@ project_locs <- function(DT, epsgin, epsgout) {
 	coords <- c('long', 'lat')
 	projcoords <- paste0('proj', coords)
 
+	if (epsgin == epsgout) {
+		warning('epsgin is equal to epsgout')
+		warning('are you sure your input coordinates are already projected?')
+
+		DT[, (projcoords) := .SD, .SDcols = c(coords)]
+		return(DT)
+	}
+
 	lapply(coords, function(x) check_col(DT, x))
 	lapply(coords, function(x) check_type(DT, x, 'double'))
 	lapply(projcoords, function(x) overwrite_col(DT, x))
