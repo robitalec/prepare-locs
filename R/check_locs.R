@@ -10,7 +10,7 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-filter_locs <- function(DT, meta) {
+check_locs <- function(DT, meta) {
 	data.table::setalloccol(DT)
 	check_longlat(DT)
 	check_locs_meta(DT)
