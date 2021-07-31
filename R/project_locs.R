@@ -12,7 +12,7 @@ project_locs <- function(DT, epsgin, epsgout) {
 	if (!is.numeric(epsgout)) stop("epsgout must be numeric")
 
 	coords <- c('x_long', 'y_lat')
-	projcoords <- paste0('proj', coords)
+	projcoords <- c('x_proj', 'y_proj')
 
 	lapply(coords, function(x) check_col(DT, x))
 	lapply(coords, function(x) check_type(DT, x, 'double'))
