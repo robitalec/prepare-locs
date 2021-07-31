@@ -26,28 +26,27 @@ tar_read(exports)
 as.vector(tar_read(exports))
 ```
 
-## Output: flag counts
-```{r,  1}
-tar_read(checkflags)
-```
-
 ## Output: column names
 
 | Column name | Description | 
 | ----------- | ----------- | 
 | id          | unique animal identifier | 
 | datetime    | date time in UTC | 
+| doy         | date of year, integer. see `data.table::yday()` | 
+| mnth        | month, integer. see `data.table::month()` | 
+| yr          | year, integer. see `data.table::year()` | 
 | x_long      | longitude, EPSG code provided in `metadata()`. see `R/metadata.R` | 
 | y_lat       | latitude, EPSG code provided in `metadata()`. see `R/metadata.R` |
-| flag        | comma separated flags indicating why locs are dropped and set to NaN | 
-| doy         | date of year, integer. see `data.table::yday()` | 
-| yr          | year, integer. see `data.table::year()` | 
-| mnth        | month, integer. see `data.table::month()` | 
 | x_proj      | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
 | y_proj      | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
 | epsg_proj   | output EPSG of 'x_proj' and 'y_proj' as set in `metadata()`. |
+| flag        | comma separated flags indicating why locs are dropped and set to NaN | 
 | [extracols] | eg. HERD. as provided in the `metadata()`.  see `R/metadata.R` |
 
+## Output: flag counts
+```{r,  1}
+tar_read(checkflags)
+```
 
 ## TODO
 
