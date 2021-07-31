@@ -67,7 +67,7 @@ list(
 
 	tar_target(
 		filters,
-		checks[is.na(flag)],
+		checks[is.na(flag)][, flag := NULL],
 		pattern = map(checks)
 	),
 
