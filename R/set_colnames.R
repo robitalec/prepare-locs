@@ -39,8 +39,3 @@ set_colnames <- function(DT, x_long, y_lat, id, date = NULL, time = NULL, dateti
 	data.table::setcolorder(DT, outcolsnames)
 	DT[, .SD, .SDcols = outcolsnames]
 }
-
-
-to_snake_case <- function(x) {
-	gsub('[^0-9a-z]', '_', tolower(x))
-}
