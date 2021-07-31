@@ -3,7 +3,8 @@ library(targets)
 library(data.table)
 
 
-tar_option_set(workspace_on_error = TRUE)
+tar_option_set(workspace_on_error = TRUE,
+							 format = 'qs')
 
 lapply(dir('R', '*.R', full.names = TRUE), source)
 
