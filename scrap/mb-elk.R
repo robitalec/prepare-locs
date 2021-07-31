@@ -20,8 +20,9 @@ merge(vita_vec,
 vita_vec[]
 
 
-# why separated lotek and vectronic
-# EPSG out?
+# xTODO: why separated lotek and vectronic?
+# xTODO: EPSG out?
+
 rmnp <- fread('input/RMNPdata2006-2015CleanedLN.csv')
 rmnp[, (c('long', 'lat')) :=
 	 	data.table::as.data.table(
