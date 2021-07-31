@@ -49,8 +49,10 @@ as.vector(tar_read(exports))
 | x_proj      | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
 | y_proj      | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
 | epsg_proj   | output EPSG of 'x_proj' and 'y_proj' as set in `metadata()`. |
-| flag        | semi-colon separated flags indicating why locs are dropped and set to NaN | 
 | [extracols] | Extras specified in `metadata()`. Eg. HERD. On output, column names are transformed to snake_case (eg. from 'HERD' to 'herd' or 'COLLAR ID' to 'collar_id')
+
+In target "checkflags", the column named "flag" is a semi-colon separated list of flags indicating why locs are dropped and set to NaN. After target "filters", locs with NaN are dropped. 
+
 
 ## Flag counts
 ```{r,  1}
