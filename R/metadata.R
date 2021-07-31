@@ -4,8 +4,8 @@
 #'
 #'
 #' @param path filepath
-#' @param long unprojected longitude coordinate column name
-#' @param lat unprojected latitude coordinate column name
+#' @param x_long unprojected longitude coordinate column name
+#' @param y_lat unprojected latitude coordinate column name
 #' @param id individual identifier column name
 #' @param datetime datetime column name. either provide datetime or both date and time
 #' @param date date column name. either provide both date and time or datetime
@@ -13,7 +13,7 @@
 #' @param extracols list of extra column names to preserve
 #' @param tz time zone of datetime columns as stored in the input file
 #' @param epsgin EPSG code of input. if numeric, EPSG code to use for all rows. if character, column name of EPSG code in DT
-#' @param epsgout local projection EPSG code to reproject long+lat into
+#' @param epsgout local projection EPSG code to reproject x_long+y_lat into
 #' @param deployment path to deployment CSV. see `check_deployment()`.
 #'
 #' @return
@@ -28,8 +28,8 @@ metadata <- function() {
 		data.table(
 			path = '../fogo-caribou/data/FogoCaribou.csv',
 			name = 'NL-Fogo-Caribou-Telemetry',
-			long = 'X_COORD',
-			lat = 'Y_COORD',
+			x_long = 'X_COORD',
+			y_lat = 'Y_COORD',
 			id = 'ANIMAL_ID',
 			datetime = 'datetime',
 			extracols = NA,
@@ -42,8 +42,8 @@ metadata <- function() {
 		data.table(
 			path = '../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv',
 			name = 'NL-Provincial-Caribou-Telemetry',
-			long = 'X_COORD',
-			lat = 'Y_COORD',
+			x_long = 'X_COORD',
+			y_lat = 'Y_COORD',
 			id = 'ANIMAL_ID',
 			date = 'FIX_DATE',
 			time = 'FIX_TIME',
@@ -58,8 +58,8 @@ metadata <- function() {
 		data.table(
 			path = 'input/vita_elk_lotek_feb_2016-july_2019.csv',
 			name = 'MB-Vita-Elk-Telemetry_Lotek',
-			long = 'long',
-			lat = 'lat',
+			x_long = 'long',
+			y_lat = 'lat',
 			id = 'animal_ID',
 			datetime = 'time_utc',
 			extracols = c('status'),
@@ -73,8 +73,8 @@ metadata <- function() {
 		data.table(
 			path = 'input/vita_elk_vectronic_feb_2019-march_2021.csv',
 			name = 'MB-Vita-Elk-Telemetry_Vectronic',
-			long = 'long',
-			lat = 'lat',
+			x_long = 'long',
+			y_lat = 'lat',
 			id = 'animal_ID',
 			datetime = 'time_utc',
 			extracols = c('status'),
@@ -88,8 +88,8 @@ metadata <- function() {
 		data.table(
 			path = 'input/RMNP_elk_2006_2015.csv',
 			name = 'MB-RMNP-Elk-Telemetry',
-			long = 'long',
-			lat = 'lat',
+			x_long = 'long',
+			y_lat = 'lat',
 			id = 'EarTag',
 			datetime = 'DateTime',
 			extracols = NA,

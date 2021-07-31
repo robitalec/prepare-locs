@@ -17,7 +17,7 @@ check_locs <- function(DT, meta) {
 
 	if (!is.na(meta$deployment)) check_deployment(DT, meta)
 
-	DT[!is.na(flag), c('long', 'lat') := NaN]
+	DT[!is.na(flag), c('x_long', 'y_lat') := NaN]
 	return(DT)
 }
 
@@ -38,24 +38,24 @@ check_locs <- function(DT, meta) {
 check_longlat <- function(DT) {
 	data.table::setalloccol(DT)
 
-	if (DT[, !is.numeric(long)]) DT[, long := is.numeric(long)]
-	if (DT[, !is.numeric(lat)]) DT[, lat := is.numeric(lat)]
+	if (DT[, !is.numeric(x_long)]) DT[, x_long := is.numeric(x_long)]
+	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := is.numeric(y_lat)]
 
 	data.table::set(DT, j = 'flag', value = NA_character_)
-	DT[!between(long, -180, 360), flag := why(flag, 'long not between -180, 360')]
-	DT[!between(lat, -90, 90), flag := why(flag, 'lat not between -90, 90')]
+	DT[!between(x_long, -180, 360), flag := why(flag, 'x_long not between -180, 360')]
+	DT[!between(y_lat, -90, 90), flag := why(flag, 'y_lat not between -90, 90')]
 
-	DT[long == 0,  flag := why(flag, 'long is 0')]
-	DT[lat == 0,  flag := why(flag, 'lat is 0')]
+	DT[x_long == 0,  flag := why(flag, 'x_long is 0')]
+	DT[y_lat == 0,  flag := why(flag, 'y_lat is 0')]
 
-	DT[long == lat, flag := why(flag, 'long == lat')]
+	DT[x_long == y_lat, flag := why(flag, 'x_long == y_lat')]
 
-	DT[is.na(long), flag := why(flag, 'long is NA')]
-	DT[is.nan(long), flag := why(flag, 'long is NaN')]
-	DT[is.na(lat), flag := why(flag, 'lat is NA')]
-	DT[is.nan(lat), flag := why(flag, 'lat is NaN')]
+	DT[is.na(x_long), flag := why(flag, 'x_long is NA')]
+	DT[is.nan(x_long), flag := why(flag, 'x_long is NaN')]
+	DT[is.na(y_lat), flag := why(flag, 'y_lat is NA')]
+	DT[is.nan(y_lat), flag := why(flag, 'y_lat is NaN')]
 
-	DT[duplicated(DT, by = c('id', 'doy', 'yr', 'long', 'lat')), flag := why(flag, 'loc is duplicated')]
+	DT[duplicated(DT, by = c('id', 'doy', 'yr', 'x_long', 'y_lat')), flag := why(flag, 'loc is duplicated')]
 
 	DT
 }

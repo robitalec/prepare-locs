@@ -11,7 +11,7 @@
 #' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
 #' DT <- read_data(path = path)
 read_data <- function(path, meta) {
-	selects <- meta[, na.omit(c(long, lat, id, date, time, datetime, unlist(extracols)))]
+	selects <- meta[, na.omit(c(x_long, y_lat, id, date, time, datetime, unlist(extracols)))]
 
 	DT <- data.table::fread(path, select = selects)
 	DT[, name := meta$name]

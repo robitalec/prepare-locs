@@ -10,11 +10,11 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-set_colnames <- function(DT, long, lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
+set_colnames <- function(DT, x_long, y_lat, id, date = NULL, time = NULL, datetime = NULL, extracols = NULL) {
 	check_missing(DT, 'input DT')
 	data.table::setalloccol(DT)
-	check_missing(long, 'long column name')
-	check_missing(lat, 'lat column name')
+	check_missing(x_long, 'x_long column name')
+	check_missing(y_lat, 'y_lat column name')
 	check_missing(id, 'id column name')
 
 	if (is.na(datetime) & !is.na(date) & !is.na(time)){
@@ -26,8 +26,8 @@ set_colnames <- function(DT, long, lat, id, date = NULL, time = NULL, datetime =
 	}
 
 	incols <- colnames(DT)
-	outcols <- c('name', id, 'datetime', long, lat)
-	outcolsnames <- c('name', 'id', 'datetime', 'long', 'lat')
+	outcols <- c('name', id, 'datetime', x_long, y_lat)
+	outcolsnames <- c('name', 'id', 'datetime', 'x_long', 'y_lat')
 
 	if (!is.na(extracols)) {
 		outcols <- c(outcols, unlist(extracols))

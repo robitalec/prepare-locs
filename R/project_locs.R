@@ -11,7 +11,7 @@ project_locs <- function(DT, epsgin, epsgout) {
 	data.table::setalloccol(DT)
 	if (!is.numeric(epsgout)) stop("epsgout must be numeric")
 
-	coords <- c('long', 'lat')
+	coords <- c('x_long', 'y_lat')
 	projcoords <- paste0('proj', coords)
 
 	lapply(coords, function(x) check_col(DT, x))
