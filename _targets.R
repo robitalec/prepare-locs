@@ -35,8 +35,8 @@ list(
 		renames,
 		set_colnames(
 			DT = reads,
-			long = checkmeta$long,
-			lat = checkmeta$lat,
+			x_long = checkmeta$x_long,
+			y_lat = checkmeta$y_lat,
 			id = checkmeta$id,
 			date = checkmeta$date,
 			time = checkmeta$time,
