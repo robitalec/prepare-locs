@@ -35,7 +35,7 @@ project_locs <- function(DT, epsgin, epsgout) {
 			 .SDcols = coords,
 			 by = epsgin]
 		DT[, epsg_proj := .SD, .SDcols = c(epsgin)]
-		DT[, epsgin := NULL]
+		data.table::set(DT, j = epsgin, value = NULL)
 		DT
 	} else if (!is.na(as.numeric(epsgin))) {
 		if (!sf::st_is_longlat(sf::st_crs(as.numeric(epsgin)))) {
