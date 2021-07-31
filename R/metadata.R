@@ -33,7 +33,7 @@ metadata <- function() {
 			id = 'ANIMAL_ID',
 			datetime = 'datetime',
 			extracols = NA,
-			tz = grep('Newfoundland', OlsonNames(), value = TRUE),
+			tz = 'UTC',
 			epsgin = 4326, #TODO: CHECK
 			epsgout = 32621
 		),
