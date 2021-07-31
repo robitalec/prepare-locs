@@ -1,10 +1,13 @@
 ---
-output: github_document
+title: prepare-locs
+output: 
+  github_document:
+    toc: true
 ---
 
-# prepare-locs
+---
 
-A `targets` workflow for processing animal relocation data from the WEEL. 
+A `targets` workflow for processing animal relocation data for the WEEL. 
 
 ```{r, eval = FALSE}
 library(targets)
@@ -17,12 +20,13 @@ suppressPackageStartupMessages(library(printr))
 visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
 ```
 
-## Input
+# Input
 ```{r}
 tar_read(meta)
 ```
 
-## Output: files
+# Output
+## Files
 ```{r, eval = FALSE}
 tar_read(exports)
 ```
@@ -31,7 +35,7 @@ tar_read(exports)
 as.vector(tar_read(exports))
 ```
 
-## Output: column names
+## Column names
 
 | Column name | Description | 
 | ----------- | ----------- | 
@@ -48,17 +52,17 @@ as.vector(tar_read(exports))
 | flag        | semi-colon separated flags indicating why locs are dropped and set to NaN | 
 | [extracols] | eg. HERD. as provided in the `metadata()`.  see `R/metadata.R` |
 
-## Output: flag counts
+## Flag counts
 ```{r,  1}
 tar_read(checkflags)
 ```
 
-## TODO
+# TODO
 
 * 6030 not recognized by PROJ because it's not a complete CRS.. 
 
 
-## Etc
+# Etc
 Screening GPS fixes:
 
 * https://ropensci.github.io/CoordinateCleaner/articles/Comparison_other_software.html
