@@ -7,17 +7,29 @@ output: github_document
 A `targets` workflow for processing animal relocation data from the WEEL. 
 
 ```{r, eval = FALSE}
-targets::tar_visnetwork()
+library(targets)
+tar_visnetwork()
 ```
 
 ```{r viz, echo = FALSE}
-visNetwork::visNodes(targets::tar_visnetwork(), size = 20, font=list(size=25))
+library(targets)
+library(printr)
+visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
 ```
 
-## Processed data
+## Output: files
+```{r, eval = FALSE}
+tar_read(exports)
+```
 
+```{r, echo = FALSE}
+as.vector(tar_read(exports))
+```
 
 ## Output: flag counts
+```{r,  1}
+tar_read(checkflags)
+```
 
 ## Output: column names
 
