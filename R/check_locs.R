@@ -84,32 +84,33 @@ check_locs_meta <- function(DT) {
 
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', flag := why(flag, 'Map_Quality is N')]
-		DT[, Map_Quality := NULL]
+		data.table::set(DT, j = 'Map_Quality', value = NULL)
 	}
 
 	if ('EXCLUDE' %in% colnames(DT)) {
 		DT[EXCLUDE == 'Y', flag := why(flag, 'EXCLUDE is Y')]
-		DT[, EXCLUDE := NULL]
+		data.table::set(DT, j = 'EXCLUDE', value = NULL)
 	}
 
 	if ('DOP' %in% colnames(DT)) {
 		DT[DOP > 10, flag := why(flag, 'DOP > 10')]
-		DT[, DOP := NULL]
+		data.table::set(DT, j = 'DOP', value = NULL)
 	}
 
 	if ('NAV' %in% colnames(DT)) {
 		DT[NAV %in% c('2D', 'No'), flag := why(flag, paste('NAV is', NAV))]
-		DT[, NAV := NULL]
-	}
+		data.table::set(DT, j = 'NAV', value = NULL)
 
-	if ('status' %in% colnames(DT)) {
-		DT[!grepl('3D', status), flag := why(flag, 'status is not 3D')]
-		DT[, status := NULL]
 	}
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste('Collar type is', COLLAR_TYPE_CL))]
-		DT[, COLLAR_TYPE_CL := NULL]
+		data.table::set(DT, j = 'COLLAR_TYPE_CL', value = NULL)
+	}
+
+	if ('status' %in% colnames(DT)) {
+		DT[!grepl('3D', status), flag := why(flag, 'status is not 3D')]
+		data.table::set(DT, j = 'status', value = NULL)
 	}
 
 	DT
