@@ -25,13 +25,22 @@ export_csv <- function(DT, outpath, splitBy, extracols) {
 	if (is.na(splitBy)) {
 		o <- file.path(outpath, paste0(outname, '.csv'))
 		data.table::fwrite(DT, o)
-		data.table::data.table(output_path = o, n_rows = nrow(DT), column_names = list(colnames(DT)))
+		data.table::data.table(
+			name = outname,
+			output_path = o,
+			n_rows = nrow(DT),
+			split_by = NA,
+			column_names = list(colnames(DT))
+		)
 	} else {
-		DT[, {
+		snakesplit <- to_snake_case(splitBy)
+		out <- DT[, {
 			o <- file.path(outpath, paste0(outname, '_', .BY[[1]], '.csv'))
 			data.table::fwrite(.SD, o)
-			list(output_path = o, n_rows = .N, column_names = list(colnames(DT)))
-		}, by = eval(to_snake_case(splitBy))]
+			list(name = outname, output_path = o, n_rows = .N,
+					 split_by = snakesplit, column_names = list(colnames(DT)))
+		}, by = eval(snakesplit)]
+		out[, .SD, .SDcols = -snakesplit]
 	}
 }
 
