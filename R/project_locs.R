@@ -59,5 +59,7 @@ project_locs <- function(DT, epsgin, epsgout) {
 			 			to = sf::st_crs(epsgout))
 			 	),
 			 .SDcols = coords]
+		DT[, epsg_proj := as.numeric(epsgin)]
+		DT
 	}
 }
