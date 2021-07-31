@@ -13,7 +13,7 @@ tar_visnetwork()
 
 ```{r viz, echo = FALSE}
 library(targets)
-library(printr)
+suppressPackageStartupMessages(library(printr))
 visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
 ```
 
