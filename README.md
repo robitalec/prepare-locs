@@ -42,41 +42,41 @@ tar_read(meta)
 tar_read(exports)
 ```
 
-| output\_path                                         | n\_rows | column\_names                                                                                                    | herd     |
-|:-----------------------------------------------------|--------:|:-----------------------------------------------------------------------------------------------------------------|:---------|
-| output/NL-Fogo-Caribou-Telemetry.csv                 |  156019 | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      | NA       |
-| output/NL-Provincial-Caribou-Telemetry\_BUCHANS.csv  |  254028 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | BUCHANS  |
-| output/NL-Provincial-Caribou-Telemetry\_GREY.csv     |  270983 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | GREY     |
-| output/NL-Provincial-Caribou-Telemetry\_GREYVIC.csv  |   11136 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | GREYVIC  |
-| output/NL-Provincial-Caribou-Telemetry\_GROSMORN.csv |   42136 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | GROSMORN |
-| output/NL-Provincial-Caribou-Telemetry\_LAPOILE.csv  |  247849 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | LAPOILE  |
-| output/NL-Provincial-Caribou-Telemetry\_MIDRIDGE.csv |  389278 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | MIDRIDGE |
-| output/NL-Provincial-Caribou-Telemetry\_MTPEYTON.csv |   55030 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | MTPEYTON |
-| output/NL-Provincial-Caribou-Telemetry\_OLDMANS.csv  |   11536 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | OLDMANS  |
-| output/NL-Provincial-Caribou-Telemetry\_POTHILL.csv  |  242092 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | POTHILL  |
-| output/NL-Provincial-Caribou-Telemetry\_STEPHENV.csv |   44772 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | STEPHENV |
-| output/NL-Provincial-Caribou-Telemetry\_TOPSAILS.csv |  356426 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | TOPSAILS |
-| output/NL-Provincial-Caribou-Telemetry\_UNKNOWN.csv  |   15818 | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj | UNKNOWN  |
-| output/MB-Vita-Elk-Telemetry\_Lotek.csv              |   10022 | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      | NA       |
-| output/MB-Vita-Elk-Telemetry\_Vectronic.csv          |  208239 | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      | NA       |
-| output/MB-RMNP-Elk-Telemetry.csv                     |   50080 | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      | NA       |
+| name                             | output\_path                                         | n\_rows | split\_by | column\_names                                                                                                    |
+|:---------------------------------|:-----------------------------------------------------|--------:|:----------|:-----------------------------------------------------------------------------------------------------------------|
+| NL-Fogo-Caribou-Telemetry        | output/NL-Fogo-Caribou-Telemetry.csv                 |  156019 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_BUCHANS.csv  |  254028 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREY.csv     |  270983 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREYVIC.csv  |   11136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GROSMORN.csv |   42136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_LAPOILE.csv  |  247849 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_MIDRIDGE.csv |  389278 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_MTPEYTON.csv |   55030 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_OLDMANS.csv  |   11536 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_POTHILL.csv  |  242092 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_STEPHENV.csv |   44772 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_TOPSAILS.csv |  356426 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_UNKNOWN.csv  |   15818 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , flag , x\_proj , y\_proj , epsg\_proj |
+| MB-Vita-Elk-Telemetry\_Lotek     | output/MB-Vita-Elk-Telemetry\_Lotek.csv              |   10022 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      |
+| MB-Vita-Elk-Telemetry\_Vectronic | output/MB-Vita-Elk-Telemetry\_Vectronic.csv          |  208239 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      |
+| MB-RMNP-Elk-Telemetry            | output/MB-RMNP-Elk-Telemetry.csv                     |   50080 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , flag , x\_proj , y\_proj                      |
 
 ## Column names
 
-| Column name   | Description                                                                  |
-|---------------|------------------------------------------------------------------------------|
-| id            | unique animal identifier                                                     |
-| datetime      | date time in UTC                                                             |
-| doy           | date of year, integer. see `data.table::yday()`                              |
-| mnth          | month, integer. see `data.table::month()`                                    |
-| yr            | year, integer. see `data.table::year()`                                      |
-| x\_long       | longitude, EPSG code provided in `metadata()`. see `R/metadata.R`            |
-| y\_lat        | latitude, EPSG code provided in `metadata()`. see `R/metadata.R`             |
-| x\_proj       | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |
-| y\_proj       | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |
-| epsg\_proj    | output EPSG of ‘x\_proj’ and ‘y\_proj’ as set in `metadata()`.               |
-| flag          | semi-colon separated flags indicating why locs are dropped and set to NaN    |
-| \[extracols\] | eg. HERD. as provided in the `metadata()`. see `R/metadata.R`                |
+| Column name   | Description                                                                                                                                                   |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id            | unique animal identifier                                                                                                                                      |
+| datetime      | date time in UTC                                                                                                                                              |
+| doy           | date of year, integer. see `data.table::yday()`                                                                                                               |
+| mnth          | month, integer. see `data.table::month()`                                                                                                                     |
+| yr            | year, integer. see `data.table::year()`                                                                                                                       |
+| x\_long       | longitude, EPSG code provided in `metadata()`. see `R/metadata.R`                                                                                             |
+| y\_lat        | latitude, EPSG code provided in `metadata()`. see `R/metadata.R`                                                                                              |
+| x\_proj       | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R`                                                                                  |
+| y\_proj       | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R`                                                                                  |
+| epsg\_proj    | output EPSG of ‘x\_proj’ and ‘y\_proj’ as set in `metadata()`.                                                                                                |
+| flag          | semi-colon separated flags indicating why locs are dropped and set to NaN                                                                                     |
+| \[extracols\] | Extras specified in `metadata()`. Eg. HERD. On output, column names are transformed to snake\_case (eg. from ‘HERD’ to ‘herd’ or ‘COLLAR ID’ to ‘collar\_id’) |
 
 ## Flag counts
 
