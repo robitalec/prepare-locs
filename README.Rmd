@@ -14,21 +14,26 @@ targets::tar_visnetwork()
 visNetwork::visNodes(targets::tar_visnetwork(), size = 20, font=list(size=25))
 ```
 
+## Processed data
 
-## Output
+
+## Output: flag counts
+
+## Output: column names
 
 | Column name | Description | 
 | ----------- | ----------- | 
 | id          | unique animal identifier | 
 | datetime    | date time in UTC | 
-| long        | longitude, EPSG code provided in `metadata()`. see `R/metadata.R` | 
-| lat         | latitude, EPSG code provided in `metadata()`. see `R/metadata.R` |
+| x_long      | longitude, EPSG code provided in `metadata()`. see `R/metadata.R` | 
+| y_lat       | latitude, EPSG code provided in `metadata()`. see `R/metadata.R` |
 | flag        | comma separated flags indicating why locs are dropped and set to NaN | 
 | doy         | date of year, integer. see `data.table::yday()` | 
 | yr          | year, integer. see `data.table::year()` | 
 | mnth        | month, integer. see `data.table::month()` | 
-| projlong    | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
-| projlat     | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
+| x_proj      | projected x coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
+| y_proj      | projected y coordinate, output EPSG code in `metadata()`. see `R/metadata.R` |  
+| epsg_proj   | output EPSG of 'x_proj' and 'y_proj' as set in `metadata()`. |
 | [extracols] | eg. HERD. as provided in the `metadata()`.  see `R/metadata.R` |
 
 
