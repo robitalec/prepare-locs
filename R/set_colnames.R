@@ -31,7 +31,7 @@ set_colnames <- function(DT, x_long, y_lat, id, date = NULL, time = NULL, dateti
 
 	if (!is.na(extracols)) {
 		outcols <- c(outcols, unlist(extracols))
-		outcolsnames <- c(outcolsnames, to_snake_case(unlist(extracols)))
+		outcolsnames <- c(outcolsnames, unlist(extracols))
 	}
 
 	lapply(outcols, function(x) check_col(DT, x))

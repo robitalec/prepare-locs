@@ -12,8 +12,13 @@
 #' @export
 #'
 #' @examples
-export_csv <- function(DT, outpath, splitBy) {
+export_csv <- function(DT, outpath, splitBy, extracols) {
 	outname <- DT$name[[1]]
+
+	if (!is.na(extracols)) {
+		data.table::setnames(DT, unlist(extracols), to_snake_case(unlist(extracols)))
+	}
+
 	if (is.na(splitBy)) {
 		o <- file.path(outpath, paste0(outname, '.csv'))
 		data.table::fwrite(DT, o)
