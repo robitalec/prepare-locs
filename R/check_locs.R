@@ -153,5 +153,5 @@ check_deployment <- function(DT, meta) {
 #'
 #' @examples
 why <- function(flag, why) {
-	data.table::fifelse(is.na(flag), why, paste(flag, why, sep = ', '))
+	data.table::fifelse(is.na(flag), why, paste(flag, why, sep = '; '))
 }
