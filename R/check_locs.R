@@ -42,8 +42,8 @@ check_longlat <- function(DT) {
 	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := is.numeric(y_lat)]
 
 	data.table::set(DT, j = 'flag', value = NA_character_)
-	DT[!between(x_long, -180, 360), flag := why(flag, 'x_long not between -180, 360')]
-	DT[!between(y_lat, -90, 90), flag := why(flag, 'y_lat not between -90, 90')]
+	DT[!data.table::between(x_long, -180, 360), flag := why(flag, 'x_long not between -180, 360')]
+	DT[!data.table::between(y_lat, -90, 90), flag := why(flag, 'y_lat not between -90, 90')]
 
 	DT[x_long == 0,  flag := why(flag, 'x_long is 0')]
 	DT[y_lat == 0,  flag := why(flag, 'y_lat is 0')]
@@ -78,39 +78,34 @@ check_longlat <- function(DT) {
 check_locs_meta <- function(DT) {
 	data.table::setalloccol(DT)
 
-	# if ('SEX' %in% colnames(DT)) {
-	# 	DT[grepl('F', SEX)]
-	# }
-
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', flag := why(flag, 'Map_Quality is N')]
-		data.table::set(DT, j = 'Map_Quality', value = NULL)
+		DT[, Map_Quality := NULL]
 	}
 
 	if ('EXCLUDE' %in% colnames(DT)) {
 		DT[EXCLUDE == 'Y', flag := why(flag, 'EXCLUDE is Y')]
-		data.table::set(DT, j = 'EXCLUDE', value = NULL)
+		DT[, EXCLUDE := NULL]
 	}
 
 	if ('DOP' %in% colnames(DT)) {
 		DT[DOP > 10, flag := why(flag, 'DOP > 10')]
-		data.table::set(DT, j = 'DOP', value = NULL)
+		DT[, DOP := NULL]
 	}
 
 	if ('NAV' %in% colnames(DT)) {
 		DT[NAV %in% c('2D', 'No'), flag := why(flag, paste('NAV is', NAV))]
-		data.table::set(DT, j = 'NAV', value = NULL)
-
+		DT[, NAV := NULL]
 	}
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste('Collar type is', COLLAR_TYPE_CL))]
-		data.table::set(DT, j = 'COLLAR_TYPE_CL', value = NULL)
+		DT[, COLLAR_TYPE_CL := NULL]
 	}
 
 	if ('status' %in% colnames(DT)) {
 		DT[!grepl('3D', status), flag := why(flag, 'status is not 3D')]
-		data.table::set(DT, j = 'status', value = NULL)
+		DT[, status := NULL]
 	}
 
 	DT
