@@ -13,21 +13,29 @@
 #'
 #' @examples
 export_csv <- function(DT, outpath, splitBy, extracols) {
+	data.table::setalloccol(DT)
+
 	outname <- DT$name[[1]]
 
 	if (!is.na(extracols)) {
-		data.table::setnames(DT, unlist(extracols), to_snake_case(unlist(extracols)))
+		selextra <- unlist(extracols)[unlist(extracols) %in% colnames(DT)]
+		data.table::setnames(DT, selextra, to_snake_case(selextra))
 	}
 
 	if (is.na(splitBy)) {
 		o <- file.path(outpath, paste0(outname, '.csv'))
 		data.table::fwrite(DT, o)
-		o
+		list(output_path = o, N_rows = nrow(DT), column_names = colnames(DT))
 	} else {
 		DT[, {
 			o <- file.path(outpath, paste0(outname, '_', .BY[[1]], '.csv'))
 			data.table::fwrite(.SD, o)
-			o
-		}, by = splitBy]$V1
+			list(output_path = o, N_rows = .N, column_names = colnames(DT))
+		}, by = eval(to_snake_case(splitBy))]
 	}
+}
+
+
+to_snake_case <- function(x) {
+	gsub('[^0-9a-z]', '_', tolower(x))
 }
