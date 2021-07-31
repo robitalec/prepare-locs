@@ -17,6 +17,11 @@ library(printr)
 visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
 ```
 
+## Input
+```{r}
+tar_read(meta)
+```
+
 ## Output: files
 ```{r, eval = FALSE}
 tar_read(exports)
