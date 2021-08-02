@@ -44,7 +44,7 @@ tar_read(exports)
 
 | name                             | output\_path                                         | n\_rows | split\_by | column\_names                                                                                             |
 |:---------------------------------|:-----------------------------------------------------|--------:|:----------|:----------------------------------------------------------------------------------------------------------|
-| NL-Fogo-Caribou-Telemetry        | output/NL-Fogo-Caribou-Telemetry.csv                 |  156019 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj                      |
+| NL-Fogo-Caribou-Telemetry        | output/NL-Fogo-Caribou-Telemetry.csv                 |  156019 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
 | NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_BUCHANS.csv  |  254028 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
 | NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREY.csv     |  270983 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
 | NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREYVIC.csv  |   11136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
@@ -57,9 +57,9 @@ tar_read(exports)
 | NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_STEPHENV.csv |   44772 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
 | NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_TOPSAILS.csv |  356426 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
 | NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_UNKNOWN.csv  |   15818 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| MB-Vita-Elk-Telemetry\_Lotek     | output/MB-Vita-Elk-Telemetry\_Lotek.csv              |   10022 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj                      |
-| MB-Vita-Elk-Telemetry\_Vectronic | output/MB-Vita-Elk-Telemetry\_Vectronic.csv          |  208239 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj                      |
-| MB-RMNP-Elk-Telemetry            | output/MB-RMNP-Elk-Telemetry.csv                     |   50080 | NA        | name , id , datetime, x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj                      |
+| MB-Vita-Elk-Telemetry\_Lotek     | output/MB-Vita-Elk-Telemetry\_Lotek.csv              |   10022 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
+| MB-Vita-Elk-Telemetry\_Vectronic | output/MB-Vita-Elk-Telemetry\_Vectronic.csv          |  208239 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
+| MB-RMNP-Elk-Telemetry            | output/MB-RMNP-Elk-Telemetry.csv                     |   50080 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
 
 ## Column names
 
