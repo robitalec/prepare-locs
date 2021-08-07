@@ -25,6 +25,17 @@ visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
 tar_read(meta)
 ```
 
+# Processing
+
+```{r, eval = FALSE}
+tar_manifest()
+```
+
+```{r, echo = FALSE}
+pander::pander(tar_manifest())
+```
+
+
 # Output
 ## Files
 ```{r, eval = FALSE}

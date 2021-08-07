@@ -2,6 +2,7 @@ prepare-locs
 ================
 
 -   [Input](#input)
+-   [Processing](#processing)
 -   [Output](#output)
     -   [Files](#files)
     -   [Column names](#column-names)
@@ -33,6 +34,26 @@ tar_read(meta)
 | input/vita\_elk\_lotek\_feb\_2016-july\_2019.csv                       | MB-Vita-Elk-Telemetry\_Lotek     | long     | lat      | animal\_ID | time\_utc | status                                                                   | UTC | 4326       |   32614 | NA        | NA        | NA      | input/vita-elk-lotek-deployment.csv     |
 | input/vita\_elk\_vectronic\_feb\_2019-march\_2021.csv                  | MB-Vita-Elk-Telemetry\_Vectronic | long     | lat      | animal\_ID | time\_utc | status                                                                   | UTC | 4326       |   32614 | NA        | NA        | NA      | input/vita-elk-vectronic-deployment.csv |
 | input/RMNP\_elk\_2006\_2015.csv                                        | MB-RMNP-Elk-Telemetry            | long     | lat      | EarTag     | DateTime  | NA                                                                       | GMT | 4326       |   32614 | NA        | NA        | NA      | NA                                      |
+
+# Processing
+
+``` r
+tar_manifest()
+```
+
+|    name    |                                                                                                                                          command                                                                                                                                           |         pattern         |
+|:----------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------:|
+|    meta    |                                                                                                                                         metadata()                                                                                                                                         |           NA            |
+| checkmeta  |                                                                                                                                     check\_meta(meta)                                                                                                                                      |           NA            |
+|   paths    |                                                                                                                                       checkmeta$path                                                                                                                                       |     map(checkmeta)      |
+|   reads    |                                                                                                                                read\_data(paths, checkmeta)                                                                                                                                |  map(paths, checkmeta)  |
+|  renames   | set\_colnames(DT = reads, x\_long = checkmeta$x\_long, \\n y\_lat = checkmeta$y\_lat, id = checkmeta*i**d*, *d**a**t**e* = *c**h**e**c**k**m**e**t**a*date, time = checkmeta*t**i**m**e*, *d**a**t**e**t**i**m**e* = *c**h**e**c**k**m**e**t**a*datetime, extracols = checkmeta$extracols) |  map(reads, checkmeta)  |
+|   dates    |                                                                                                                             prep\_dates(renames, checkmeta$tz)                                                                                                                             | map(renames, checkmeta) |
+|   checks   |                                                                                                                               check\_locs(dates, checkmeta)                                                                                                                                |  map(dates, checkmeta)  |
+| checkflags |                                                                                                           setcolorder(checks\[, .(name = name\[\[1\]\], .N), flag\], c(2, 1, 3))                                                                                                           |       map(checks)       |
+|  filters   |                                                                                                                        checks\[is.na(flag)\]\[, `:=`(flag, NULL)\]                                                                                                                         |       map(checks)       |
+|   coords   |                                                                                                  project\_locs(filters, checkmeta*e**p**s**g**i**n*, *c**h**e**c**k**m**e**t**a*epsgout)                                                                                                   | map(filters, checkmeta) |
+|  exports   |                                                                                            export\_csv(coords, “output”, checkmeta*s**p**l**i**t**B**y*, *c**h**e**c**k**m**e**t**a*extracols)                                                                                             | map(coords, checkmeta)  |
 
 # Output
 
