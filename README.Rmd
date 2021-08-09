@@ -21,6 +21,9 @@ visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
 ```
 
 # Input
+Note: this workflow only processes files if it finds they at the specified path in metadata. This means you can add a row describing your own input data to `metadata()`
+and use the workflow, without needing all other datasets present on your computer. 
+
 ```{r}
 tar_read(meta)
 ```

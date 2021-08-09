@@ -16,6 +16,8 @@ list(
 		metadata()
 	),
 
+	# Note: this prepare locs workflow only processes files if it finds they
+	# 			exist at the specified path in metadata.
 	tar_target(
 		checkmeta,
 		check_meta(meta)
