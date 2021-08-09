@@ -23,6 +23,11 @@ tar_visnetwork()
 
 # Input
 
+Note: this workflow only processes files if it finds they at the
+specified path in metadata. This means you can add a row describing your
+own input data to `metadata()` and use the workflow, without needing all
+other datasets present on your computer.
+
 ``` r
 tar_read(meta)
 ```
@@ -56,6 +61,10 @@ tar_manifest()
 |  exports   |                                                                                            export\_csv(coords, “output”, checkmeta*s**p**l**i**t**B**y*, *c**h**e**c**k**m**e**t**a*extracols)                                                                                             | map(coords, checkmeta)  |
 
 # Output
+
+All outputs can be directly read with `data.table::fread` and the
+datetime column will be automatically converted to POSIXct in UTC
+timezone.
 
 ## Files
 
