@@ -1,4 +1,8 @@
 #' Check metadata
+#'
+#' Checks for duplicate names and filters if file doesn't exist on the current
+#' machine
+#'
 #' @param meta
 #' @return
 #' @author Alec L. Robitaille
@@ -8,5 +12,5 @@ check_meta <- function(meta) {
 
 	if (any(N_name) > 1) stop('found duplicates in "name" column, check metadata')
 
-	return(meta)
+	return(meta[file.exists(path)])
 }
