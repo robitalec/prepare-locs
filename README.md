@@ -63,24 +63,24 @@ tar_manifest()
 tar_read(exports)
 ```
 
-| name                             | output\_path                                         | n\_rows | split\_by | column\_names                                                                                             |
-|:---------------------------------|:-----------------------------------------------------|--------:|:----------|:----------------------------------------------------------------------------------------------------------|
-| NL-Fogo-Caribou-Telemetry        | output/NL-Fogo-Caribou-Telemetry.csv                 |  156019 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_BUCHANS.csv  |  254028 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREY.csv     |  270983 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREYVIC.csv  |   11136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GROSMORN.csv |   42136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_LAPOILE.csv  |  247849 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_MIDRIDGE.csv |  389278 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_MTPEYTON.csv |   55030 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_OLDMANS.csv  |   11536 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_POTHILL.csv  |  242092 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_STEPHENV.csv |   44772 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_TOPSAILS.csv |  356426 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_UNKNOWN.csv  |   15818 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj |
-| MB-Vita-Elk-Telemetry\_Lotek     | output/MB-Vita-Elk-Telemetry\_Lotek.csv              |   10022 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
-| MB-Vita-Elk-Telemetry\_Vectronic | output/MB-Vita-Elk-Telemetry\_Vectronic.csv          |  208239 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
-| MB-RMNP-Elk-Telemetry            | output/MB-RMNP-Elk-Telemetry.csv                     |   50080 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , x\_proj , y\_proj , epsg\_proj        |
+| name                             | output\_path                                         | n\_rows | split\_by | column\_names                                                                                                                  |
+|:---------------------------------|:-----------------------------------------------------|--------:|:----------|:-------------------------------------------------------------------------------------------------------------------------------|
+| NL-Fogo-Caribou-Telemetry        | output/NL-Fogo-Caribou-Telemetry.csv                 |  156006 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj        |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_BUCHANS.csv  |  254028 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREY.csv     |  270983 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GREYVIC.csv  |   11136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_GROSMORN.csv |   42136 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_LAPOILE.csv  |  247849 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_MIDRIDGE.csv |  389276 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_MTPEYTON.csv |   55030 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_OLDMANS.csv  |   11536 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_POTHILL.csv  |  242091 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_STEPHENV.csv |   44772 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_TOPSAILS.csv |  356426 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| NL-Provincial-Caribou-Telemetry  | output/NL-Provincial-Caribou-Telemetry\_UNKNOWN.csv  |   15818 | herd      | name , id , datetime , x\_long , y\_lat , herd , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj |
+| MB-Vita-Elk-Telemetry\_Lotek     | output/MB-Vita-Elk-Telemetry\_Lotek.csv              |   10022 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj        |
+| MB-Vita-Elk-Telemetry\_Vectronic | output/MB-Vita-Elk-Telemetry\_Vectronic.csv          |  206381 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj        |
+| MB-RMNP-Elk-Telemetry            | output/MB-RMNP-Elk-Telemetry.csv                     |   50080 | NA        | name , id , datetime , x\_long , y\_lat , idate , doy , yr , mnth , minutes , timegroup, x\_proj , y\_proj , epsg\_proj        |
 
 ## Column names
 
@@ -110,15 +110,18 @@ tar_read(checkflags)
 
 | name                             | flag                                                                                                       |       N |
 |:---------------------------------|:-----------------------------------------------------------------------------------------------------------|--------:|
-| NL-Fogo-Caribou-Telemetry        | NA                                                                                                         |  156019 |
-| NL-Fogo-Caribou-Telemetry        | x\_long is NA; y\_lat is NA                                                                                |    4625 |
-| NL-Fogo-Caribou-Telemetry        | x\_long is NA; y\_lat is NA; loc is duplicated                                                             |   34356 |
+| NL-Fogo-Caribou-Telemetry        | NA                                                                                                         |  156006 |
+| NL-Fogo-Caribou-Telemetry        | x\_long is NA; y\_lat is NA                                                                                |    4622 |
+| NL-Fogo-Caribou-Telemetry        | x\_long is NA; y\_lat is NA; loc is duplicated                                                             |   34318 |
+| NL-Fogo-Caribou-Telemetry        | x\_long is NA; y\_lat is NA; loc is extra                                                                  |       3 |
+| NL-Fogo-Caribou-Telemetry        | x\_long is NA; y\_lat is NA; loc is duplicated; loc is extra                                               |      38 |
+| NL-Fogo-Caribou-Telemetry        | loc is extra                                                                                               |      13 |
 | NL-Fogo-Caribou-Telemetry        | loc is duplicated                                                                                          |       9 |
 | NL-Provincial-Caribou-Telemetry  | Collar type is ARGOS                                                                                       |  305866 |
 | NL-Provincial-Caribou-Telemetry  | Map\_Quality is N; Collar type is ARGOS                                                                    |    1114 |
 | NL-Provincial-Caribou-Telemetry  | Collar type is VHF                                                                                         |   24053 |
 | NL-Provincial-Caribou-Telemetry  | loc is duplicated; Collar type is ARGOS                                                                    |      26 |
-| NL-Provincial-Caribou-Telemetry  | NA                                                                                                         | 1941084 |
+| NL-Provincial-Caribou-Telemetry  | NA                                                                                                         | 1941081 |
 | NL-Provincial-Caribou-Telemetry  | DOP &gt; 10                                                                                                |    7352 |
 | NL-Provincial-Caribou-Telemetry  | NAV is 2D                                                                                                  |   22174 |
 | NL-Provincial-Caribou-Telemetry  | x\_long is 0; y\_lat is 0; x\_long == y\_lat; Map\_Quality is N; DOP &gt; 10; NAV is No                    |    4239 |
@@ -133,6 +136,7 @@ tar_read(checkflags)
 | NL-Provincial-Caribou-Telemetry  | Map\_Quality is N                                                                                          |    8657 |
 | NL-Provincial-Caribou-Telemetry  | Map\_Quality is N; DOP &gt; 10                                                                             |      15 |
 | NL-Provincial-Caribou-Telemetry  | loc is duplicated; Map\_Quality is N                                                                       |      12 |
+| NL-Provincial-Caribou-Telemetry  | loc is extra                                                                                               |       3 |
 | MB-Vita-Elk-Telemetry\_Lotek     | fix date before deployment                                                                                 |     473 |
 | MB-Vita-Elk-Telemetry\_Lotek     | NA                                                                                                         |   10022 |
 | MB-Vita-Elk-Telemetry\_Lotek     | x\_long is NA; y\_lat is NA; status is not 3D                                                              |     120 |
@@ -140,14 +144,18 @@ tar_read(checkflags)
 | MB-Vita-Elk-Telemetry\_Lotek     | x\_long is NA; y\_lat is NA; status is not 3D; fix date before deployment                                  |       1 |
 | MB-Vita-Elk-Telemetry\_Lotek     | x\_long is NA; y\_lat is NA; loc is duplicated; status is not 3D                                           |       5 |
 | MB-Vita-Elk-Telemetry\_Lotek     | loc is duplicated                                                                                          |       2 |
-| MB-Vita-Elk-Telemetry\_Vectronic | fix date before deployment                                                                                 |     102 |
-| MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated; fix date before deployment                                                              |      10 |
-| MB-Vita-Elk-Telemetry\_Vectronic | NA                                                                                                         |  208239 |
-| MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated                                                                                          |    5899 |
+| MB-Vita-Elk-Telemetry\_Vectronic | fix date before deployment                                                                                 |      58 |
+| MB-Vita-Elk-Telemetry\_Vectronic | loc is extra; fix date before deployment                                                                   |      44 |
+| MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated; loc is extra; fix date before deployment                                                |       7 |
+| MB-Vita-Elk-Telemetry\_Vectronic | NA                                                                                                         |  206381 |
+| MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated                                                                                          |    4804 |
+| MB-Vita-Elk-Telemetry\_Vectronic | loc is extra                                                                                               |    1858 |
+| MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated; loc is extra                                                                            |    1095 |
 | MB-Vita-Elk-Telemetry\_Vectronic | status is not 3D                                                                                           |     723 |
 | MB-Vita-Elk-Telemetry\_Vectronic | x\_long is NA; y\_lat is NA; status is not 3D                                                              |     182 |
 | MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated; status is not 3D                                                                        |       7 |
 | MB-Vita-Elk-Telemetry\_Vectronic | status is not 3D; fix date before deployment                                                               |       1 |
+| MB-Vita-Elk-Telemetry\_Vectronic | loc is duplicated; fix date before deployment                                                              |       3 |
 | MB-Vita-Elk-Telemetry\_Vectronic | x\_long is NA; y\_lat is NA; status is not 3D; fix date before deployment                                  |       2 |
 | MB-Vita-Elk-Telemetry\_Vectronic | x\_long is NA; y\_lat is NA; loc is duplicated; status is not 3D                                           |       3 |
 | MB-RMNP-Elk-Telemetry            | NA                                                                                                         |   50080 |
