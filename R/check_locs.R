@@ -32,9 +32,6 @@ check_locs <- function(DT, meta) {
 #' @export
 #'
 #' @examples
-#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-#' DT <- read_data(path = path)
-#' check_longlat(DT)
 check_longlat <- function(DT) {
 	if (DT[, !is.numeric(x_long)]) DT[, x_long := is.numeric(x_long)]
 	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := is.numeric(y_lat)]
@@ -75,9 +72,6 @@ check_longlat <- function(DT) {
 #' @author Alec L. Robitaille
 #'
 #' @examples
-#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-#' DT <- read_data(path = path)
-#' check_longlat(DT)
 check_locs_meta <- function(DT) {
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', flag := why(flag, 'Map_Quality is N')]
