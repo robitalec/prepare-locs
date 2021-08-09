@@ -1,13 +1,13 @@
 Package: preparelocs
 Title: Prepares Relocations For The WEEL
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Alec L.",
            family = "Robitaille",
            role = c("aut", "cre"),
            email = "robit.alec@gmail.com",
            comment = c(ORCID = "0000-0002-4706-1762"))
-Description: Prepare animal relocation datasets for the Wildlife Evolutionary Ecology Lab at Memorial University.
+Description: Prepares animal relocation datasets for the Wildlife Evolutionary Ecology Lab at Memorial University.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -17,4 +17,5 @@ Imports:
     data.table,
     parsedate,
     sf,
+    spatsoc
     targets

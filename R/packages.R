@@ -1,1 +1,1 @@
-pkgs <- c('targets', 'data.table', 'sf', 'spatsoc')
+pkgs <- c('targets', 'data.table', 'sf', 'parsedate', 'spatsoc')
