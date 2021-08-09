@@ -37,6 +37,10 @@ pander::pander(tar_manifest())
 
 
 # Output
+All outputs can be directly read with `data.table::fread` and the 
+datetime column will be automatically converted to POSIXct in UTC timezone. 
+
+
 ## Files
 ```{r, eval = FALSE}
 tar_read(exports)
