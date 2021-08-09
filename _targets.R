@@ -2,11 +2,13 @@ library(targets)
 
 library(data.table)
 
+lapply(dir('R', '*.R', full.names = TRUE), source)
 
 tar_option_set(workspace_on_error = TRUE,
+							 packages = pkgs,
 							 format = 'qs')
 
-lapply(dir('R', '*.R', full.names = TRUE), source)
+
 
 list(
 	tar_target(
