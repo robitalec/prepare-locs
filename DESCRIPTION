@@ -17,5 +17,5 @@ Imports:
     data.table,
     parsedate,
     sf,
-    spatsoc
+    spatsoc,
     targets
