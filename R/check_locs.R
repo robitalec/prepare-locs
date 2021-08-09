@@ -55,6 +55,11 @@ check_longlat <- function(DT) {
 
 	DT[duplicated(DT, by = c('id', 'doy', 'yr', 'x_long', 'y_lat')), flag := why(flag, 'loc is duplicated')]
 
+	spatsoc::group_times(DT, 'datetime', '5 minutes')
+	DT[, seq_fix_by_timegroup_id := seq.int(.N), .(timegroup, id)]
+	DT[seq_fix_by_timegroup_id > 1, flag := why(flag, 'loc is extra')]
+	DT[, seq_fix_by_timegroup_id := NULL]
+
 	DT
 }
 
