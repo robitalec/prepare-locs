@@ -1,3 +1,8 @@
+# v 0.1.1 (2021-08-08)
+
+* make prepare locs flexible to only process files found on current machine
+
+
 # v 0.1.0 (2021-08-08)
 
 ## Initial release
