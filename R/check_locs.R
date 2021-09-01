@@ -56,6 +56,7 @@ check_longlat <- function(DT) {
 	DT[, seq_fix_by_timegroup_id := seq.int(.N), .(timegroup, id)]
 	DT[seq_fix_by_timegroup_id > 1, flag := why(flag, 'loc is extra')]
 	DT[, seq_fix_by_timegroup_id := NULL]
+	DT[, c('minutes', 'timegroup') := NULL]
 
 	DT
 }
