@@ -34,13 +34,13 @@ export_csv <- function(DT, outpath, splitBy, extracols) {
 		)
 	} else {
 		snakesplit <- to_snake_case(splitBy)
-		out <- DT[, {
-			o <- file.path(outpath, paste0(outname, '_', .BY[[1]], '.csv'))
-			data.table::fwrite(.SD, o)
-			list(name = outname, output_path = o, n_rows = .N,
-					 split_by = snakesplit, column_names = list(colnames(DT)))
-		}, by = eval(snakesplit)]
-		out[, .SD, .SDcols = -snakesplit]
+		lapply(unique(DT[[snakesplit]]), function(asplit) {
+			o <- file.path(outpath, paste0(outname, '_', asplit, '.csv'))
+			odt <- DT[get(snakesplit) == asplit]
+			data.table::fwrite(odt, o)
+			list(name = outname, output_path = o, n_rows = nrow(odt),
+					 split_by = snakesplit, column_names = list(colnames(odt)))
+		})
 	}
 }
 
