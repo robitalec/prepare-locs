@@ -1,15 +1,20 @@
-library(targets)
+# === Prepare locs: targets workflow --------------------------------------
+# Alec Robitaille
 
-library(data.table)
 
+
+# Functions ---------------------------------------------------------------
 lapply(dir('R', '*.R', full.names = TRUE), source)
 
+
+
+# Options -----------------------------------------------------------------
 tar_option_set(workspace_on_error = TRUE,
-							 packages = pkgs,
 							 format = 'qs')
 
 
 
+# Targets -----------------------------------------------------------------
 list(
 	tar_target(
 		meta,
