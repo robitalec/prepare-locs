@@ -1,1 +1,5 @@
-pkgs <- c('targets', 'data.table', 'sf', 'parsedate', 'spatsoc')
+library(targets)
+library(data.table)
+library(sf)
+library(parsedate)
+library(spatsoc)
