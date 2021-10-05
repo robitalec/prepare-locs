@@ -17,6 +17,8 @@ export_csv <- function(DT, outpath, splitBy, extracols) {
 
 	outname <- DT$name[[1]]
 
+	if (!dir.exists(outpath)) dir.create(outpath)
+
 	if (!is.na(extracols)) {
 		selextra <- unlist(extracols)[unlist(extracols) %in% colnames(DT)]
 		data.table::setnames(DT, selextra, to_snake_case(selextra))
