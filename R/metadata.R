@@ -86,6 +86,21 @@ metadata <- function() {
 			splitBy = 'HERD'
 		),
 
+		# NL coyote
+		data.table(
+			path = '../metadata/data/NL/Provincial/Coyote/Telemetry/Coyote.csv',
+			name = 'NL-Provincial-Coyote-Telemetry',
+			x_long = 'X_COORD',
+			y_lat = 'Y_COORD',
+			id = 'ANIMAL_ID',
+			date = 'FIX_DATE',
+			time = 'FIX_TIME',
+			extracols = list(list('COLLAR_TYPE_CL', 'HERD', 'Map_Quality', 'EPSG_CODE', 'EXCLUDE', 'DOP', 'NAV')),
+			tz = 'UTC',
+			epsgin = 'EPSG_CODE',
+			epsgout = 32621,
+			splitBy = 'HERD'
+		),
 
 		# Vita elk (Lotek)
 		data.table(
