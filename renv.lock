@@ -349,13 +349,6 @@
       "RemoteSha": "bb1c86a28d1fab19124eba0bdfeb907dcd05e529",
       "Hash": "5a0664897112f5ae71d2fb85cf14b239"
     },
-    "pander": {
-      "Package": "pander",
-      "Version": "0.6.4",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "0eae8a954e0c51bd356f8c6f0e00e805"
-    },
     "parsedate": {
       "Package": "parsedate",
       "Version": "1.2.1",
