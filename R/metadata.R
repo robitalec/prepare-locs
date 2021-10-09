@@ -96,6 +96,21 @@ metadata <- function() {
 			tz = 'GMT', # TODO: triple check
 			epsgin = 4326,
 			epsgout = 32614
+		),
+
+		# RMNP elk 2
+		# TODO: pick one
+		data.table(
+			path = '../metadata/data/MB/RMNP/Elk/Telemetry/RMNP_ElkData_clean.csv',
+			name = 'MB-RMNP-Elk-Telemetry2',
+			x_long = 'X',
+			y_lat = 'Y',
+			id = 'ElkID',
+			datetime = 'datetime',
+			extracols = NA,
+			tz = 'GMT',
+			epsgin = 32614,
+			epsgout = 32614
 		)
 	),
 	fill = TRUE)
