@@ -7,10 +7,16 @@
 lapply(dir('R', '*.R', full.names = TRUE), source)
 
 
+# Renv --------------------------------------------------------------------
+# snapshot()
+# restore()
+
 
 # Options -----------------------------------------------------------------
 tar_option_set(workspace_on_error = TRUE,
 							 format = 'qs')
+
+
 
 
 
@@ -91,5 +97,4 @@ list(
 		export_csv(coords, 'output', checkmeta$splitBy, checkmeta$extracols),
 		pattern = map(coords, checkmeta)
 	)
-
 )
