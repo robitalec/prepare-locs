@@ -10,7 +10,8 @@ check_meta(meta)
 
 }
 \description{
-Check metadata
+Checks for duplicate names and filters if file doesn't exist on the current
+machine
 }
 \author{
 Alec L. Robitaille

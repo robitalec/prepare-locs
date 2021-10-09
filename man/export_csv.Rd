@@ -7,7 +7,7 @@
 export_csv(DT, outpath, splitBy, extracols)
 }
 \arguments{
-\item{splitBy}{NA}
+\item{splitBy}{}
 }
 \value{
 

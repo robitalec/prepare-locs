@@ -7,7 +7,7 @@
 why(flag, why)
 }
 \arguments{
-\item{why}{NA}
+\item{why}{}
 }
 \value{
 

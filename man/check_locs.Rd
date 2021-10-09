@@ -7,7 +7,7 @@
 check_locs(DT, meta)
 }
 \arguments{
-\item{meta}{NA}
+\item{meta}{}
 }
 \value{
 
