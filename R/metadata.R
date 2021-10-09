@@ -144,6 +144,21 @@ metadata <- function() {
 			tz = 'GMT', # TODO: triple check
 			epsgin = 4326,
 			epsgout = 32614
+		),
+
+		# RMNP wolf
+		data.table(
+			path = '../metadata/data/MB/RMNP/Wolf/Telemetry/Wolf_combined_telemetry.csv',
+			name = 'MB-RMNP-Wolf-Telemetry',
+			x_long = 'longitude',
+			y_lat = 'latitude',
+			id = 'wolfid',
+			date = 'gmtdate',
+			time = 'gmttime',
+			extracols = 'Fix2d3d', # TODO: handle these
+			tz = 'GMT',
+			epsgin = 4326,
+			epsgout = 32614
 		)
 	),
 	fill = TRUE)
