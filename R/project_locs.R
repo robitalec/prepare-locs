@@ -47,7 +47,9 @@ project_locs <- function(DT, epsgin, epsgout) {
 		}
 
 		if (epsgin == epsgout) {
-			stop('epsgin is equal to epsgout')
+			warning('epsgin is equal to epsgout')
+			DT[, (projcoords) := .SD, .SDcols = coords]
+			return(DT)
 		}
 
 		DT[, (projcoords) :=
@@ -60,6 +62,6 @@ project_locs <- function(DT, epsgin, epsgout) {
 			 	),
 			 .SDcols = coords]
 		DT[, epsg_proj := as.numeric(epsgout)]
-		DT
+		return(DT)
 	}
 }
