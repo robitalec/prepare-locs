@@ -18,12 +18,6 @@ project_locs <- function(DT, epsgin, epsgout) {
 	lapply(coords, function(x) check_type(DT, x, 'double'))
 	lapply(projcoords, function(x) overwrite_col(DT, x))
 
-	if (epsgin == epsgout) {
-		warning('epsgin is equal to epsgout')
-		DT[, (projcoords) := .SD, .SDcols = coords]
-		return(DT)
-	}
-
 	if (is.na(as.numeric(epsgin))) {
 		if (!epsgin %in% colnames(DT)) {
 			stop('if epsgin is a character, it must refer to column name in DT')
@@ -50,6 +44,10 @@ project_locs <- function(DT, epsgin, epsgout) {
 
 		if (sf::st_is_longlat(sf::st_crs(epsgout))) {
 			stop('epsgout must not be long lat (unprojected)')
+		}
+
+		if (epsgin == epsgout) {
+			stop('epsgin is equal to epsgout')
 		}
 
 		DT[, (projcoords) :=
