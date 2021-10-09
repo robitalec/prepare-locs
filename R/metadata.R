@@ -72,7 +72,7 @@ metadata <- function() {
 
 		# NL bear
 		data.table(
-			path = '../metadata/data/NL/Provincial/Bear/Telemetry/Bear.csv',
+			path = '../metadata/data/NL/Provincial/Bear/Telemetry/Bears.csv',
 			name = 'NL-Provincial-Bear-Telemetry',
 			x_long = 'X_COORD',
 			y_lat = 'Y_COORD',
