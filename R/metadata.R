@@ -54,6 +54,24 @@ metadata <- function() {
 			splitBy = 'HERD'
 		),
 
+		# NL lynx
+		data.table(
+			path = '../metadata/data/NL/Provincial/Lynx/Telemetry/Lynx.csv',
+			name = 'NL-Provincial-Lynx-Telemetry',
+			x_long = 'X_COORD',
+			y_lat = 'Y_COORD',
+			id = 'ANIMAL_ID',
+			date = 'FIX_DATE',
+			time = 'FIX_TIME',
+			extracols = list(list('COLLAR_TYPE_CL', 'HERD', 'Map_Quality', 'EPSG_CODE', 'EXCLUDE', 'DOP', 'NAV')),
+			tz = 'UTC',
+			epsgin = 'EPSG_CODE',
+			epsgout = 32621,
+			splitBy = 'HERD'
+		),
+
+
+
 		# Vita elk (Lotek)
 		data.table(
 			path = 'input/vita_elk_lotek_feb_2016-july_2019.csv',
