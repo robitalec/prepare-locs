@@ -9,34 +9,24 @@ output:
 
 A `targets` workflow for processing animal relocation data for the WEEL. 
 
-```{r, eval = FALSE}
+```{r}
 library(targets)
-tar_visnetwork()
 ```
 
-```{r viz, echo = FALSE}
-library(targets)
-suppressPackageStartupMessages(library(printr))
-visNetwork::visNodes(tar_visnetwork(), size = 20, font=list(size=25))
+```{r, include = FALSE}
+library(printr)
+library(data.table)
 ```
+
 
 # Input
-Note: this workflow only processes files if it finds they at the specified path in metadata. This means you can add a row describing your own input data to `metadata()`
+Note: this workflow only processes files if it finds them at the specified path in metadata. This means you can add a row describing your own input data to `metadata()`
 and use the workflow, without needing all other datasets present on your computer. 
 
 ```{r}
 tar_read(meta)
 ```
 
-# Processing
-
-```{r, eval = FALSE}
-tar_manifest()
-```
-
-```{r, echo = FALSE}
-pander::pander(tar_manifest())
-```
 
 
 # Output
