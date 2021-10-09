@@ -36,13 +36,14 @@ export_csv <- function(DT, outpath, splitBy, extracols) {
 		)
 	} else {
 		snakesplit <- to_snake_case(splitBy)
-		lapply(unique(DT[[snakesplit]]), function(asplit) {
+		l <- lapply(unique(DT[[snakesplit]]), function(asplit) {
 			o <- file.path(outpath, paste0(outname, '_', asplit, '.csv'))
 			odt <- DT[get(snakesplit) == asplit]
 			data.table::fwrite(odt, o)
 			list(name = outname, output_path = o, n_rows = nrow(odt),
 					 split_by = snakesplit, column_names = list(colnames(odt)))
 		})
+		rbindlist(l)
 	}
 }
 
