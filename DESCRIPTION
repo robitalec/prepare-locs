@@ -19,4 +19,5 @@ Imports:
     sf,
     spatsoc,
     targets,
-    renv
+    renv,
+    qs
