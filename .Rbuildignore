@@ -6,3 +6,5 @@
 ^R/packages\.R$
 ^_targets\.R$
 ^scrap$
+^input$
+^output$
