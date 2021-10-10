@@ -17,7 +17,9 @@ Imports:
     data.table,
     parsedate,
     sf,
-    spatsoc,
+    spatsoc
+Suggests:
     targets,
     renv,
-    qs
+    qs,
+    visNetwork
