@@ -3,3 +3,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^_targets$
+^R/packages\.R$
+^_targets\.R$
+^scrap$
