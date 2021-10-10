@@ -7,18 +7,13 @@
 prep_dates(DT, tz)
 }
 \arguments{
-\item{tz}{character; time zone.}
+\item{tz}{character; time zone of the data \strong{input}, as it is stored the file.}
 }
 \value{
 data.table with datetime in UTC time, idate, itime and DOY
 }
 \description{
 Prepare datetime column
-}
-\examples{
-path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-DT <- read_data(path = path)
-prep_dates(DT, 'Canada/Newfoundland')
 }
 \author{
 Alec L. Robitaille

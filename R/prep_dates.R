@@ -9,9 +9,6 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-#' path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-#' DT <- read_data(path = path)
-#' prep_dates(DT, 'Canada/Newfoundland')
 prep_dates <- function(DT, tz) {
 	data.table::setalloccol(DT)
 	check_col(DT, 'datetime', 'datetime')

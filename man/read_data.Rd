@@ -15,10 +15,6 @@ data.table
 \description{
 Read data
 }
-\examples{
-path <- system.file('extdata', 'DT.csv', package = 'spatsoc')
-DT <- read_data(path = path)
-}
 \author{
 Alec L. Robitaille
 }
