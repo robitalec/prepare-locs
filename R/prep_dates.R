@@ -1,6 +1,6 @@
 #' Prepare datetime column
 #'
-#' @param tz character; time zone.
+#' @param tz character; time zone of the data **input**, as it is stored the file.
 #' @inheritParams cast_cols
 #'
 #' @return
