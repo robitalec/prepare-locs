@@ -153,7 +153,7 @@ metadata <- function() {
 			x_long = 'longitude',
 			y_lat = 'latitude',
 			id = 'wolfid',
-			date = 'gmtdate',
+			date = 'gmtdate', # TODO: not available for all collars, date is presumably UTC-5/-6 or switching CDT/CST
 			time = 'gmttime',
 			extracols = 'Fix2d3d', # TODO: handle these
 			tz = 'GMT',
