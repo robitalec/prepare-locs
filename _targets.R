@@ -96,5 +96,11 @@ list(
 		exports,
 		export_csv(coords, 'output', checkmeta$splitBy, checkmeta$extracols),
 		pattern = map(coords, checkmeta)
+	),
+
+	tar_target(
+		render_readme,
+		{exports; render('README.Rmd')},
+		format = 'file'
 	)
 )
