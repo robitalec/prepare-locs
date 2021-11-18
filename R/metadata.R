@@ -134,16 +134,16 @@ metadata <- function() {
 
 		# RMNP elk
 		data.table(
-			path = '../metadata/data/MB/RMNP/Elk/Telemetry/RMNP_ElkData_clean.csv',
+			path = '../metadata/data/MB/RMNP/Elk/Telemetry/MB_RMNP_Elk_Telemetry.csv',
 			name = 'MB-RMNP-Elk-Telemetry',
 			x_long = 'long',
 			y_lat = 'lat',
 			id = 'ElkID',
-			datetime = 'datetime',
+			datetime = 'date_time',
 			extracols = NA,
 			tz = 'GMT', # TODO: triple check
-			epsgin = 32614,
-			epsgout = 4326
+			epsgin = 4326,
+			epsgout = 32614
 		),
 
 		# RMNP wolf
