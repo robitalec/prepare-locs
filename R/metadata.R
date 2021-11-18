@@ -148,7 +148,7 @@ metadata <- function() {
 
 		# RMNP wolf
 		data.table(
-			path = '../metadata/data/MB/RMNP/Wolf/Telemetry/Wolf_combined_telemetry.csv',
+			path = '../metadata/data/MB/RMNP/Wolf/Telemetry/MB_RMNP_Wolf_Telemetry.csv',
 			name = 'MB-RMNP-Wolf-Telemetry',
 			x_long = 'longitude',
 			y_lat = 'latitude',
