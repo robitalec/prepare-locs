@@ -99,8 +99,13 @@ list(
 	),
 
 	tar_target(
+		readme,
+		file.path('README.Rmd'),
+		format = 'file'
+	),
+	tar_target(
 		render_readme,
-		{exports; render('README.Rmd')},
+		{exports; checkflags; render(readme); file.remove('README.html'); 'README.md'},
 		format = 'file'
 	)
 )
