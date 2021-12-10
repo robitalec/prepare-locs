@@ -8,6 +8,7 @@ lapply(dir('R', '*.R', full.names = TRUE), source)
 
 
 # Renv --------------------------------------------------------------------
+activate()
 snapshot()
 restore()
 
