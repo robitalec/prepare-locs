@@ -30,7 +30,7 @@ tar_read(meta)
 
 | path                                                                   | name                            | x_long    | y_lat    | id        | datetime  | extracols                                                            | tz  | epsgin    | epsgout | date     | time     | splitBy | deployment                              |
 |:-----------------------------------------------------------------------|:--------------------------------|:----------|:---------|:----------|:----------|:---------------------------------------------------------------------|:----|:----------|--------:|:---------|:---------|:--------|:----------------------------------------|
-| ../fogo-caribou/data/FogoCaribou.csv                                   | NL-Fogo-Caribou-Telemetry       | X_COORD   | Y_COORD  | ANIMAL_ID | datetime  | NA                                                                   | UTC | 4326      |   32621 | NA       | NA       | NA      | NA                                      |
+| ../metadata/data/NL/Fogo-Island/Caribou/Telemetry/FogoCaribou.csv      | NL-Fogo-Caribou-Telemetry       | X_COORD   | Y_COORD  | ANIMAL_ID | datetime  | NA                                                                   | UTC | 4326      |   32621 | NA       | NA       | NA      | NA                                      |
 | ../metadata/data/NL/Provincial/Caribou/Telemetry/AllCaribouDataRaw.csv | NL-Provincial-Caribou-Telemetry | X_COORD   | Y_COORD  | ANIMAL_ID | NA        | COLLAR_TYPE_CL, HERD , Map_Quality , EPSG_CODE , EXCLUDE , DOP , NAV | UTC | EPSG_CODE |   32621 | FIX_DATE | FIX_TIME | HERD    | NA                                      |
 | ../metadata/data/NL/Provincial/Lynx/Telemetry/Lynx.csv                 | NL-Provincial-Lynx-Telemetry    | X_COORD   | Y_COORD  | ANIMAL_ID | NA        | COLLAR_TYPE_CL, HERD , Map_Quality , EPSG_CODE , EXCLUDE , DOP , NAV | UTC | EPSG_CODE |   32621 | FIX_DATE | FIX_TIME | HERD    | NA                                      |
 | ../metadata/data/NL/Provincial/Bear/Telemetry/Bears.csv                | NL-Provincial-Bear-Telemetry    | X_COORD   | Y_COORD  | ANIMAL_ID | NA        | COLLAR_TYPE_CL, HERD , Map_Quality , EPSG_CODE , EXCLUDE , DOP , NAV | UTC | EPSG_CODE |   32621 | FIX_DATE | FIX_TIME | HERD    | NA                                      |
@@ -54,7 +54,7 @@ tar_read(exports)
 
 | name                            | output_path                                         | n_rows | split_by | column_names                                                                                            |
 |:--------------------------------|:----------------------------------------------------|-------:|:---------|:--------------------------------------------------------------------------------------------------------|
-| NL-Fogo-Caribou-Telemetry       | output/NL-Fogo-Caribou-Telemetry.csv                | 155988 | NA       | name , id , datetime , x_long , y_lat , idate , doy , yr , mnth , x_proj , y_proj , epsg_proj           |
+| NL-Fogo-Caribou-Telemetry       | output/NL-Fogo-Caribou-Telemetry.csv                | 229865 | NA       | name , id , datetime , x_long , y_lat , idate , doy , yr , mnth , x_proj , y_proj , epsg_proj           |
 | NL-Provincial-Caribou-Telemetry | output/NL-Provincial-Caribou-Telemetry_BUCHANS.csv  | 254028 | herd     | name , id , datetime , x_long , y_lat , herd , idate , doy , yr , mnth , x_proj , y_proj , epsg_proj    |
 | NL-Provincial-Caribou-Telemetry | output/NL-Provincial-Caribou-Telemetry_GREY.csv     | 270983 | herd     | name , id , datetime , x_long , y_lat , herd , idate , doy , yr , mnth , x_proj , y_proj , epsg_proj    |
 | NL-Provincial-Caribou-Telemetry | output/NL-Provincial-Caribou-Telemetry_GREYVIC.csv  |  11136 | herd     | name , id , datetime , x_long , y_lat , herd , idate , doy , yr , mnth , x_proj , y_proj , epsg_proj    |
@@ -109,17 +109,9 @@ tar_read(checkflags)
 
 | name                            | flag                                                                                                   |       N |
 |:--------------------------------|:-------------------------------------------------------------------------------------------------------|--------:|
-| NL-Fogo-Caribou-Telemetry       | NA                                                                                                     |  155988 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA                                                                              |    4618 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated                                                           |   34318 |
-| NL-Fogo-Caribou-Telemetry       | datetime is NA                                                                                         |      18 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; datetime is NA; loc is extra                                                |       2 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; datetime is NA                                                              |       4 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; datetime is NA; loc is extra                             |       1 |
-| NL-Fogo-Caribou-Telemetry       | datetime is NA; loc is extra                                                                           |      13 |
-| NL-Fogo-Caribou-Telemetry       | loc is duplicated                                                                                      |       9 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra                                             |      37 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra                                                                |       1 |
+| NL-Fogo-Caribou-Telemetry       | NA                                                                                                     |  229865 |
+| NL-Fogo-Caribou-Telemetry       | loc is duplicated                                                                                      |     105 |
+| NL-Fogo-Caribou-Telemetry       | loc is extra                                                                                           |      53 |
 | NL-Provincial-Caribou-Telemetry | Collar type is ARGOS                                                                                   |  305866 |
 | NL-Provincial-Caribou-Telemetry | Map_Quality is N; Collar type is ARGOS                                                                 |    1114 |
 | NL-Provincial-Caribou-Telemetry | Collar type is VHF                                                                                     |   24053 |

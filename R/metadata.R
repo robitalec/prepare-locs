@@ -26,7 +26,7 @@ metadata <- function() {
 
 		# Fogo caribou
 		data.table(
-			path = '../fogo-caribou/data/FogoCaribou.csv',
+			path = '../metadata/data/NL/Fogo-Island/Caribou/Telemetry/FogoCaribou.csv',
 			name = 'NL-Fogo-Caribou-Telemetry',
 			x_long = 'X_COORD',
 			y_lat = 'Y_COORD',
