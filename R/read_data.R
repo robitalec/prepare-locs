@@ -11,7 +11,8 @@
 read_data <- function(path, meta) {
 	selects <- meta[, na.omit(c(x_long, y_lat, id, date, time, datetime, unlist(extracols)))]
 
-	DT <- data.table::fread(path, select = selects)
+	if (fs::is_dir(path)) {
+		DT <- data.table::rbindlist(
 	DT[, name := meta$name]
 	DT
 }
