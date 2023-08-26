@@ -14,6 +14,9 @@ read_data <- function(path, meta) {
 	if (fs::is_dir(path)) {
 		files <- fs::dir_ls(path, recurse = TRUE, type = 'file',
 												glob = 'csv|CSV|Csv')
+		temporary_sub <-
+			files[grep('GPS_Collar00993_FO2016005|GPS_Collar01082_FO2016002',
+								 files, invert = TRUE)]
 		DT <- data.table::rbindlist(
 	DT[, name := meta$name]
 	DT
