@@ -40,7 +40,8 @@ list(
 		deploy,
 		if(!is.na(checkmeta$deploy)) fread(checkmeta$deploy),
 		map(checkmeta),
-		iteration = 'list'
+		iteration = 'list',
+		cue = tar_cue('always')
 	),
 
 	tar_target(

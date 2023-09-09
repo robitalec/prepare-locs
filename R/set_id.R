@@ -13,7 +13,7 @@ set_id <- function(DT, name, deployment) {
 			 	as.integer()]
 		DT[, parsed_V2 := parse_date(V2, default_tz = 'UTC')]
 
-		DT[deployment, id := animal_id,
+		DT[deployment, id := id,
 			 on = .(collar_id == collar_id,
 			 			 parsed_V2 >= start_date,
 			 			 parsed_V2 <= end_date)]
