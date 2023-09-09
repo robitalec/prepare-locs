@@ -22,7 +22,7 @@ read_data <- function(path, meta) {
 			fread(
 				f,
 				colClasses = 'character',
-				select = grep('filename', selects, invert = TRUE, value = TRUE)
+				select = grep('filename|id', selects, invert = TRUE, value = TRUE)
 			)[, filename := f]
 		}),
 		use.names = FALSE)
