@@ -27,6 +27,8 @@ read_data <- function(path, meta) {
 		}),
 		use.names = FALSE)
 
+		set_id(DT, meta$name, deploy)
+
 	} else {
 		DT <- data.table::fread(path, select = selects)
 	}
