@@ -20,6 +20,7 @@ read_data <- function(path, meta) {
 		DT <- data.table::rbindlist(
 			lapply(temporary_sub, function(f) {
 				fread(f, colClasses = 'character')[, filename := f]
+				fread(f, colClasses = 'character', select = selects)[, filename := f]
 			}),
 			fill = TRUE)
 	} else {
