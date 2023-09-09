@@ -28,13 +28,16 @@ metadata <- function() {
 		data.table(
 			path = '../metadata/data/NL/Fogo-Island/Caribou/Telemetry/Collar-data',
 			name = 'NL-Fogo-Caribou-Telemetry',
-			x_long = 'X_COORD',
-			y_lat = 'Y_COORD',
-			id = 'ANIMAL_ID',
-			datetime = 'datetime',
-			extracols = NA,
+			deployment = '../metadata/data/NL/Fogo-Island/Caribou/Telemetry/Caribou-Fogo-April2016-2023.xlsx - capture sheet.csv',
+			x_long = 'V10',
+			y_lat = 'V9',
+			id = 'id',
+			date = 'V2',
+			time = 'V3',
+															# 'FixType = V13', 'DOP = V12'
+			extracols = list(list('filename', 'V13', 'V12')),
 			tz = 'UTC',
-			epsgin = 4326, #TODO: CHECK
+			epsgin = 4326,
 			epsgout = 32621
 		),
 
