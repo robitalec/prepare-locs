@@ -34,8 +34,8 @@ check_locs <- function(DT, meta, deploy) {
 #'
 #' @examples
 check_longlat <- function(DT) {
-	if (DT[, !is.numeric(x_long)]) DT[, x_long := is.numeric(x_long)]
-	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := is.numeric(y_lat)]
+	if (DT[, !is.numeric(x_long)]) DT[, x_long := as.numeric(x_long)]
+	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := as.numeric(y_lat)]
 
 	data.table::set(DT, j = 'flag', value = NA_character_)
 	DT[!data.table::between(x_long, -180, 360), flag := why(flag, 'x_long not between -180, 360')]
