@@ -8,7 +8,7 @@
 #' @import data.table
 #' @author Alec L. Robitaille
 #' @examples
-read_data <- function(path, meta) {
+read_data <- function(path, meta, deploy) {
 	selects <- meta[, na.omit(c(x_long, y_lat, id, date, time, datetime, unlist(extracols)))]
 
 	if (fs::is_dir(path) && meta$name == 'NL-Fogo-Caribou-Telemetry') {
