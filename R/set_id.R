@@ -6,3 +6,8 @@
 #' Input DT with id appended from matching collar id / deployment sheet
 #' @export
 #' @author Alec L. Robitaille
+set_id <- function(DT, name, deployment) {
+	if (grepl(name, 'NL-Fogo-Caribou-Telemetry'))  {
+		DT[, collar_id := tstrsplit(basename(filename), '_')[[2]] |>
+			 	gsub(pattern = 'Collar', replacement = '') |>
+			 	as.integer()]
