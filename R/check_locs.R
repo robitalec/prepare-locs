@@ -92,7 +92,7 @@ check_locs_meta <- function(DT) {
 	}
 
 	if ('NAV' %in% colnames(DT)) {
-		DT[NAV %in% c('2D', 'No'), flag := why(flag, paste('NAV is', NAV))]
+		DT[grepl('2D|No', NAV, ignore.case = TRUE), flag := why(flag, paste('NAV is', NAV))]
 		DT[, NAV := NULL]
 	}
 
