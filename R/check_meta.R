@@ -12,5 +12,7 @@ check_meta <- function(meta) {
 
 	if (any(N_name) > 1) stop('found duplicates in "name" column, check metadata')
 
+	meta <- meta[, prep_deployment(.SD), by  = path]
+
 	return(meta[file.exists(path)])
 }
