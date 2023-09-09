@@ -18,11 +18,15 @@ read_data <- function(path, meta) {
 		# with_headers <- files[grep(regex_with_headers, files, invert = FALSE)]
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
 
-		DT <- data.table::rbindlist(
-			lapply(without_headers, function(f) {
-				fread(f, colClasses = 'character', select = selects)[, filename := f]
-			}),
-			use.names = FALSE)
+		DT <- data.table::rbindlist(lapply(without_headers, function(f) {
+			fread(
+				f,
+				colClasses = 'character',
+				select = grep('filename', selects, invert = TRUE, value = TRUE)
+			)[, filename := f]
+		}),
+		use.names = FALSE)
+
 	} else {
 		DT <- data.table::fread(path, select = selects)
 	}
