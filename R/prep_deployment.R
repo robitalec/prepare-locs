@@ -20,6 +20,7 @@ prep_deployment <- function(meta) {
 		prepared <- deploy[, .(start_date = parse_date(`Capture date`),
 													 end_date = parse_date(`Mortality Date`)),
 											 by = .(animal_id = `Animal No.`, collar_id = ID)]
+		prepared[is.na(end_date), end_date := parse_date(Sys.Date())]
 
 		prepared_path <- file.path('input', paste0(meta$name, '_deployment.csv'))
 		fwrite(prepared, prepared_path)
