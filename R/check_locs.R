@@ -10,12 +10,13 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-check_locs <- function(DT, meta) {
+check_locs <- function(DT, meta, deploy) {
 	data.table::setalloccol(DT)
+
 	check_longlat(DT)
 	check_locs_meta(DT)
 
-	if (!is.na(meta$deployment)) check_deployment(DT, meta)
+	if (!is.null(deploy)) check_deployment(DT, deploy)
 
 	DT[!is.na(flag), c('x_long', 'y_lat') := NaN]
 	return(DT)
@@ -120,9 +121,7 @@ check_locs_meta <- function(DT) {
 #' @export
 #'
 #' @examples
-check_deployment <- function(DT, meta) {
-	deploy <- data.table::fread(meta$deployment)
-
+check_deployment <- function(DT, deploy) {
 	DT[deploy,
 		 flag := why(flag, 'fix date before deployment'),
 		 on = .(id == id, idate < start_date)]
