@@ -42,6 +42,7 @@ list(
 		map(checkmeta),
 		iteration = 'list'
 	),
+
 	tar_target(
 		paths,
 		checkmeta$path,
@@ -51,8 +52,8 @@ list(
 
 	tar_target(
 		reads,
-		read_data(paths, checkmeta),
-		pattern = map(paths, checkmeta)
+		read_data(paths, checkmeta, deploy),
+		pattern = map(paths, checkmeta, deploy)
 	),
 
 	tar_target(
@@ -78,8 +79,8 @@ list(
 
 	tar_target(
 		checks,
-		check_locs(dates, checkmeta),
-		pattern = map(dates, checkmeta)
+		check_locs(dates, checkmeta, deploy),
+		pattern = map(dates, checkmeta, deploy)
 	),
 
 	tar_target(
