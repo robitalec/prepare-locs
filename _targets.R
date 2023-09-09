@@ -37,6 +37,12 @@ list(
 	),
 
 	tar_target(
+		deploy,
+		if(!is.na(checkmeta$deploy)) fread(checkmeta$deploy),
+		map(checkmeta),
+		iteration = 'list'
+	),
+	tar_target(
 		paths,
 		checkmeta$path,
 		pattern = map(checkmeta),
