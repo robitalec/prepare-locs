@@ -32,7 +32,8 @@ list(
 	# 			exist at the specified path in metadata.
 	tar_target(
 		checkmeta,
-		check_meta(meta)
+		check_meta(meta),
+		cue = tar_cue('always')
 	),
 
 	tar_target(
