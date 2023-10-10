@@ -8,7 +8,7 @@
 #' @import data.table
 #' @author Alec L. Robitaille
 #' @examples
-read_data <- function(path, meta) {
+read_data <- function(path, meta, deploy) {
 	selects <- meta[, na.omit(c(x_long, y_lat, id, date, time, datetime, unlist(extracols)))]
 
 	if (fs::is_dir(path) && meta$name == 'NL-Fogo-Caribou-Telemetry') {
@@ -30,7 +30,7 @@ read_data <- function(path, meta) {
 		DT[, collar_id := as.integer(gsub('Collar', '',
 																			tstrsplit(basename(filename), '_')[[2]]))]
 
-		set_id(name = DT, deployment = meta$deployment)
+		set_id(DT, meta$name, deploy)
 
 		return(DT)
 
