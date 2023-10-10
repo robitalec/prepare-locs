@@ -30,7 +30,7 @@ metadata <- function() {
 			name = 'NL-Fogo-Caribou-Telemetry',
 			x_long = 'V10',
 			y_lat = 'V9',
-			id = NA,
+			id = 'id',
 			date = 'V2',
 			time = 'V3',
 			extracols = list(list('filename', 'FixType = V13', 'DOP = V12')),
