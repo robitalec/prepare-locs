@@ -27,7 +27,12 @@ read_data <- function(path, meta) {
 		}),
 		use.names = FALSE)
 
-		set_id(DT, meta$name, deploy)
+		DT[, collar_id := as.integer(gsub('Collar', '',
+																			tstrsplit(basename(filename), '_')[[2]]))]
+
+		set_id(name = DT, deployment = meta$deployment)
+
+		return(DT)
 
 	} else {
 		DT <- data.table::fread(path, select = selects)
