@@ -10,8 +10,8 @@ set_id <- function(DT, name, deployment) {
 	if (grepl(name, 'NL-Fogo-Caribou-Telemetry'))  {
 		DT[, parsed_V2 := as.IDate(parse_date(V2, default_tz = 'UTC'))]
 
-		DT[deployment, id := id_animal,
-			 on = .(collar_id == id_collar,
+		DT[deployment, id := id,
+			 on = .(collar_id == id,
 			 			 parsed_V2 >= start_date,
 			 			 parsed_V2 <= end_date)]
 
