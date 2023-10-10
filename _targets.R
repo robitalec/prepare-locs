@@ -72,7 +72,8 @@ list(
 			date = checkmeta$date,
 			time = checkmeta$time,
 			datetime = checkmeta$datetime,
-			extracols = checkmeta$extracols
+			extracols = checkmeta$extracols,
+			extracols_names = checkmeta$extracols_names
 		),
 		pattern = map(reads, checkmeta)
 	),

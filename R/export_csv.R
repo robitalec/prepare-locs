@@ -12,15 +12,15 @@
 #' @export
 #'
 #' @examples
-export_csv <- function(DT, outpath, splitBy, extracols) {
+export_csv <- function(DT, outpath, splitBy, extracols_names) {
 	data.table::setalloccol(DT)
 
 	outname <- DT$name[[1]]
 
 	if (!dir.exists(outpath)) dir.create(outpath)
 
-	if (!is.na(extracols)) {
-		selextra <- unlist(extracols)[unlist(extracols) %in% colnames(DT)]
+	if (!is.na(extracols_names)) {
+		selextra <- unlist(extracols_names)[unlist(extracols_names) %in% colnames(DT)]
 		data.table::setnames(DT, selextra, to_snake_case(selextra))
 	}
 

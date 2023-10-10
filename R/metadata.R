@@ -34,7 +34,7 @@ metadata <- function() {
 			date = 'V2',
 			time = 'V3',
 			extracols = list(list('filename', 'V13', 'V12', 'collar_id')),
-			# extracols = list(list('filename', 'FixType = V13', 'DOP = V12'))),
+			extracols_names = list(list('filename', 'FixType', 'DOP', 'collar_id')),
 			deployment = 'input/2023-10-10_Fogo-collar-deployment.csv',
 			tz = 'UTC',
 			# deploy = ''
