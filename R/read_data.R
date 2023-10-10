@@ -32,8 +32,6 @@ read_data <- function(path, meta, deploy) {
 
 		set_id(DT, meta$name, deploy)
 
-		return(DT)
-
 	} else {
 		DT <- data.table::fread(path, select = selects)
 	}
