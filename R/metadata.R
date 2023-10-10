@@ -33,7 +33,7 @@ metadata <- function() {
 			id = 'id',
 			date = 'V2',
 			time = 'V3',
-			extracols = list(list('filename', 'FixType = V13', 'DOP = V12')),
+			extracols = list(list('filename', 'V13', 'V12', 'collar_id')),
 			# extracols = list(list('filename', 'FixType = V13', 'DOP = V12'))),
 			tz = 'UTC',
 			# deploy = ''
