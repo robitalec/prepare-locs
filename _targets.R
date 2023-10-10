@@ -57,6 +57,12 @@ list(
 	),
 
 	tar_target(
+		deploy,
+		read_deployment(deploy_paths),
+		pattern = map(deploy_paths)
+	),
+
+	tar_target(
 		renames,
 		set_colnames(
 			DT = reads,
