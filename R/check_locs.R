@@ -77,6 +77,8 @@ check_longlat <- function(DT) {
 #'
 #' @examples
 check_locs_meta <- function(DT) {
+	if (DT[, !is.numeric(DOP)]) DT[, DOP := as.numeric(DOP)]
+
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', flag := why(flag, 'Map_Quality is N')]
 		DT[, Map_Quality := NULL]
