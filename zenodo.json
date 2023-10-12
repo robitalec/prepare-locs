@@ -1,0 +1,12 @@
+{
+    "description": ":hammer_and_wrench:   A targets workflow for processing animal relocation data for the WEEL",
+    "license": "other-open",
+    "upload_type": "software",
+    "creators": [
+        {
+            "affiliation": "@wildlifeevoeco",
+            "name": "Alec L. Robitaille"
+        }
+    ],
+    "access_right": "open"
+}
