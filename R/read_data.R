@@ -44,9 +44,23 @@ read_data <- function(path, meta, deploy) {
 		DT_old_collars_sub <- DT_old_collars[, .SD, .SDcols = sub_cols]
 		setnames(DT_old_collars_sub, sub_cols, colnames(DT_wo))
 
-		rbindlist(list(DT, DT_old_collars_sub),
-							use.names = TRUE)
 		# With headers
+		with_headers <- files[grep('Collar00993_FO2016005|Collar01082_FO2016002', files)]
+		DT_w <- data.table::rbindlist(lapply(with_headers, function(f) {
+			fread(
+				f,
+				colClasses = 'character',
+				header = TRUE
+			)[, filename := f]
+		}),
+		use.names = TRUE)
+		DT_w[, collar_id := as.integer(CollarID)]
+		sub_cols <- c('Longitude [\xb0]', 'Latitude [\xb0]',
+									'UTC_Date', 'UTC_Time', 'FixType', 'DOP',
+									'filename', 'collar_id')
+		DT_w_sub <- DT_w[, .SD, .SDcols = sub_cols]
+		setnames(DT_w_sub, sub_cols, setdiff(colnames(DT_wo), 'id'))
+		set_id(DT_w_sub, meta$name, deploy)
 
 	} else {
 		DT <- data.table::fread(path, select = selects)
