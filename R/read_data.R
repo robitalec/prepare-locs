@@ -36,13 +36,13 @@ read_data <- function(path, meta, deploy) {
 
 		# Old collars
 		path_old_collars <- as.character(files[grep('old_collars', files)])
-		DT_old_collars <- fread(path_old_collars, header = TRUE)
+		DT_old_collars <- fread(path_old_collars, header = TRUE, colClasses = 'character')
 		DT_old_collars[, filename := path_old_collars]
 		DT_old_collars[, collar_id := NA]
 		sub_cols <- c('Long', 'Lat', 'Date', 'Time', 'Navigation', 'DOP',
 									'filename', 'collar_id', 'Animal_ID')
 		DT_old_collars_sub <- DT_old_collars[, .SD, .SDcols = sub_cols]
-		setnames(DT_old_collars_sub, sub_cols, colnames(DT))
+		setnames(DT_old_collars_sub, sub_cols, colnames(DT_wo))
 
 		rbindlist(list(DT, DT_old_collars_sub),
 							use.names = TRUE)
