@@ -51,7 +51,8 @@ check_longlat <- function(DT) {
 	DT[is.na(y_lat), flag := why(flag, 'y_lat is NA')]
 	DT[is.nan(y_lat), flag := why(flag, 'y_lat is NaN')]
 
-	DT[duplicated(DT, by = c('id', 'doy', 'yr', 'x_long', 'y_lat')), flag := why(flag, 'loc is duplicated')]
+	DT[duplicated(DT, by = c('id', 'x_long', 'y_lat', 'datetime')),
+		 flag := why(flag, 'loc is duplicated')]
 
 	DT[is.na(datetime), flag := why(flag, 'datetime is NA')]
 
