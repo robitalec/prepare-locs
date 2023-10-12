@@ -15,6 +15,8 @@ set_id <- function(DT, name, deployment) {
 			 			 parsed_V2 >= start_date,
 			 			 parsed_V2 <= end_date)]
 
+		DT[, parsed_V2 := NULL]
+
 		return(DT)
 	}
 }
