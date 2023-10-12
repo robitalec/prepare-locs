@@ -12,9 +12,9 @@ read_data <- function(path, meta, deploy) {
 	selects <- meta[, na.omit(c(x_long, y_lat, id, date, time, datetime, unlist(extracols)))]
 
 	if (fs::is_dir(path) && meta$name == 'NL-Fogo-Caribou-Telemetry') {
-		files <- fs::dir_ls(path, recurse = TRUE, type = 'file',
-												glob = 'csv|CSV|Csv')
-		regex_with_headers <- 'GPS_Collar00993_FO2016005|GPS_Collar01082_FO2016002'
+		files <- fs::dir_ls(path, recurse = FALSE, type = 'file',
+												glob = '*csv|*CSV|*Csv')
+		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
 		# with_headers <- files[grep(regex_with_headers, files, invert = FALSE)]
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
 
