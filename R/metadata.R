@@ -40,20 +40,6 @@ metadata <- function() {
 			epsgin = 4326,
 			epsgout = 32621
 		),
-		# data.table(
-		# 	path = '../metadata/data/NL/Fogo-Island/Caribou/Telemetry/Collar-data',
-		# 	regex = 'GPS_Collar00993_FO2016005|GPS_Collar01082_FO2016002',
-		# 	name = 'NL-Fogo-Caribou-Telemetry',
-		# 	x_long = 'Longitude [\xb0]',
-		# 	y_lat = 'Latitude [\xb0]',
-		# 	id = 'CollarID',
-		# 	date = 'UTC_Date',
-		# 	time = 'UTC_Time',
-		# 	extracols = c('filename', 'DOP', 'FixType', 'Sats'),
-		# 	tz = 'UTC',
-		# 	epsgin = 4326,
-		# 	epsgout = 32621
-		# ),
 
 		# NL caribou
 		data.table(
