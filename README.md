@@ -1,6 +1,13 @@
 prepare-locs
 ================
 
+
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8436691.svg)](https://doi.org/10.5281/zenodo.8436691)
+
+
+
+
 -   [Input](#input)
 -   [Output](#output)
     -   [Files](#files)
