@@ -1,6 +1,6 @@
 Package: preparelocs
 Title: Prepares Relocations For The WEEL
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(given = "Alec L.",
            family = "Robitaille",
@@ -12,7 +12,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Imports: 
     data.table,
     parsedate,

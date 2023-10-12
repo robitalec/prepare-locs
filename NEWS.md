@@ -1,3 +1,7 @@
+# v 0.1.2 (2023-10-12)
+
+* prepare raw Fogo caribou relocations (#1)
+
 # v 0.1.1 (2021-08-08)
 
 * make prepare locs flexible to only process files found on current machine

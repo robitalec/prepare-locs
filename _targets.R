@@ -4,7 +4,7 @@
 
 
 # Functions ---------------------------------------------------------------
-lapply(dir('R', '*.R', full.names = TRUE), source)
+targets::tar_source('R')
 
 
 # Renv --------------------------------------------------------------------
@@ -14,7 +14,7 @@ restore()
 
 
 # Options -----------------------------------------------------------------
-tar_option_set(workspace_on_error = TRUE,
+tar_option_set(workspace_on_error = FALSE,
 							 format = 'qs')
 
 
@@ -32,7 +32,15 @@ list(
 	# 			exist at the specified path in metadata.
 	tar_target(
 		checkmeta,
-		check_meta(meta)
+		check_meta(meta),
+		cue = tar_cue('always')
+	),
+
+	tar_target(
+		deploy_paths,
+		checkmeta$deployment,
+		pattern = map(checkmeta),
+		format = 'file'
 	),
 
 	tar_target(
@@ -44,8 +52,14 @@ list(
 
 	tar_target(
 		reads,
-		read_data(paths, checkmeta),
-		pattern = map(paths, checkmeta)
+		read_data(paths, checkmeta, deploy),
+		pattern = map(paths, checkmeta, deploy)
+	),
+
+	tar_target(
+		deploy,
+		read_deployment(deploy_paths),
+		pattern = map(deploy_paths)
 	),
 
 	tar_target(
@@ -58,7 +72,8 @@ list(
 			date = checkmeta$date,
 			time = checkmeta$time,
 			datetime = checkmeta$datetime,
-			extracols = checkmeta$extracols
+			extracols = checkmeta$extracols,
+			extracols_names = checkmeta$extracols_names
 		),
 		pattern = map(reads, checkmeta)
 	),
@@ -71,8 +86,8 @@ list(
 
 	tar_target(
 		checks,
-		check_locs(dates, checkmeta),
-		pattern = map(dates, checkmeta)
+		check_locs(dates, checkmeta, deploy),
+		pattern = map(dates, checkmeta, deploy)
 	),
 
 	tar_target(

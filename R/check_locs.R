@@ -10,12 +10,13 @@
 #' @author Alec L. Robitaille
 #'
 #' @examples
-check_locs <- function(DT, meta) {
+check_locs <- function(DT, meta, deploy) {
 	data.table::setalloccol(DT)
+
 	check_longlat(DT)
 	check_locs_meta(DT)
 
-	if (!is.na(meta$deployment)) check_deployment(DT, meta)
+	if (!is.null(deploy)) check_deployment(DT, deploy)
 
 	DT[!is.na(flag), c('x_long', 'y_lat') := NaN]
 	return(DT)
@@ -33,8 +34,8 @@ check_locs <- function(DT, meta) {
 #'
 #' @examples
 check_longlat <- function(DT) {
-	if (DT[, !is.numeric(x_long)]) DT[, x_long := is.numeric(x_long)]
-	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := is.numeric(y_lat)]
+	if (DT[, !is.numeric(x_long)]) DT[, x_long := as.numeric(x_long)]
+	if (DT[, !is.numeric(y_lat)]) DT[, y_lat := as.numeric(y_lat)]
 
 	data.table::set(DT, j = 'flag', value = NA_character_)
 	DT[!data.table::between(x_long, -180, 360), flag := why(flag, 'x_long not between -180, 360')]
@@ -50,7 +51,8 @@ check_longlat <- function(DT) {
 	DT[is.na(y_lat), flag := why(flag, 'y_lat is NA')]
 	DT[is.nan(y_lat), flag := why(flag, 'y_lat is NaN')]
 
-	DT[duplicated(DT, by = c('id', 'doy', 'yr', 'x_long', 'y_lat')), flag := why(flag, 'loc is duplicated')]
+	DT[duplicated(DT, by = c('id', 'x_long', 'y_lat', 'datetime')),
+		 flag := why(flag, 'loc is duplicated')]
 
 	DT[is.na(datetime), flag := why(flag, 'datetime is NA')]
 
@@ -76,6 +78,8 @@ check_longlat <- function(DT) {
 #'
 #' @examples
 check_locs_meta <- function(DT) {
+	if (DT[, !is.numeric(DOP)]) DT[, DOP := as.numeric(DOP)]
+
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', flag := why(flag, 'Map_Quality is N')]
 		DT[, Map_Quality := NULL]
@@ -92,8 +96,13 @@ check_locs_meta <- function(DT) {
 	}
 
 	if ('NAV' %in% colnames(DT)) {
-		DT[NAV %in% c('2D', 'No'), flag := why(flag, paste('NAV is', NAV))]
+		DT[grepl('2D|No', NAV, ignore.case = TRUE), flag := why(flag, paste('NAV is', NAV))]
 		DT[, NAV := NULL]
+	}
+
+	if ('FixType' %in% colnames(DT)) {
+		DT[grepl('2D|No', FixType, ignore.case = TRUE), flag := why(flag, paste('FixType is', FixType))]
+		DT[, FixType := NULL]
 	}
 
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
@@ -120,16 +129,12 @@ check_locs_meta <- function(DT) {
 #' @export
 #'
 #' @examples
-check_deployment <- function(DT, meta) {
-	deploy <- data.table::fread(meta$deployment)
-
+check_deployment <- function(DT, deploy) {
 	DT[deploy,
-		 flag := why(flag, 'fix date before deployment'),
-		 on = .(id == id, idate < start_date)]
-
-	DT[deploy,
-		 flag := why(flag, 'fix date after deployment'),
-		 on = .(id == id, idate > end_date)]
+		 flag := why(flag, 'fix date outside deployment'),
+		 on = .(id == id,
+		 			 idate <= start_date,
+		 			 idate >= end_date)]
 
 	DT
 }
