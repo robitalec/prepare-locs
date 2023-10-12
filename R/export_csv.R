@@ -25,7 +25,7 @@ export_csv <- function(DT, outpath, splitBy, extracols_names) {
 	}
 
 	if (is.na(splitBy)) {
-		o <- file.path(outpath, paste0(outname, '.csv'))
+		o <- file.path(outpath, paste0(Sys.Date(), '_', outname, '.csv'))
 		data.table::fwrite(DT, o)
 		data.table::data.table(
 			name = outname,
@@ -37,7 +37,7 @@ export_csv <- function(DT, outpath, splitBy, extracols_names) {
 	} else {
 		snakesplit <- to_snake_case(splitBy)
 		l <- lapply(unique(DT[[snakesplit]]), function(asplit) {
-			o <- file.path(outpath, paste0(outname, '_', asplit, '.csv'))
+			o <- file.path(outpath, paste0(Sys.Date(), '_', outname, '_', asplit, '.csv'))
 			odt <- DT[get(snakesplit) == asplit]
 			data.table::fwrite(odt, o)
 			list(name = outname, output_path = o, n_rows = nrow(odt),
