@@ -17,10 +17,9 @@ read_data <- function(path, meta, deploy) {
 
 		# Without headers
 		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
-		# with_headers <- files[grep(regex_with_headers, files, invert = FALSE)]
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
 
-		DT <- data.table::rbindlist(lapply(without_headers, function(f) {
+		DT_wo <- data.table::rbindlist(lapply(without_headers, function(f) {
 			fread(
 				f,
 				colClasses = 'character',
@@ -61,6 +60,8 @@ read_data <- function(path, meta, deploy) {
 		DT_w_sub <- DT_w[, .SD, .SDcols = sub_cols]
 		setnames(DT_w_sub, sub_cols, setdiff(colnames(DT_wo), 'id'))
 		set_id(DT_w_sub, meta$name, deploy)
+
+		DT <- rbindlist(list(DT_wo, DT_old_collars_sub, DT_w_sub), use.names = TRUE)
 
 	} else {
 		DT <- data.table::fread(path, select = selects)
