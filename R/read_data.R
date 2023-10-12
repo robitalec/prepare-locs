@@ -14,6 +14,8 @@ read_data <- function(path, meta, deploy) {
 	if (fs::is_dir(path) && meta$name == 'NL-Fogo-Caribou-Telemetry') {
 		files <- fs::dir_ls(path, recurse = FALSE, type = 'file',
 												glob = '*csv|*CSV|*Csv')
+
+		# Without headers
 		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
 		# with_headers <- files[grep(regex_with_headers, files, invert = FALSE)]
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
@@ -32,6 +34,7 @@ read_data <- function(path, meta, deploy) {
 
 		set_id(DT, meta$name, deploy)
 
+		# Old collars
 		path_old_collars <- as.character(files[grep('old_collars', files)])
 		DT_old_collars <- fread(path_old_collars, header = TRUE)
 		DT_old_collars[, filename := path_old_collars]
@@ -43,6 +46,7 @@ read_data <- function(path, meta, deploy) {
 
 		rbindlist(list(DT, DT_old_collars_sub),
 							use.names = TRUE)
+		# With headers
 
 	} else {
 		DT <- data.table::fread(path, select = selects)
