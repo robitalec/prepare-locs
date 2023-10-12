@@ -14,7 +14,7 @@ restore()
 
 
 # Options -----------------------------------------------------------------
-tar_option_set(workspace_on_error = TRUE,
+tar_option_set(workspace_on_error = FALSE,
 							 format = 'qs')
 
 
