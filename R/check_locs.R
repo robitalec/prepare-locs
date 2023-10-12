@@ -100,6 +100,11 @@ check_locs_meta <- function(DT) {
 		DT[, NAV := NULL]
 	}
 
+	if ('FixType' %in% colnames(DT)) {
+		DT[grepl('2D|No', FixType, ignore.case = TRUE), flag := why(flag, paste('FixType is', FixType))]
+		DT[, FixType := NULL]
+	}
+
 	if ('COLLAR_TYPE_CL' %in% colnames(DT)) {
 		DT[COLLAR_TYPE_CL != 'GPS', flag := why(flag, paste('Collar type is', COLLAR_TYPE_CL))]
 		DT[, COLLAR_TYPE_CL := NULL]
