@@ -29,10 +29,10 @@ read_data <- function(path, meta, deploy) {
 		}),
 		use.names = FALSE)
 
-		DT[, collar_id := as.integer(gsub('Collar', '',
+		DT_wo[, collar_id := as.integer(gsub('Collar', '',
 																			tstrsplit(basename(filename), '_')[[2]]))]
 
-		set_id(DT, meta$name, deploy)
+		set_id(DT_wo, meta$name, deploy)
 
 		# Old collars
 		path_old_collars <- as.character(files[grep('old_collars', files)])
