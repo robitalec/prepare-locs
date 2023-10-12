@@ -131,12 +131,10 @@ check_locs_meta <- function(DT) {
 #' @examples
 check_deployment <- function(DT, deploy) {
 	DT[deploy,
-		 flag := why(flag, 'fix date before deployment'),
-		 on = .(id == id, idate < start_date)]
-
-	DT[deploy,
-		 flag := why(flag, 'fix date after deployment'),
-		 on = .(id == id, idate > end_date)]
+		 flag := why(flag, 'fix date outside deployment'),
+		 on = .(id == id,
+		 			 idate <= start_date,
+		 			 idate >= end_date)]
 
 	DT
 }
