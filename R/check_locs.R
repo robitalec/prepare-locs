@@ -131,7 +131,7 @@ check_locs_meta <- function(DT) {
 #' @export
 #'
 #' @examples
-check_deployment <- function(DT, deploy) {
+check_deployment <- function(DT, deploy, name) {
 	DT[deploy,
 		 flag := why(flag, 'fix date outside deployment'),
 		 on = .(id == id,
