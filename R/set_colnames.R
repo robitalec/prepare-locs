@@ -30,6 +30,9 @@ set_colnames <- function(DT, x_long, y_lat, id, date = NULL, time = NULL, dateti
 	outcolsnames <- c('name', 'id', 'datetime', 'x_long', 'y_lat')
 
 	if (!is.na(extracols)) {
+		if (is.null(unlist(extracols_names))) {
+			extracols_names <- extracols
+		}
 		outcols <- c(outcols, unlist(extracols))
 		outcolsnames <- c(outcolsnames, unlist(extracols_names))
 	}
