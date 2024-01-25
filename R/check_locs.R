@@ -143,7 +143,7 @@ check_deployment <- function(DT, deploy, name) {
 		 			 idate <= start_date,
 		 			 idate >= end_date)]
 
-	DT[is.na(id), flag := why(flag, 'fix date outside deployment')]
+	DT[is.na(id), flag := why(flag, 'id is NA (likely outside deployment)')]
 
 	DT
 }
