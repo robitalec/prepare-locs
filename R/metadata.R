@@ -52,7 +52,7 @@ metadata <- function() {
 			time = 'FIX_TIME',
 			extracols = list(list('COLLAR_TYPE_CL', 'HERD', 'Map_Quality', 'EPSG_CODE', 'EXCLUDE', 'DOP', 'NAV')),
 			tz = 'UTC',
-			epsgin = 'EPSG_CODE',
+			epsgin = 4326,
 			epsgout = 32621,
 			splitBy = 'HERD'
 		),
