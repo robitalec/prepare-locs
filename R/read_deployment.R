@@ -13,6 +13,7 @@ read_deployment <- function(deployment) {
 		deploy <- fread(deployment)
 
 		deploy[is.na(end_date), end_date := as.IDate(Sys.Date())]
+
 		return(deploy)
 	}
 }
