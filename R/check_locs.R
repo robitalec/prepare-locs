@@ -78,8 +78,6 @@ check_longlat <- function(DT) {
 #'
 #' @examples
 check_locs_meta <- function(DT) {
-	if (DT[, !is.numeric(DOP)]) DT[, DOP := as.numeric(DOP)]
-
 	if ('Map_Quality' %in% colnames(DT)) {
 		DT[Map_Quality == 'N', flag := why(flag, 'Map_Quality is N')]
 		DT[, Map_Quality := NULL]
@@ -91,6 +89,10 @@ check_locs_meta <- function(DT) {
 	}
 
 	if ('DOP' %in% colnames(DT)) {
+		if (DT[, !is.numeric(DOP)]) {
+			DT[, DOP := as.numeric(DOP)]
+		}
+
 		DT[DOP > 10, flag := why(flag, 'DOP > 10')]
 		DT[, DOP := NULL]
 	}
