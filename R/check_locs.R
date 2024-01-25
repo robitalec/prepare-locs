@@ -16,7 +16,7 @@ check_locs <- function(DT, meta, deploy) {
 	check_longlat(DT)
 	check_locs_meta(DT)
 
-	if (!is.null(deploy)) check_deployment(DT, deploy)
+	if (!is.null(deploy)) check_deployment(DT, deploy, meta$name)
 
 	DT[!is.na(flag), c('x_long', 'y_lat') := NaN]
 	return(DT)
