@@ -37,8 +37,7 @@ list(
 	tar_target(
 		deploy_paths,
 		checkmeta$deployment,
-		pattern = map(checkmeta),
-		format = 'file'
+		pattern = map(checkmeta)
 	),
 
 	tar_target(
