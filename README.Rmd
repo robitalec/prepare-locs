@@ -35,13 +35,10 @@ datetime column will be automatically converted to POSIXct in UTC timezone.
 
 
 ## Files
-```{r, eval = FALSE}
+```{r}
 tar_read(exports)
 ```
 
-```{r, echo = FALSE}
-as.vector(tar_read(exports))
-```
 
 ## Column names
 

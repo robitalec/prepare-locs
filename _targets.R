@@ -8,9 +8,7 @@ targets::tar_source('R')
 
 
 # Renv --------------------------------------------------------------------
-activate()
 snapshot()
-restore()
 
 
 # Options -----------------------------------------------------------------
@@ -39,8 +37,7 @@ list(
 	tar_target(
 		deploy_paths,
 		checkmeta$deployment,
-		pattern = map(checkmeta),
-		format = 'file'
+		pattern = map(checkmeta)
 	),
 
 	tar_target(
