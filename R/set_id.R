@@ -12,7 +12,7 @@ set_id <- function(DT, name, deployment) {
 
 		DT[deployment, id := id,
 			 on = .(collar_id == id_collar,
-			 			 parsed_V2 >= start_date,
+			 			 parsed_V2 >= capture_date,
 			 			 parsed_V2 <= end_date)]
 
 		DT[, parsed_V2 := NULL]
