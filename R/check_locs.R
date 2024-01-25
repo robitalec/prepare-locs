@@ -132,6 +132,11 @@ check_locs_meta <- function(DT) {
 #'
 #' @examples
 check_deployment <- function(DT, deploy, name) {
+	if (name == 'NL-Fogo-Caribou-Telemetry') {
+		deploy[, id := id_animal]
+		deploy[, start_date := capture_date]
+	}
+
 	DT[deploy,
 		 flag := why(flag, 'fix date outside deployment'),
 		 on = .(id == id,
