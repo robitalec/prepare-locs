@@ -1,3 +1,10 @@
+# v 0.1.3 (2024-01-25)
+
+* fix some Fogo caribou relocations missing id due to outside of deployment (#2, #3)
+ - dropping 6030 for NL relocations
+ - fix README render exports
+	
+
 # v 0.1.2 (2023-10-12)
 
 * prepare raw Fogo caribou relocations (#1)
