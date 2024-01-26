@@ -159,6 +159,9 @@ check_deployment <- function(DT, deploy, name) {
 		 			 idate >= max_end_date)]
 
 	DT[is.na(id), deployment := 'has NA id, likely outside']
+
+	DT[!is.na(deployment),
+		 flag := why(flag, paste('loc', deployment, 'deployment'))]
 	DT
 }
 
