@@ -148,6 +148,10 @@ check_deployment <- function(DT, deploy, name) {
 		 			 idate >= start_date,
 		 			 idate <= end_date)]
 
+	DT[, deployment := fifelse(deployment == 'is within',
+														 NA_character_,
+														 'is outside')]
+
 	DT[deploy[, .(min_start_date = min(start_date)), id],
 		 deployment := 'is before first',
 		 on = .(id == id,
@@ -159,6 +163,9 @@ check_deployment <- function(DT, deploy, name) {
 		 			 idate >= max_end_date)]
 
 	DT[is.na(id), deployment := 'has NA id, likely outside']
+
+
+
 
 	DT[!is.na(deployment),
 		 flag := why(flag, paste('loc', deployment, 'deployment'))]
