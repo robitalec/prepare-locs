@@ -137,6 +137,9 @@ check_deployment <- function(DT, deploy, name) {
 		deploy[, start_date := capture_date]
 	}
 
+	if (max(deploy[, .N, .(id, start_date, end_date)]$N) != 1) {
+		stop('deployment has duplicates of id and start date')
+	}
 	DT[deploy,
 		 flag := why(flag, 'fix date outside deployment'),
 		 on = .(id == id,
