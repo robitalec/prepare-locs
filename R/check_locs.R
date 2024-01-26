@@ -148,7 +148,10 @@ check_deployment <- function(DT, deploy, name) {
 		 			 idate >= start_date,
 		 			 idate <= end_date)]
 
-	DT[is.na(id), flag := why(flag, 'id is NA (likely outside deployment)')]
+	DT[deploy[, .(min_start_date = min(start_date)), id],
+		 deployment := 'is before first',
+		 on = .(id == id,
+		 			 idate <= min_start_date)]
 
 	DT
 }
