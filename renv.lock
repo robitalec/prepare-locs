@@ -427,15 +427,15 @@
     },
     "fontawesome": {
       "Package": "fontawesome",
-      "Version": "0.5.2.9000",
+      "Version": "0.5.2",
       "Source": "Repository",
-      "Repository": "https://rstudio.r-universe.dev",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "htmltools",
         "rlang"
       ],
-      "Hash": "a9deb9cb99698731434ee1254c3408df"
+      "Hash": "c2efdd5f0bcd1ea861c2d4e2a883a67d"
     },
     "fs": {
       "Package": "fs",
@@ -590,13 +590,13 @@
     },
     "magrittr": {
       "Package": "magrittr",
-      "Version": "2.0.3.9000",
+      "Version": "2.0.3",
       "Source": "Repository",
-      "Repository": "https://tidyverse.r-universe.dev",
+      "Repository": "RSPM",
       "Requirements": [
         "R"
       ],
-      "Hash": "01067e706dcb71d12dd234e94bb92634"
+      "Hash": "7ce2733a9826b3aeb1775d56fd305472"
     },
     "memoise": {
       "Package": "memoise",
@@ -702,14 +702,14 @@
     },
     "ps": {
       "Package": "ps",
-      "Version": "1.7.6",
+      "Version": "1.7.5",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "dd2b9319ee0656c8acf45c7f40c59de7"
+      "Hash": "709d852d33178db54b17c722e5b1e594"
     },
     "qs": {
       "Package": "qs",
@@ -932,9 +932,9 @@
     },
     "tibble": {
       "Package": "tibble",
-      "Version": "3.2.1.9005",
+      "Version": "3.2.1",
       "Source": "Repository",
-      "Repository": "https://tidyverse.r-universe.dev",
+      "Repository": "RSPM",
       "Requirements": [
         "R",
         "fansi",
@@ -947,7 +947,7 @@
         "utils",
         "vctrs"
       ],
-      "Hash": "b6a9230a59c250dc0381a010e8576980"
+      "Hash": "a84e2cc86d07289b3b6f5069df7a004c"
     },
     "tidyselect": {
       "Package": "tidyselect",
