@@ -157,6 +157,8 @@ check_deployment <- function(DT, deploy, name) {
 		 deployment := 'is after last',
 		 on = .(id == id,
 		 			 idate >= max_end_date)]
+
+	DT[is.na(id), deployment := 'has NA id, likely outside']
 	DT
 }
 
