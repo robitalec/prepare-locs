@@ -46,7 +46,7 @@ tar_read(exports)
 | ----------- | ----------- | 
 | id          | unique animal identifier | 
 | datetime    | date time in UTC | 
-| doy         | date of year, integer. see `data.table::yday()` | 
+| doy         | day of year, integer. see `data.table::yday()` | 
 | mnth        | month, integer. see `data.table::month()` | 
 | yr          | year, integer. see `data.table::year()` | 
 | x_long      | longitude, EPSG code provided in `metadata()`. see `R/metadata.R` | 
@@ -61,7 +61,7 @@ In target "checkflags", the column named "flag" is a semi-colon separated list o
 
 ## Flag counts
 ```{r,  1}
-tar_read(checkflags)
+tar_read(checkflags)[order(name, -N)]
 ```
 
 # TODO

@@ -137,13 +137,40 @@ check_deployment <- function(DT, deploy, name) {
 		deploy[, start_date := capture_date]
 	}
 
-	DT[deploy,
-		 flag := why(flag, 'fix date outside deployment'),
-		 on = .(id == id,
-		 			 idate <= start_date,
-		 			 idate >= end_date)]
+	if (max(deploy[, .N, .(id, start_date, end_date)]$N) != 1) {
+		stop('deployment has duplicates of id and start date')
+	}
 
-	DT[is.na(id), flag := why(flag, 'id is NA (likely outside deployment)')]
+
+	DT[deploy,
+		 deployment := 'is within',
+		 on = .(id == id,
+		 			 idate >= start_date,
+		 			 idate <= end_date)]
+
+	DT[, deployment := fifelse(deployment == 'is within',
+														 NA_character_,
+														 'is outside')]
+
+	DT[deploy[, .(min_start_date = min(start_date)), id],
+		 deployment := 'is before first',
+		 on = .(id == id,
+		 			 idate <= min_start_date)]
+
+	DT[deploy[, .(max_end_date = max(end_date)), id],
+		 deployment := 'is after last',
+		 on = .(id == id,
+		 			 idate >= max_end_date)]
+
+	DT[is.na(id), deployment := 'has NA id, likely outside']
+
+
+
+
+	DT[!is.na(deployment),
+		 flag := why(flag, paste('loc', deployment, 'deployment'))]
+
+	DT[, deployment := NULL]
 
 	DT
 }
