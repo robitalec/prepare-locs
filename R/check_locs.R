@@ -162,6 +162,9 @@ check_deployment <- function(DT, deploy, name) {
 
 	DT[!is.na(deployment),
 		 flag := why(flag, paste('loc', deployment, 'deployment'))]
+
+	DT[, deployment := NULL]
+
 	DT
 }
 
