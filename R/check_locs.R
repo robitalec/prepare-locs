@@ -153,6 +153,10 @@ check_deployment <- function(DT, deploy, name) {
 		 on = .(id == id,
 		 			 idate <= min_start_date)]
 
+	DT[deploy[, .(max_end_date = max(end_date)), id],
+		 deployment := 'is after last',
+		 on = .(id == id,
+		 			 idate >= max_end_date)]
 	DT
 }
 
