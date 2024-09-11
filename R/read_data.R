@@ -34,7 +34,7 @@ read_data <- function(path, meta, deploy) {
 		set_id(DT_lotek, meta$name, deploy)
 
 		# Without headers
-		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
+		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002|Lotek'
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
 
 		DT_wo <- data.table::rbindlist(lapply(without_headers, function(f) {
