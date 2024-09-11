@@ -61,7 +61,7 @@ read_data <- function(path, meta, deploy) {
 		DT_old_collars_sub <- DT_old_collars[, .SD, .SDcols = sub_cols]
 		setnames(DT_old_collars_sub, sub_cols, colnames(DT_wo))
 
-		# With headers
+		# With headers (and not Lotek)
 		with_headers <- files[grep('Collar00993_FO2016005|Collar01082_FO2016002', files)]
 		DT_w <- data.table::rbindlist(lapply(with_headers, function(f) {
 			fread(
