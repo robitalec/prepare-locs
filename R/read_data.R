@@ -22,6 +22,8 @@ read_data <- function(path, meta, deploy) {
 		DT_lotek <- data.table::rbindlist(lapply(lotek, function(f) {
 			fread(f)[, filename := f]
 		}), use.names = TRUE)
+
+		DT_lotek[, c('date', 'time') := tstrsplit(`Date & Time [GMT]`, ' ')]
 		# Without headers
 		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
