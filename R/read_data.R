@@ -24,6 +24,12 @@ read_data <- function(path, meta, deploy) {
 		}), use.names = TRUE)
 
 		DT_lotek[, c('date', 'time') := tstrsplit(`Date & Time [GMT]`, ' ')]
+		setnames(
+			DT_lotek,
+			c('Longitude', 'Latitude', 'date', 'time', 'Fix Status',
+				'DOP', 'Device ID'),
+			c('V10', 'V9', 'V2', 'V3', 'V13', 'V12', 'collar_id')
+		)
 		# Without headers
 		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
