@@ -145,116 +145,125 @@ tar_read(checkflags)[order(name, -N)]
 | MB-Vita-Elk-Telemetry_Vectronic | loc is duplicated; loc is extra; loc is before first deployment                                                                        |      11 |
 | MB-Vita-Elk-Telemetry_Vectronic | status is not 3D; loc is before first deployment                                                                                       |       3 |
 | MB-Vita-Elk-Telemetry_Vectronic | x_long is NA; y_lat is NA; status is not 3D; loc is before first deployment                                                            |       2 |
-| NL-Fogo-Caribou-Telemetry       | NA                                                                                                                                     |  218957 |
+| NL-Fogo-Caribou-Telemetry       | NA                                                                                                                                     |  395264 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra                                                                                                        |  132907 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No                                                                                               |   32409 |
-| NL-Fogo-Caribou-Telemetry       | loc has NA id, likely outside deployment                                                                                               |   11743 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; FixType is No                                                              |    8334 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No                                                                                    |    7992 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No                                                                                               |   32513 |
+| NL-Fogo-Caribou-Telemetry       | loc has NA id, likely outside deployment                                                                                               |   12818 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; FixType is No                                                              |    8335 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No                                                                                    |    8009 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No; loc has NA id, likely outside deployment                                                     |    5187 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA                                                                                                              |    4603 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10                                                                                                                              |    3652 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; DOP \> 10; FixType is No                                                   |    3631 |
-| NL-Fogo-Caribou-Telemetry       | loc is extra; loc has NA id, likely outside deployment                                                                                 |    2595 |
+| NL-Fogo-Caribou-Telemetry       | loc is extra; loc has NA id, likely outside deployment                                                                                 |    3114 |
 | NL-Fogo-Caribou-Telemetry       | FixType is 2D                                                                                                                          |    2484 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra; FixType is 2D                                                                                         |    2203 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No; loc has NA id, likely outside deployment                                       |    1009 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10                                                                                                                              |     888 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No Fix; loc has NA id, likely outside deployment                                                 |     751 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra; DOP \> 10                                                                                             |     741 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No Fix; loc has NA id, likely outside deployment                                      |     720 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No; loc is after last deployment                                                                 |     429 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No Fix; loc has NA id, likely outside deployment                                   |     387 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No; loc has NA id, likely outside deployment                                          |     344 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No; loc is before first deployment                                                               |     336 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is 2D                                                                                                               |     279 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No; loc is after last deployment                                                                 |     325 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is 2D                                                                                                               |     282 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra; DOP \> 10; FixType is 2D                                                                              |     272 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; loc is before first deployment                   |     211 |
 | NL-Fogo-Caribou-Telemetry       | FixType is GPS-2D; loc has NA id, likely outside deployment                                                                            |     181 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; FixType is No; loc is before first deployment                              |     173 |
+| NL-Fogo-Caribou-Telemetry       | loc is after last deployment                                                                                                           |     166 |
+| NL-Fogo-Caribou-Telemetry       | loc is before first deployment                                                                                                         |     158 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; FixType is No; loc has NA id, likely outside deployment                    |     142 |
-| NL-Fogo-Caribou-Telemetry       | loc is after last deployment                                                                                                           |     103 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc has NA id, likely outside deployment                                                                    |     129 |
 | NL-Fogo-Caribou-Telemetry       | FixType is 2D; loc has NA id, likely outside deployment                                                                                |      95 |
-| NL-Fogo-Caribou-Telemetry       | loc is before first deployment                                                                                                         |      88 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No; loc has NA id, likely outside deployment                            |      85 |
 | NL-Fogo-Caribou-Telemetry       | FixType is GPS-2D                                                                                                                      |      76 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; FixType is No Fix                                                                                           |      76 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10; loc has NA id, likely outside deployment                                                                                    |      72 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; loc is before first deployment                                                                                |      62 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10; loc has NA id, likely outside deployment                                                                                    |      61 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra; loc has NA id, likely outside deployment                                                              |      61 |
 | NL-Fogo-Caribou-Telemetry       | DOP \> 10; loc is before first deployment                                                                                              |      60 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No; loc is before first deployment                                                    |      44 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; FixType is NoNav; loc is before first deployment                                                              |      41 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10; loc is after last deployment                                                                                                |      40 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; loc is before first deployment                                                    |      39 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No; loc is before first deployment                                                 |      38 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No Fix                                                                                |      38 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; loc is before first deployment                              |      35 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; DOP \> 10; FixType is No; loc has NA id, likely outside deployment         |      34 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is NoNav; loc is before first deployment                                  |      34 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No; loc is after last deployment                                                      |      33 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra; loc is before first deployment                                                                        |      33 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; loc is after last deployment                                                                                  |      29 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No; loc is after last deployment                                                   |      29 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10; loc is after last deployment                                                                                                |      28 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No Fix; loc has NA id, likely outside deployment                        |      24 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; FixType is 2D; loc has NA id, likely outside deployment                                                                  |      23 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No                                                                                 |      22 |
 | NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is NoNav; loc is before first deployment                                                                            |      20 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; loc is after last deployment                                                      |      19 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; FixType is 2D; loc is before first deployment                                                                 |      18 |
-| NL-Fogo-Caribou-Telemetry       | loc is extra; loc is before first deployment                                                                                           |      14 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; DOP \> 10; FixType is No; loc is after last deployment                                                      |      16 |
+| NL-Fogo-Caribou-Telemetry       | loc is extra; loc is before first deployment                                                                                           |      16 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No; loc is after last deployment                                                   |      15 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; loc has NA id, likely outside deployment                                   |      15 |
+| NL-Fogo-Caribou-Telemetry       | loc is extra                                                                                                                           |      13 |
 | NL-Fogo-Caribou-Telemetry       | loc is duplicated; loc is extra; loc is after last deployment                                                                          |      12 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is after last deployment                                                                 |      11 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; loc has NA id, likely outside deployment                                                      |      12 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10                                                                                    |      11 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat                                                                                               |      11 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is NoNav                                                                  |      11 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; FixType is NoNav; loc is after last deployment                                                                |      11 |
 | NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is GPS-2D; loc has NA id, likely outside deployment                                                                 |      11 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; DOP \> 10; FixType is No; loc is before first deployment                   |      10 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; DOP \> 10; FixType is No; loc is after last deployment                     |      10 |
 | NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is 2D; loc has NA id, likely outside deployment                                                                     |       9 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is NoNav; loc is after last deployment                                    |       9 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; loc is after last deployment                                                      |       9 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; FixType is GPS-2D; loc has NA id, likely outside deployment                                                              |       9 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; FixType is No                                                                                 |       8 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is NoNav; loc is after last deployment                                                                              |       8 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is 2D; loc is before first deployment                                     |       8 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is 2D; loc is after last deployment                                       |       7 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is 2D; loc is after last deployment                                                                                 |       7 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is before first deployment                                                               |       7 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; FixType is 2D; loc is after last deployment                                                                   |       7 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No; loc is after last deployment                                        |       7 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is before first deployment                                                                              |       7 |
 | NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No; loc is before first deployment                                      |       6 |
+| NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; loc has NA id, likely outside deployment                                                                      |       5 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is 2D                                                                     |       5 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is NoNav; loc is after last deployment                                                                              |       5 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; loc is after last deployment                                                                                             |       5 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; FixType is No; loc is after last deployment                                |       5 |
-| NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; loc has NA id, likely outside deployment                                                                      |       4 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No; loc is after last deployment                                        |       5 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is NoNav                                 |       5 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10                                                   |       5 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is 2D; loc is after last deployment                                                                                 |       4 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is NoNav; loc is before first deployment                                             |       4 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is NoNav                                                                  |       4 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; FixType is 2D; loc is before first deployment                                                                            |       4 |
 | NL-Fogo-Caribou-Telemetry       | FixType is NoNav; loc is before first deployment                                                                                       |       4 |
-| NL-Fogo-Caribou-Telemetry       | FixType is NoNav; loc is after last deployment                                                                                         |       4 |
+| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is NoNav                                                                                                            |       4 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; FixType is NoNav; loc is before first deployment                                                                         |       4 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is NoNav; loc is after last deployment   |       4 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is NoNav; loc is before first deployment |       4 |
-| NL-Fogo-Caribou-Telemetry       | loc is extra                                                                                                                           |       4 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is duplicated; loc is extra; FixType is No; loc is after last deployment                                |       4 |
 | NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is GPS-2D                                                                                                           |       4 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; loc is after last deployment                     |       3 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is 2D; loc is after last deployment                                                  |       3 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10                                                   |       3 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; loc is after last deployment                                |       3 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is 2D; loc is after last deployment                                       |       3 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is 2D                                                                                |       3 |
+| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No                                                                      |       3 |
+| NL-Fogo-Caribou-Telemetry       | FixType is NoNav; loc is after last deployment                                                                                         |       3 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; FixType is 2D; loc has NA id, likely outside deployment                                                       |       2 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is extra; DOP \> 10; loc is before first deployment                                      |       2 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is NoNav; loc is after last deployment                                               |       2 |
 | NL-Fogo-Caribou-Telemetry       | FixType is 2D; loc is before first deployment                                                                                          |       2 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is NoNav; loc is after last deployment                                    |       2 |
 | NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is 2D; loc is before first deployment                                                                               |       2 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is 2D; loc is after last deployment      |       2 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; FixType is NoNav; loc is after last deployment              |       2 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is extra; DOP \> 10; loc is after last deployment                                        |       2 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat                                                                                               |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra                                                              |       2 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is 2D; loc is before first deployment                                                |       1 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; FixType is NoNav; loc is after last deployment                                                                           |       1 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is 2D                                                                                |       1 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10                                                                                    |       1 |
-| NL-Fogo-Caribou-Telemetry       | x_long is NA; y_lat is NA; loc is extra; DOP \> 10; FixType is No                                                                      |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; loc is after last deployment                     |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is 2D                                    |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is 2D; loc is after last deployment      |       1 |
+| NL-Fogo-Caribou-Telemetry       | FixType is NoNav                                                                                                                       |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; FixType is NoNav                                            |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is extra; DOP \> 10; loc is after last deployment                                        |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; FixType is NoNav; loc is after last deployment              |       1 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is extra; loc is before first deployment                                                 |       1 |
-| NL-Fogo-Caribou-Telemetry       | DOP \> 10; FixType is NoNav                                                                                                            |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; FixType is 2D; loc is after last deployment                                                  |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is after last deployment                                                                 |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is extra; DOP \> 10                                                                      |       1 |
+| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; loc is after last deployment                                |       1 |
 | NL-Fogo-Caribou-Telemetry       | FixType is 2D; loc is after last deployment                                                                                            |       1 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is 2D; loc is before first deployment    |       1 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; DOP \> 10; FixType is 2D                                                                     |       1 |
-| NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; DOP \> 10; FixType is NoNav                                 |       1 |
 | NL-Fogo-Caribou-Telemetry       | x_long is 0; y_lat is 0; x_long == y_lat; loc is duplicated; loc is extra; FixType is NoNav; loc is before first deployment            |       1 |
 | NL-Fogo-Caribou-Telemetry       | loc is extra; DOP \> 10; FixType is GPS-2D; loc has NA id, likely outside deployment                                                   |       1 |
 | NL-Provincial-Bear-Telemetry    | NA                                                                                                                                     |  171021 |
