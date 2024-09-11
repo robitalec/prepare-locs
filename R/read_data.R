@@ -15,6 +15,9 @@ read_data <- function(path, meta, deploy) {
 		files <- fs::dir_ls(path, recurse = FALSE, type = 'file',
 												glob = '*csv|*CSV|*Csv')
 
+		# Lotek webservice
+		regex_lotek <- 'Lotek'
+		lotek <- files[grep(regex_lotek, files, value = TRUE)]
 		# Without headers
 		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
