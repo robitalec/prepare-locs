@@ -15,8 +15,29 @@ read_data <- function(path, meta, deploy) {
 		files <- fs::dir_ls(path, recurse = FALSE, type = 'file',
 												glob = '*csv|*CSV|*Csv')
 
+		# Lotek webservice
+		regex_lotek <- 'Lotek'
+		lotek <- files[grep(regex_lotek, files, value = TRUE)]
+
+		DT_lotek <- data.table::rbindlist(lapply(lotek, function(f) {
+			fread(f)[, filename := f]
+		}), use.names = TRUE)
+
+		DT_lotek[, c('date', 'time') := tstrsplit(`Date & Time [GMT]`, ' ')]
+		out_cols <- c('V10', 'V9', 'V2', 'V3', 'V13', 'V12', 'collar_id')
+		setnames(
+			DT_lotek,
+			c('Longitude', 'Latitude', 'date', 'time', 'Fix Status',
+				'DOP', 'Device ID'),
+			out_cols
+		)
+
+		set_id(DT_lotek, meta$name, deploy)
+
+		DT_lotek <- DT_lotek[, .SD, .SDcols = c(out_cols, 'filename', 'id')]
+
 		# Without headers
-		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002'
+		regex_with_headers <- 'old_collars|Collar00993_FO2016005|Collar01082_FO2016002|Lotek'
 		without_headers <- files[grep(regex_with_headers, files, invert = TRUE)]
 
 		DT_wo <- data.table::rbindlist(lapply(without_headers, function(f) {
@@ -43,7 +64,7 @@ read_data <- function(path, meta, deploy) {
 		DT_old_collars_sub <- DT_old_collars[, .SD, .SDcols = sub_cols]
 		setnames(DT_old_collars_sub, sub_cols, colnames(DT_wo))
 
-		# With headers
+		# With headers (and not Lotek)
 		with_headers <- files[grep('Collar00993_FO2016005|Collar01082_FO2016002', files)]
 		DT_w <- data.table::rbindlist(lapply(with_headers, function(f) {
 			fread(
@@ -61,7 +82,8 @@ read_data <- function(path, meta, deploy) {
 		setnames(DT_w_sub, sub_cols, setdiff(colnames(DT_wo), 'id'))
 		set_id(DT_w_sub, meta$name, deploy)
 
-		DT <- rbindlist(list(DT_wo, DT_old_collars_sub, DT_w_sub), use.names = TRUE)
+		DT <- rbindlist(list(DT_wo, DT_old_collars_sub, DT_w_sub, DT_lotek),
+										use.names = TRUE)
 
 	} else {
 		DT <- data.table::fread(path, select = selects)

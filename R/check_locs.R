@@ -103,7 +103,7 @@ check_locs_meta <- function(DT) {
 	}
 
 	if ('FixType' %in% colnames(DT)) {
-		DT[grepl('2D|No', FixType, ignore.case = TRUE), flag := why(flag, paste('FixType is', FixType))]
+		DT[grepl('2D|No|\\(0 SVs|2-D', FixType, ignore.case = TRUE), flag := why(flag, paste('FixType is', FixType))]
 		DT[, FixType := NULL]
 	}
 
